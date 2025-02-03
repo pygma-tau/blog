@@ -14,4 +14,4 @@ date: 2025-02-02
 - Bike. Estimated ~$15k new, a kind mechanic gave it to me for free. Was the way I got to school for a while; suspension perfect for mountain biking. Stolen in Healdsburg. 
 - Letters. From S to me, written and drawn in Prague on self-Narrativism; from me to S, written in Taiwan as poetry; from R to me, written in print English in the Queen's College; from G to me, first on a pink sticky-note and next on a four-inch thumbpad; so, so many between L and I. ESPR/WARP/Atlas/ASPR/Rise notes. 
 - My phone, twice: firstly in Warsaw airport, and secondly in a San Francisco Airbnb. The second was a replacement for the first, however, and I found the first when I went through Warsaw again. Ended up back where I started.
-- My glasses. Seeing was nice. 
+- My glasses. 
