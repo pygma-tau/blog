@@ -1,6 +1,7 @@
 ---
 title: "Items Lost"
 date: 2025-02-02
+path: "lost"
 ---
 
 - Copper brooch with tardigrade & tesseract engravings. Gifted to me by an eco-technologist acting as an avant-garde musician at an Edge Esmeralda closing event. 500 extant copies: if you own one, I would love to meet you. 
