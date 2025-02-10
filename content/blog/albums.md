@@ -23,4 +23,4 @@ author: "Yudhister Joel Kumar"
 - Philip Glass, [Koyaanisqatsi](https://open.spotify.com/album/0I5Te5Oi0Cbes6nwEe4uFV?si=D2mP61kTSB65kf9Qp2kI8Q)
 - . . .
 
-*next week shall return to the blog's regularly scheduled technical programming*
+*next week, the blog shall return to its regularly scheduled technical programming*
