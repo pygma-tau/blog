@@ -2,6 +2,7 @@
 title: "Albums"
 date: 2025-02-09
 author: "Yudhister Joel Kumar"
+path: "albums"
 ---
 
 - Astor Piazzolla, [Tango: Zero Hour](https://open.spotify.com/album/6NNvUtOmrKH7DlRUfnbx7d?si=l49CfoHlS3-hoVXrDv21VQ)
