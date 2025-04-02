@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ section.title }}</title>
+  <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TKY9S092B5');
+  </script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li>[<a href="/">Home</a>]</li>
+      <li>[<a href="/about">About</a>]</li>
+      <li>[<a href="/blog">Blog</a>]</li>
+      <li>[<a href="/atom.xml">Atom</a>]</li>
+    </ul>
+  </nav>
+  <header>
+    <h1>{{ section.title }}</h1>
+  </header>
+  <main>
+    <div class="book-grid">
+      {% for page in section.pages %}
+        <div class="book">
+          <a href="{{ page.permalink }}">
+            <img src="{{ get_url(path=page.extra.cover) | safe }}"
+                 alt="{{ page.title }} Cover"
+                 class="book-cover">
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>

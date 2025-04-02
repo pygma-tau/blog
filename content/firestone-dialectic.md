@@ -2,6 +2,8 @@
 title: "The Dialectic of Sex: The Case for Feminist Revolution"
 date: 2024-10-20
 path: "dialectic-of-sex"
+extra:
+    cover: "images/dialectic-of-sex.jpg"
 ---
 
 Broadly, I see three separate threads in this work: an attempt to situate second-wave feminism in a historical context, a pseudo-rehabilitation of Freudianism in service of the sexual dialectic, and an argument for the necessity of reproductive substitutes to achieve true equality. 
@@ -26,9 +28,9 @@ I love this book. It bites bullets.[^6] It has novel conceptual insights. It has
 
 [^2]: >  Like sexism in the individual psyche, we can fully understand racism only in terms of the power hierarchies of the family: in the Biblical sense, the races are no more than the various parents and siblings of the Family of Man; and as in the development of sexual classes, the physiological distinction of race became important culturally only due to the unequal distribution of power. *Thus, racism is sexism extended.*
 
-[^3]: > The mother who wants to kill her child for what she has had to sacrifice for it (a common desire) learns to love that same child only when she understands that it is as helpless, as oppressed as she is, and by the same oppressor: then her hatred is directed outwards, and ‘mother-love’ is born.
+[^3]: > The mother who wants to kill her child for what she has had to sacrifice for it (a common desire) learns to love that same child only when she understands that it is as helpless, as oppressed as she is, and by the same oppressor: then her hatred is directed outwards, and 'mother-love' is born.
 
-[^4]: > It is dangerous to feel sorry for one’s oppressor – women are especially prone to this failing – but I am tempted to do it in this case. Being unable to love is hell. This is the way it proceeds: as soon as the man feels any pressure from the other partner to commit himself, he panics. . . 
+[^4]: > It is dangerous to feel sorry for one's oppressor – women are especially prone to this failing – but I am tempted to do it in this case. Being unable to love is hell. This is the way it proceeds: as soon as the man feels any pressure from the other partner to commit himself, he panics. . . 
 
 [^5]: > But in our new society, humanity could finally revert to its natural polymorphous sexuality – all forms of sexuality would be allowed and indulged. The fully sexuate mind, realized in the past in only a few individuals (survivors), would become universal. Artificial cultural achievement would no longer be the only avenue to sexuate self-realization: one could now realize oneself fully, simply in the process of being and acting.
 

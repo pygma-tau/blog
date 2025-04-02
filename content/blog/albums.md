@@ -19,9 +19,8 @@ path: "albums"
 - Antti Siirala, [Beethoven: Piano Sonatas Nos. 30-32](https://open.spotify.com/album/5mAL60i1j6fFOIoznIlUKs?si=e4OMgZsqSnWM8n9XxKzkEw)
 - Ivo Pogorelich, [Ravel: Gaspard de la Nuit / Prokofiev: Piano Sonata No. 6](https://open.spotify.com/album/5DiCgO6trcxIMjIP8mrUNS?si=k60rmnjaSTKGcOp5jtLmjQ)
 - Kazuhito Yamashita, The Complete Suites For Solo Cello BWV 1007-1012 [Guitar Version]
-- Ivan Moravec, [Chopin: Nocturnes - Complete](https://open.spotify.com/album/1qvsC1bJKQPc9n9A9B3bh1?si=OpY4Xm6OSYymhSINawOS-g)
 - Uncle Chris, [Uncle Chris](https://open.spotify.com/album/66vV4K8eoBoAAG17iNM5IV?si=laNEvFwRSYa3p8HdxQgmkQ)
 - Philip Glass, [Koyaanisqatsi](https://open.spotify.com/album/0I5Te5Oi0Cbes6nwEe4uFV?si=D2mP61kTSB65kf9Qp2kI8Q)
-- . . .
+- Arthur Rubenstein, [Chopin: Mazurkas](https://open.spotify.com/album/6cWH6TbFuH2ItpQXO4SPDA?si=wTkcmj5ZSwC_8JCy1TSjuw)
 
 *next week, the blog shall return to its regularly scheduled technical programming*
