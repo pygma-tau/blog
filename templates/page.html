@@ -27,8 +27,8 @@
 					// if they contain TeX/LaTeX code for maths as defined
 					// by the markers in tex settings above then copy their
 					// textContent before them and remove the element from
-					// the DOM. 
-					
+					// the DOM.
+
 					// get pre and code elements
 					var prelist = document.getElementsByTagName("pre");
 					var codelist = document.getElementsByTagName("code");
@@ -54,7 +54,7 @@
 					};
 					inlineRegExp = new RegExp(inlineRegexList.join("|"));
 					displayRegExp = new RegExp(displayRegexList.join("|"));
-					
+
 					// iterate over pre elements applying RegExp
 					// iterate "backwards" as we are removing elements!
 					for (i=prelist.length; i>0; i--) {
@@ -85,10 +85,11 @@
 </head>
 <body>
 	<nav>
-        <ul>  
+        <ul>
             <li>[<a href="/">Home</a>]</li>
             <li>[<a href="/about">About</a>]</li>
             <li>[<a href="/blog">Blog</a>]</li>
+            <li>[<a href="/shelf">Shelf</a>]</li>
 			<li>[<a href="/atom.xml">Atom</a>]</li>
     </nav>
     <main>
