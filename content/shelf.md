@@ -1,24 +1,26 @@
 ---
 title: Shelf
-date: 2025-01-01
+date: 2025-04-05
 ---
 
+- Henry Morley, *Ideal Commonwealths*
+- Alexandre Grothendieck, *Récoltes et Semailles*
+- Gregory Bateson, *Steps to an Ecology of Mind*
+- Esteban A. Calzetta and Bei-Lok Hu, *Nonequilibrium Quantum Field Theory*
+- Valentino Braitenberg, *Vehicles: Experiments in Synthetic Psychology*
 - Jean Baudrillard, *Simulacra and Simulation*
 - Michael Dummett, *Origins of Analytical Philosophy*
 - Milorad Pavić, *Dictionary of the Khazars: Female Edition*
 - Stanislaw Lem, *Dialogues*
-- Gregory Bateson, *Steps to an Ecology of Mind*
 - Hideyuki Matsumura, *Commutative Ring Theory*
 - G. A. Cohen, *Karl Marx's Theory of History: A Defence*
 - Gerard Debreu, *Theory of Value: An Axiomatic Analysis of Economic Equilibrium*
-- C. West Churchman, *A Systems Approach*
 - Yasheng Huang, *Capitalism with Chinese Characteristics: Entrepreneurship and the State*
 - J. M. E. McTaggart, *Studies in Hegelian Cosmology*
 - C. E. Shannon and J. McCarthy, *Automata Studies*
 - George Eliot, *Middlemarch*
 - Luke Sutherland, *Venus as a Boy*
 - William Jennings Bryan, *Memories of William Jennings Bryan*
-- Arthur T. Winfree, *The Geometry of Biological Time*
 - Andrea Dworkin, *Life and Death*
 - Aristophanes, *Lysistrata*
 - Italo Calvino, *Invisible Cities*
@@ -33,55 +35,33 @@ date: 2025-01-01
 - Charles Stross, *Accelerando*
 - qntm, *There Is No Antimemetics Division*
 - Marcus Aurelius, *Meditations*
-- Michael Lewis, *Going Infinite: The Rise and Fall of a New Tycoon*
 - David Fischer Hackett, *Albion's Seed: Four British Folkwways in America*
 - Barack Obama, *Dreams from My Father: A Story of Race and Inheritance*
-- Rodney Stark, *The Rise of Christianity*
-- Bertrand Russell, *Proposed Roads to Freedom: Socialism, Anarchism, and Syndicalism*
-- Ben Collier, *Tor: From the Dark Web to the Future of Privacy*
 - C. S. Lewis, *A Preface to Paradise Lost*
-- Joseph Heath, *Filthy Lucre: Economics for People Who Hate Capitalism*
 - Kathryn Paige Harden, *The Genetic Lottery: Why DNA Matters for Social Equality*
-- Edward Shepherd Creasy, *The Fifteen Decisive Battles of the World: From Marathon to Waterloo*
 - Philip Roth, *The Human Stain*
 - Andrea Dworkin, *Woman Hating*
 - Ludwig Wittgenstein, *Tractatus Logico-Philosophicus*
 - Richard Feynman, *"Surely You're Joking, Mr. Feynman!": Adventures of a Curious Character*
-- Victor W. Guillemin, *Differential Topology*
+- Victor W. Guillemin & Alan Pollack, *Differential Topology*
 - Geoffrey Clive, *The Romantic Enlightenment*
 - F. Scott Fitzgerald, *The Great Gatsby*
 - William Shakespeare, *Othello*
-- Stephen Boyd, *Convex Optimization*
-- John Steinbeck, *Of Mice and Men*
-- Limor Shifman, *Memes in Digital Culture*
 - William Buck, *Mahabharata*
-- George Orwell, *1984*
 - Hergé, *The Adventures of Tintin*
 - Friedrich Nietzsche, *The Case of Wagner, Nietzsche contra Wagner, and Selected Aphorisms*
 - Plato, *The Republic*
-- Robert Caro, *The Power Broker: Robert Moses and the Fall of New York*
-- Joseph Heller, *Catch-22*
-- Alexander Hamilton, *The Federalist Papers*
-- Thucydides, *History of the Peloponnesian War*
 - Andrea Dworkin, *Intercourse*
-- Fernando Pessoa, *The Book of Disquiet*
 - Paul Feyerabend, *Against Method*
 - Elinor Ostrom, *Governing the Commons: The Evolution of Institutions for Collective Action*
 - Cormac McCarthy, *Blood Meridian, or, the Evening Redness in the West*
 - Jane Jacobs, *The Economy of Cities*
 - Jules Verne, *The Mysterious Island*
-- David Foster Wallace, *Brief Interviews with Hideous Men*
 - Vladimir Nabokov, *Lolita*
 - Adam Smith, *An Inquiry into the Nature and Causes of the Wealth of Nations*
-- William L. Shirer, *The Rise and Fall of the Third Reich: A History of Nazi Germany*
 - G. H. Hardy, *A Mathematician's Apology*
 - John Maynard Keynes, *The General Theory of Employment, Interest, and Money*
 - Francis Bacon, *The Novum Organon, or a True Guide to the Interpretation of Nature*
-- Nassim Nicholas Taleb, *The Black Swan: The Impact of the Highly Improbable*
-- Robert Goldblatt, *Lectures on the Hyperreals: An Introduction to Nonstandard Analysis*
-- James Joyce, *Finnegans Wake*
 - Daniel Keyes, *Flowers for Algernon*
 - Randy Pausch, *The Last Lecture*
 - Frank Herbert, *Dune*
-- Milan Kundera, *The Unbearable Lightness of Being*
-- 
