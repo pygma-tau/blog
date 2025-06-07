@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ section.title }}</title>
+    {# Use paginator.current_index for title on subsequent pages #}
+    {% if paginator and paginator.current_index > 1 %}
+        <title>{{ section.title }} - Page {{ paginator.current_index }}</title>
+    {% else %}
+        <title>{{ section.title }}</title>
+    {% endif %}
     <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
     <!-- MathJax for LaTeX rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="{{ get_url(path='js/footnotes.js') }}"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
     <script>
@@ -92,19 +98,56 @@
             <li>[<a href="/blog">Blog</a>]</li>
             <li>[<a href="/shelf">Shelf</a>]</li>
 			<li>[<a href="/atom.xml">Atom</a>]</li>
+        </ul>
     </nav>
     <main>
         <h1>{{ section.title }}</h1>
-        {{ section.content | safe }}
+        {# Only show section content on the first page #}
+        {% if not paginator or paginator.current_index == 1 %}
+            {{ section.content | safe }}
+        {% endif %}
 
-        {% for page in section.pages %}
-            <article>
-                <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                <p><i>{{ page.date | date(format="%B %d, %Y") }}</i></p>
-                {{ page.content | safe }}
-            </article>
-            <hr>
-        {% endfor %}
+        {# Check if pagination is enabled for this section #}
+        {% if paginator %}
+            {# Loop through pages for the CURRENT pager #}
+            {% for page in paginator.pages %}
+                <article>
+                    <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+                    <p><i>{{ page.date | date(format="%B %d, %Y") }}</i></p>
+                    {# Use page.summary for paginated lists, requires <!-- more --> in Markdown #}
+                    {% if page.summary %}
+                        {{ page.summary | safe }}
+                        <p><a href="{{ page.permalink | safe }}">Read more...</a></p>
+                    {% else %}
+                        {# Fallback to full content if no summary marker exists #}
+                        {{ page.content | safe }}
+                    {% endif %}
+                </article>
+                <hr>
+            {% endfor %}
+
+            {# Add pagination navigation links #}
+            <nav class="pagination">
+                {% if paginator.previous %}
+                    <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
+                {% endif %}
+                <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+                {% if paginator.next %}
+                    <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
+                {% endif %}
+            </nav>
+
+        {% else %}
+            {# Fallback: If pagination is NOT enabled, show all pages (original behavior) #}
+            {% for page in section.pages %}
+                <article>
+                    <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+                    <p><i>{{ page.date | date(format="%B %d, %Y") }}</i></p>
+                    {{ page.content | safe }}
+                </article>
+                <hr>
+            {% endfor %}
+        {% endif %}
     </main>
 </body>
 </html>

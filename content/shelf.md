@@ -18,6 +18,7 @@ date: 2025-04-05
 - Yasheng Huang, *Capitalism with Chinese Characteristics: Entrepreneurship and the State*
 - J. M. E. McTaggart, *Studies in Hegelian Cosmology*
 - C. E. Shannon and J. McCarthy, *Automata Studies*
+- Richard Dawkins, *The Extended Phenotype*
 - George Eliot, *Middlemarch*
 - Luke Sutherland, *Venus as a Boy*
 - William Jennings Bryan, *Memories of William Jennings Bryan*
@@ -61,7 +62,7 @@ date: 2025-04-05
 - Adam Smith, *An Inquiry into the Nature and Causes of the Wealth of Nations*
 - G. H. Hardy, *A Mathematician's Apology*
 - John Maynard Keynes, *The General Theory of Employment, Interest, and Money*
-- Francis Bacon, *The Novum Organon, or a True Guide to the Interpretation of Nature*
+- Francis Bacon, *Novum Organum*
 - Daniel Keyes, *Flowers for Algernon*
 - Randy Pausch, *The Last Lecture*
 - Frank Herbert, *Dune*

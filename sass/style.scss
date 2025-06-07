@@ -14,6 +14,27 @@ main {
     width: calc(100% - 100px);
     padding: 0px 10px;
     box-sizing: border-box;
+
+    figure {
+        margin: 20px auto;
+        text-align: center;
+        display: block; // make sure it's a block element
+
+        img {
+            max-width: 70%;
+            height: auto;
+            display: block;
+            margin: 0 auto; // center the img within the figure
+        }
+
+        figcaption {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+            text-align: center; // explicitly center the caption text
+        }
+    }
 }
 
 nav {
@@ -105,14 +126,14 @@ h3 {
 a {
     color: #0066cc;
     text-decoration: none;
-    
+
     &:hover {
         text-decoration: underline;
     }
 }
 
 blockquote {
-    border-left: 4px solid #FFA500;
+    border-left: 4px solid #ffa500;
     padding-left: 20px;
     margin-left: 0;
 }
@@ -132,9 +153,82 @@ blockquote {
 .book img,
 .book .book-cover {
     width: 100%;
-    max-height: 400px;   // Reduced size from before
+    max-height: 400px; // Reduced size from before
     object-fit: cover;
     display: block;
+}
+
+.pagination {
+    margin-top: -20px;
+    text-align: center;
+}
+
+/* General styling for ALL elements within pagination (links and span) */
+.pagination > * {
+    /* Target direct children: a and span */
+    display: inline-block; /* Needed for margin/padding/transform/vertical-align */
+    vertical-align: middle; /* Align elements vertically */
+    margin: 0 0px; /* Horizontal spacing */
+    white-space: nowrap; /* Prevent wrapping inside elements */
+}
+
+/* General styling for pagination LINKS (a tags) */
+.pagination a {
+    padding: 5px 5px; /* Keep some padding for click area */
+    text-decoration: none;
+    color: #007bff; /* Example link color */
+    /* border: 1px solid #ccc; <-- REMOVED default border here */
+}
+
+/* --- Specific styles for 'Previous' and 'Next' links --- */
+.pagination a.previous,
+.pagination a.next {
+    border: none; /* Explicitly ensure no border */
+    background-color: transparent; /* Ensure no background color */
+    padding: 0px 0; /* Adjust padding - remove horizontal padding */
+    margin-top: -3px; /* Pull the elements up slightly (adjust value as needed) */
+    /* You could also use: transform: translateY(-3px); */
+}
+
+/* Hover effect for 'Previous' and 'Next' links */
+.pagination a.previous:hover,
+.pagination a.next:hover {
+    background-color: transparent; /* Keep background transparent on hover */
+    text-decoration: underline; /* Add underline on hover */
+    color: #0056b3; /* Darker link color on hover */
+}
+/* --- End of specific 'Previous'/'Next' link styles --- */
+
+/* Styling for the page number span */
+.pagination .page-number {
+    /* Made selector more specific */
+    /* Inherits display, vertical-align, margin, white-space from .pagination > * */
+    padding: 5px 10px; /* Add padding similar to links if desired */
+    color: #333; /* Example text color */
+}
+
+/* ----------  Footnote block  ---------- */
+.footnotes hr {
+    /* hide the separator line */
+    display: none;
+    margin: 0;
+}
+
+/* lay out the list a bit tighter (tweak to taste) */
+.footnotes ol {
+    padding-left: 1.5em; /* keep a small left indent */
+    margin: 0;
+}
+
+/* each footnote item */
+.footnotes li {
+    margin: 0 0 0.75em 0; /* space between notes */
+}
+
+/* put the paragraph inline so the number and text share the line */
+.footnotes li p {
+    display: inline; /* critical line: keeps text next to the number */
+    margin: 0; /* kill the default <p> margins */
 }
 
 // .footnotes {
@@ -142,13 +236,13 @@ blockquote {
 //       padding-left: 1.5em;
 //       counter-reset: footnote;
 //     }
-  
+
 //     li {
 //       display: flex;
 //       align-items: flex-start;
 //       margin-bottom: 1em;
 //       counter-increment: footnote;
-  
+
 //     //   &::before {
 //     //     content: counter(footnote) ".";
 //     //     margin-right: 0.5em;
@@ -156,20 +250,20 @@ blockquote {
 //     //     min-width: 1.5em;
 //     //     text-align: right;
 //     //   }
-  
+
 //       p {
 //         margin: 0;
 //         padding-left: 0.5em;
 //       }
 //     }
 //   }
-  
+
 //   .footnote-ref {
 //     vertical-align: super;
 //     font-size: smaller;
 //     text-decoration: none;
 //   }
-  
+
 //   .footnote-backref {
 //     font-size: 0.8em;
 //     margin-left: 0.3em;
@@ -180,7 +274,7 @@ blockquote {
 //     .inline-footnote {
 //       display: flex;
 //       align-items: flex-start;
-  
+
 //       &::before {
 //         content: attr(id);
 //         margin-right: 0.5em;
