@@ -40,10 +40,10 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://yudhister.com/blog/tcp/"/>
-        <id>https://yudhister.com/blog/tcp/</id>
+        <link rel="alternate" type="text/html" href="https://yudhister.com/rfc-761/"/>
+        <id>https://yudhister.com/rfc-761/</id>
         
-        <content type="html" xml:base="https://yudhister.com/blog/tcp/">&lt;blockquote&gt;
+        <content type="html" xml:base="https://yudhister.com/rfc-761/">&lt;blockquote&gt;
 &lt;p&gt;TCP implementations should follow a general principle of robustness: be conservative in what you do, be liberal in what you accept from others.&lt;&#x2F;p&gt;
 &lt;&#x2F;blockquote&gt;
 &lt;p&gt;The original TCP specification is explicitly designed to be agnostic to IP implementation. It&#x27;s only supposed to handle byte transfer from application to application, not the specifics of packet delivery between hosts. In practice, this ideal is unattainable&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;, but it points at a deep truth about healthy integration of parts in systems.&lt;&#x2F;p&gt;

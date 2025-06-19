@@ -81,6 +81,48 @@ nav {
             }
         }
     }
+
+    /* Mobile styles for content layout */
+    .content-layout {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pagination-sidebar {
+        width: 100%;
+        position: static;
+        order: -1; /* Move pagination to top on mobile */
+    }
+
+    .pagination-sidebar .pagination {
+        text-align: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .pagination-sidebar .pagination > * {
+        display: inline-block;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .pagination-sidebar .pagination a {
+        border-bottom: none;
+        border: 1px solid #007bff;
+        border-radius: 3px;
+    }
+
+    .pagination-sidebar .pagination a:hover {
+        background-color: #007bff;
+        color: white;
+        padding-left: 10px;
+    }
+
+    .pagination-sidebar .page-number {
+        border-bottom: none;
+        padding-bottom: 5px;
+    }
 }
 
 // Additional styles for better readability on mobile
@@ -159,52 +201,15 @@ blockquote {
 }
 
 .pagination {
-    margin-top: -20px;
+    margin-top: 40px;
     text-align: center;
-}
-
-/* General styling for ALL elements within pagination (links and span) */
-.pagination > * {
-    /* Target direct children: a and span */
-    display: inline-block; /* Needed for margin/padding/transform/vertical-align */
-    vertical-align: middle; /* Align elements vertically */
-    margin: 0 0px; /* Horizontal spacing */
-    white-space: nowrap; /* Prevent wrapping inside elements */
-}
-
-/* General styling for pagination LINKS (a tags) */
-.pagination a {
-    padding: 5px 5px; /* Keep some padding for click area */
-    text-decoration: none;
-    color: #007bff; /* Example link color */
-    /* border: 1px solid #ccc; <-- REMOVED default border here */
-}
-
-/* --- Specific styles for 'Previous' and 'Next' links --- */
-.pagination a.previous,
-.pagination a.next {
-    border: none; /* Explicitly ensure no border */
-    background-color: transparent; /* Ensure no background color */
-    padding: 0px 0; /* Adjust padding - remove horizontal padding */
-    margin-top: -3px; /* Pull the elements up slightly (adjust value as needed) */
-    /* You could also use: transform: translateY(-3px); */
-}
-
-/* Hover effect for 'Previous' and 'Next' links */
-.pagination a.previous:hover,
-.pagination a.next:hover {
-    background-color: transparent; /* Keep background transparent on hover */
-    text-decoration: underline; /* Add underline on hover */
-    color: #0056b3; /* Darker link color on hover */
-}
-/* --- End of specific 'Previous'/'Next' link styles --- */
-
-/* Styling for the page number span */
-.pagination .page-number {
-    /* Made selector more specific */
-    /* Inherits display, vertical-align, margin, white-space from .pagination > * */
-    padding: 5px 10px; /* Add padding similar to links if desired */
-    color: #333; /* Example text color */
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
 }
 
 /* Variables */
@@ -252,55 +257,24 @@ sup {
   }
 }
 
-// .footnotes {
-//     ol {
-//       padding-left: 1.5em;
-//       counter-reset: footnote;
-//     }
+/* Content layout for blog with sidebar pagination */
+.content-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
 
-//     li {
-//       display: flex;
-//       align-items: flex-start;
-//       margin-bottom: 1em;
-//       counter-increment: footnote;
+.blog-content {
+    flex: 1;
+    min-width: 0; /* Allow content to shrink */
+    max-width: calc(100% - 160px); /* Leave space for pagination */
+}
 
-//     //   &::before {
-//     //     content: counter(footnote) ".";
-//     //     margin-right: 0.5em;
-//     //     flex-shrink: 0;
-//     //     min-width: 1.5em;
-//     //     text-align: right;
-//     //   }
-
-//       p {
-//         margin: 0;
-//         padding-left: 0.5em;
-//       }
-//     }
-//   }
-
-//   .footnote-ref {
-//     vertical-align: super;
-//     font-size: smaller;
-//     text-decoration: none;
-//   }
-
-//   .footnote-backref {
-//     font-size: 0.8em;
-//     margin-left: 0.3em;
-//     text-decoration: none;
-//   }
-
-// .footnotes {
-//     .inline-footnote {
-//       display: flex;
-//       align-items: flex-start;
-
-//       &::before {
-//         content: attr(id);
-//         margin-right: 0.5em;
-//         font-size: 0.8em;
-//         line-height: 1.6;
-//       }
-//     }
-//   }
+.pagination-sidebar {
+    flex-shrink: 0;
+    width: 120px;
+    position: sticky;
+    top: 20px;
+    margin-left: auto;
+}

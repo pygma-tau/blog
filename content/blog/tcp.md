@@ -2,6 +2,7 @@
 title: "Notes on RFC 761"
 date: 2025-06-07
 author: "Yudhister Kumar"
+path: "rfc-761"
 ---
 
 > TCP implementations should follow a general principle of robustness: be conservative in what you do, be liberal in what you accept from others.
