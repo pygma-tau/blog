@@ -3,25 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# Use paginator.current_index for title on subsequent pages #}
-    {% if paginator and paginator.current_index > 1 %}
-        <title>{{ section.title }} - Page {{ paginator.current_index }}</title>
-    {% else %}
-        <title>{{ section.title }}</title>
-    {% endif %}
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
+    <title>Geneva</title>
+    <link rel="stylesheet" href="https://yudhister.com/style.css">
     <!-- MathJax for LaTeX rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script src="{{ get_url(path='js/footnotes.js') }}"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <script src="https://yudhister.com/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-        gtag('config', 'G-TKY9S092B5');
-    </script>
+		gtag('config', 'G-TKY9S092B5');
+	</script>
     <script>
 		window.MathJax = {
 		  tex: {
@@ -98,61 +92,20 @@
             <li>[<a href="/blog">Blog</a>]</li>
             <li>[<a href="/shelf">Shelf</a>]</li>
 			<li>[<a href="/atom.xml">Atom</a>]</li>
-        </ul>
     </nav>
     <main>
-        <h1>{{ section.title }}</h1>
-        {# Only show section content on the first page #}
-        {% if not paginator or paginator.current_index == 1 %}
-            {{ section.content | safe }}
-        {% endif %}
+        <h1>Geneva</h1>
+        <p><i>September 13, 2023</i></p>
+        <p>Geneva is evil.</p>
+<p>It's overpriced, loud, and dirty. Paying ten francs for a medicore street taco is no way to live life. God forbid you visit the city center during the day, and stay as far away from Geneva station as you can. I thought the air was supposed to be good in the Alps?</p>
+<p>But above all, it reeks of fakeness.</p>
+<p>It calls itself the "Peace Capital", claims it's too good to have twin cities, and prides itself on its cosmopolitanism. On what grounds? Before Hitler's fall, Geneva's only claim to facilitating international diplomacy was hosting the League of Nations -- admittedly the best international governing body we've had thus far, but still. After, every international organization and their shadow backers clamored to have their headquarters (or at least their European headquarters) in Geneva. The UN, WHO, UNHCR, Red Cross, WTO, WIPO, WMO, ILO, ...</p>
+<p>Did you know that the largest non-financial services industry in Geneva is watchmaking? Rolex, Patek Philippe, etc. have factories just outside of Geneva proper. To be fair, 'financial services' also excludes commodity trading, of which Geneva is to oil, sugar, grains, and coffee as Rotterdam is to metals. Vitol &amp; Trafigura both have their headquarters in Geneva (and one must wonder whether or not this is for convenience or to take advantage of lax Swiss banking laws...remember Marc Rich?)</p>
+<p>Two-thirds of the corporate tax in Geneva comes from commodity trading, banking, and watchmaking. These international organizations? Don't contribute to the economy. (Yes, they bring people &amp; these people use services &amp; this allows Geneva natives to benefit from the overwhelming amount of NGOs and international bodies in their city. Still.)</p>
+<p>Tragically, Geneva once had a soul. The 'Protestant Rome' which once served as the birthplace of the Calvinist Revolution was annexed by Catholic France &amp; revolted as a response. The city had opinions that informed its identity -- not a pseudo-identity formed from undeserved arrogance &amp; globalism.</p>
+<p>Demographic shifts (mostly French immigration to French-speaking Switzerland) led to Catholics forming the largest religious group in Geneva today, followed by atheists. (I am not blaming immigration for Geneva's soullessness! it is just another piece of the puzzle). This, along with its absurd emphasis on being a truly international city, undergird the sense that Geneve has lost its way.</p>
+<p>And the Jet d'Eau... really? Geneva really had to take the self-masturbatory imagery to another level...</p>
 
-        {# Check if pagination is enabled for this section #}
-        {% if paginator %}
-            {# Loop through pages for the CURRENT pager #}
-            {% for page in paginator.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-
-            {# Add pagination navigation links #}
-            <nav class="pagination">
-                {% if paginator.previous %}
-                    <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
-                {% endif %}
-                <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-                {% if paginator.next %}
-                    <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
-                {% endif %}
-            </nav>
-
-        {% else %}
-            {# Fallback: If pagination is NOT enabled, show all pages #}
-            {% for page in section.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-        {% endif %}
     </main>
 </body>
 </html>

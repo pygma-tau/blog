@@ -3,25 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# Use paginator.current_index for title on subsequent pages #}
-    {% if paginator and paginator.current_index > 1 %}
-        <title>{{ section.title }} - Page {{ paginator.current_index }}</title>
-    {% else %}
-        <title>{{ section.title }}</title>
-    {% endif %}
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
+    <title>Notes on RFC 761</title>
+    <link rel="stylesheet" href="https://yudhister.com/style.css">
     <!-- MathJax for LaTeX rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script src="{{ get_url(path='js/footnotes.js') }}"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <script src="https://yudhister.com/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-        gtag('config', 'G-TKY9S092B5');
-    </script>
+		gtag('config', 'G-TKY9S092B5');
+	</script>
     <script>
 		window.MathJax = {
 		  tex: {
@@ -98,61 +92,25 @@
             <li>[<a href="/blog">Blog</a>]</li>
             <li>[<a href="/shelf">Shelf</a>]</li>
 			<li>[<a href="/atom.xml">Atom</a>]</li>
-        </ul>
     </nav>
     <main>
-        <h1>{{ section.title }}</h1>
-        {# Only show section content on the first page #}
-        {% if not paginator or paginator.current_index == 1 %}
-            {{ section.content | safe }}
-        {% endif %}
+        <h1>Notes on RFC 761</h1>
+        <p><i>June 07, 2025</i></p>
+        <blockquote>
+<p>TCP implementations should follow a general principle of robustness: be conservative in what you do, be liberal in what you accept from others.</p>
+</blockquote>
+<p>The original TCP specification is explicitly designed to be agnostic to IP implementation. It's only supposed to handle byte transfer from application to application, not the specifics of packet delivery between hosts. In practice, this ideal is unattainable<sup class="footnote-reference"><a href="#1">1</a></sup>, but it points at a deep truth about healthy integration of parts in systems.</p>
+<p>Modularity is a natural consequence of system complexification. Internal bottlenecks on information transfer necessitate internal specialization<sup class="footnote-reference"><a href="#2">2</a></sup>. Dually, effective modularity requires partwise efficiency: judicious outputs and robustness to inputs, through either filtration or error-correction.</p>
+<p>Cells have well-defined outputs and boundaries which protect them from harmful inputs. Organs as well. Intuitively, the "conservative output, liberal input" principle could be reformulated as a "specific function, high survivability" dogma which we find exhibited in biological systems.</p>
+<p>Admittedly, TCP has more in common with the blood-brain barrier than it does with the liver. But the Internet is special in that the design of transportation organs is centralized while the design of substantive organs is not, and as a result boundary-manufacture is a centralized process. Insofar as the success of biological systems is to be attributed to organ-organ boundaries, those same properties may be reflected in TCP.</p>
+<p>As the Internet scaled to tens of thousands of simultaneous hosts operating on the same network, the RFC 761 implementation could no longer support reasonable host to host communication without congestion collapse, requiring updates to the default TCP. Yet modern TCPs are backwards compatible with TCPs from 1980, in part because the abstraction was so well-designed.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>One example is TCP's checksum operation: it relies on IP address structure, so it had to be slightly modified to accomodate IPv6.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Eukaryotic protein connectomes have higher EI than prokaryotic ones. As arbitrary protein-protein interaction takes more energy, efficient configurations will exhibit clustering of function.</p>
+</div>
 
-        {# Check if pagination is enabled for this section #}
-        {% if paginator %}
-            {# Loop through pages for the CURRENT pager #}
-            {% for page in paginator.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-
-            {# Add pagination navigation links #}
-            <nav class="pagination">
-                {% if paginator.previous %}
-                    <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
-                {% endif %}
-                <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-                {% if paginator.next %}
-                    <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
-                {% endif %}
-            </nav>
-
-        {% else %}
-            {# Fallback: If pagination is NOT enabled, show all pages #}
-            {% for page in section.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-        {% endif %}
     </main>
 </body>
 </html>

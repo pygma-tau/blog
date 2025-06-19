@@ -3,25 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# Use paginator.current_index for title on subsequent pages #}
-    {% if paginator and paginator.current_index > 1 %}
-        <title>{{ section.title }} - Page {{ paginator.current_index }}</title>
-    {% else %}
-        <title>{{ section.title }}</title>
-    {% endif %}
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
+    <title>Items Lost</title>
+    <link rel="stylesheet" href="https://yudhister.com/style.css">
     <!-- MathJax for LaTeX rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script src="{{ get_url(path='js/footnotes.js') }}"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <script src="https://yudhister.com/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-        gtag('config', 'G-TKY9S092B5');
-    </script>
+		gtag('config', 'G-TKY9S092B5');
+	</script>
     <script>
 		window.MathJax = {
 		  tex: {
@@ -98,61 +92,25 @@
             <li>[<a href="/blog">Blog</a>]</li>
             <li>[<a href="/shelf">Shelf</a>]</li>
 			<li>[<a href="/atom.xml">Atom</a>]</li>
-        </ul>
     </nav>
     <main>
-        <h1>{{ section.title }}</h1>
-        {# Only show section content on the first page #}
-        {% if not paginator or paginator.current_index == 1 %}
-            {{ section.content | safe }}
-        {% endif %}
+        <h1>Items Lost</h1>
+        <p><i>February 02, 2025</i></p>
+        <ul>
+<li>Copper brooch with tardigrade &amp; tesseract engravings. Gifted to me by an eco-technologist acting as an avant-garde musician at an Edge Esmeralda closing event. 500 extant copies: if you own one, I would love to meet you.</li>
+<li><em>Studies in Hegelian Cosmology</em> by J. M. E. McTaggart. 1903 edition, greenbacked &amp; hardcover &amp; originally archived at Trinity College, Cambridge. "On loan" from the Rhodes Library; saddened by the likely indefinite postponement of return.</li>
+<li>U.S. Passport. Visas to Turkiye, India. Entry and exit stamps from U.K., Czechia, France, Germany, Switzerland, Japan, Taiwan, India, Turkiye, Poland, Finland, Ireland, Georgia, Ukraine.</li>
+<li>Turkish Antarctic expedition pin, with decorated wooden bird. 17th birthday present from a dear friend of mine.</li>
+<li>Framework laptop, 13". Ran NixOS. Was approaching a faithful representation of my own brain; I lost an extension of myself.</li>
+<li>Black Leuchtterm notebook. Maths &amp; rambles &amp; private keys.</li>
+<li>Silver necklace with misshapen star. Acquired in a jewelry store in the Mission, originally intended for my partner. Ultimately not for me.</li>
+<li>Clothes: checkered flannel shirt, also acquired in the Mission. Partner's beanie. Foresight hoodie, MATS jacket. Beloved boots.</li>
+<li>Bike. Estimated ~$15k new, a kind mechanic gave it to me for free. Was the way I got to school for a while; suspension perfect for mountain biking. Stolen in Healdsburg.</li>
+<li>Letters. From S to me, written and drawn in Prague on self-Narrativism; from me to S, written in Taiwan as poetry; from R to me, written in print English in the Queen's College; from G to me, first on a pink sticky-note and next on a four-inch thumbpad; so, so many between L and I. ESPR/WARP/Atlas/ASPR/Rise notes.</li>
+<li>My phone, twice: firstly in Warsaw airport, and secondly in a San Francisco Airbnb. The second was a replacement for the first, however, and I found the first when I went through Warsaw again. Ended up back where I started.</li>
+<li>My glasses.</li>
+</ul>
 
-        {# Check if pagination is enabled for this section #}
-        {% if paginator %}
-            {# Loop through pages for the CURRENT pager #}
-            {% for page in paginator.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-
-            {# Add pagination navigation links #}
-            <nav class="pagination">
-                {% if paginator.previous %}
-                    <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
-                {% endif %}
-                <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-                {% if paginator.next %}
-                    <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
-                {% endif %}
-            </nav>
-
-        {% else %}
-            {# Fallback: If pagination is NOT enabled, show all pages #}
-            {% for page in section.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-        {% endif %}
     </main>
 </body>
 </html>

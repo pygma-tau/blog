@@ -3,25 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# Use paginator.current_index for title on subsequent pages #}
-    {% if paginator and paginator.current_index > 1 %}
-        <title>{{ section.title }} - Page {{ paginator.current_index }}</title>
-    {% else %}
-        <title>{{ section.title }}</title>
-    {% endif %}
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
-    <!-- MathJax for LaTeX rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script src="{{ get_url(path='js/footnotes.js') }}"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <title>Yudhister Kumar</title>
+    <link rel="stylesheet" href="https://yudhister.com/style.css">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-        gtag('config', 'G-TKY9S092B5');
-    </script>
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+	<script src="https://yudhister.com/js/footnotes.js"></script>
     <script>
 		window.MathJax = {
 		  tex: {
@@ -98,61 +90,34 @@
             <li>[<a href="/blog">Blog</a>]</li>
             <li>[<a href="/shelf">Shelf</a>]</li>
 			<li>[<a href="/atom.xml">Atom</a>]</li>
-        </ul>
     </nav>
     <main>
-        <h1>{{ section.title }}</h1>
-        {# Only show section content on the first page #}
-        {% if not paginator or paginator.current_index == 1 %}
-            {{ section.content | safe }}
-        {% endif %}
-
-        {# Check if pagination is enabled for this section #}
-        {% if paginator %}
-            {# Loop through pages for the CURRENT pager #}
-            {% for page in paginator.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-
-            {# Add pagination navigation links #}
-            <nav class="pagination">
-                {% if paginator.previous %}
-                    <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
-                {% endif %}
-                <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-                {% if paginator.next %}
-                    <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
-                {% endif %}
-            </nav>
-
-        {% else %}
-            {# Fallback: If pagination is NOT enabled, show all pages #}
-            {% for page in section.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-        {% endif %}
+        <h1>Welcome!</h1>
+        <ul>
+            <li>Jando's Liszt</li>
+            <li>Seville oranges</li>
+            <li><i>Nietzsche contra Wagner</i></li>
+            <li>TurboBurger, Tbilisi</li>
+            <li>exotic $\mathbb{R}^4$ structures</li>
+            <li>seL4: formal verification of practical systems</li>
+            <li><i>Finnegans Wake</i>, Joyce (and Joyce generally)</li>
+            <li>Badwater Basin, Death Valley</li>
+            <li><i>The Last Lecture</i>, Pausch</li>
+            <li><i>Intercourse</i>, Dworkin</li>
+            <li><i>Notes</i>, Kinoko Nasu</li>
+            <li>reflective oracles &amp logical inductors</li>
+            <li><i>Ideal Commonwealths</i> (More, Bacon, Lycurgus…)</li>
+            <li>artificial wombs; end-to-end embryogenesis</li>
+            <li>Grothendieck topoi</li>
+            <li>Wasserstein metrics</li>
+            <li>CUDA optimizations, high-performance computing</li>
+            <li>nanomanufacturing, superforecasting, <s>abiogenesis?</s></li>
+            <li>non-computationalist approaches to consciousness</li>
+            <li>Octavio Paz</li>
+            <li>...</li>
+        </ul>
+        <p>^ a brief attempt at decomposing my aesthetic preferences</p>
+        <p>Anyway, I'm Yudhister! It's a pleasure. <a href="mailto:yudhister@berkeley.edu">Email me</a>.  Better yet, <a href="https://calendly.com/yudhister/">talk to me</a>. I love meeting new people!</p>
     </main>
 </body>
 </html>

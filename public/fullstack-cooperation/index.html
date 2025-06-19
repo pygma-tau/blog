@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probabilistic Logic &lt;=&gt; Reflective Oracles?</title>
+    <link rel="stylesheet" href="https://yudhister.com/style.css">
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.com/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/blog">Blog</a>]</li>
+            <li>[<a href="/shelf">Shelf</a>]</li>
+			<li>[<a href="/atom.xml">Atom</a>]</li>
+    </nav>
+    <main>
+        <h1>Probabilistic Logic &lt;=&gt; Reflective Oracles?</h1>
+        <p><i>June 30, 2024</i></p>
+        <p>The Probabilistic Payor's Lemma implies the following cooperation strategy:</p>
+<p>Let $A_{1}, \ldots, A_{n}$ be agents in a multiplayer Prisoner's Dilemma, with the ability to return either 'Cooperate' or 'Defect' (which we model as the agents being logical statements resolving to either 'True' or 'False').  Each $A_{i}$ behaves as follows:</p>
+<p>$$
+, \vdash \Box_{p_{i}} \left( \Box_{\max {p_{1},\ldots, p_{n}}}\bigwedge_{k=1}^n A_{k} \to \bigwedge_{k=1}^n A_{k} \right) \to A_{i}
+$$</p>
+<p>Where $p_i$ represents each individual agents' threshold for cooperation (as a probability in $[0,1]$), $\Box_p , \phi$ returns True if credence in the statement $\phi$ is greater than $p,$ and the conjunction of $A_{1}, \ldots, A_{n}$ represents 'everyone cooperates'. Then, by the PPL, all agents cooperate, provided that all $\mathbb{P}_{A_{i}}$ give credence to the cooperation statement greater than each and every $A_{i}$'s individual thresholds for cooperation.</p>
+<p>This formulation is desirable for a number of reasons: firstly, the Payor's Lemma is much simpler to prove than Lob's Theorem, and doesn't carry with it the same strange consequences as a result of asserting an arbitrary modal-fixedpoint; second, when we relax the necessitation requirement from 'provability' to 'belief', this gives us behavior much more similar to how agents actually I read it as it emphasizing the notion of 'evidence' being important.</p>
+<p>However, the consistency of this 'p-belief' modal operator rests on the self-referential probabilistic logic proposed by Christiano 2012, which, while being consistent, has a few undesirable properties: the distribution over sentences automatically assigns probability 1 to all True statements and 0 to all False ones (meaning it can only really model uncertainty for statements not provable within the system).</p>
+<p>I propose that we can transfer the intuitions we have from probabilistic modal logic to a setting where 'p-belief' is analogous to calling a 'reflective oracle', and this system gets us similar (or identical) properties of cooperation.</p>
+<h2>Oracles</h2>
+<p>A <em>probabilistic oracle</em> $O$ is a function from $\mathbb{N} \to [0,1]^\mathbb{N}.$ Here, its domain is meant to represent an indexing of <em>probabilistic oracle machines,</em> which are simply Turing machines allowed to call an oracle for input. An oracle can be queried with tuples of the form $(M, p),$ where $M$ is a probabilistic oracle machine and $p$ is a rational number between 0 and 1. By Fallenstein et. al. 2015, there exists a <em>reflective oracle</em> on each set of queries such that $O(M,p) = 1$ if $\mathbb{P}(M() = 1) &gt; p,$ and $O(M,p) = 0$ if $\mathbb{P}(M() = 0) &lt; 1-p$ (check this).</p>
+<p>Notice that a reflective oracle has similar properties to the $Bel$ operator in self-referential probabilistic logic. It has a coherent probability distribution over probabilistic oracle machines (as opposed to sentences), it only gives information about the probability to arbitrary precision via queries ($O(M,p)$ vs. $Bel(\phi)$). So, it would be great if there was a canonical method of relating the two.</p>
+<p>Peano Arithmetic is Turing-complete, there exists a method of embedding arbitrary Turing machines in statements in predicate logic and there also exist various methods for embedding Turing machines in PA. We can form a correspondence where implications are preserved: notably, $x\to y$ simply represents the program <code>if TM(x), then TM(y)</code> , and negations just make the original TM output 1 where it outputted 0 and vice versa.</p>
+<p>(Specifically, we're identifying non-halting Turing machines with propositions and operations on those propositions with different ways of composing the component associated Turing machines. Roughly, a Turing machine outputting 1 on an input is equivalent to a given sentence being true on that input)</p>
+<p>CDT, expected utility maximizing agents with access to the same reflective oracle will reach Nash equilibria, because reflective oracles can <em>model other oracles</em> and <em>other oracles that are called by other probabilistic oracle machines</em>---so, at least in the unbounded setting, we don't have to worry about infinite regresses, because the oracles are guaranteed to halt.</p>
+<p>So, we can consider the following bot:
+$$
+A_{i} := O_{i} \left( O_{\bigcap i} \left( \bigwedge_{k=1}^n A_{k}\right) \to \bigwedge_{k=1}^n A_{k}, , p_{i}\right),
+$$
+where $A_i$ is an agent represented by a oracle machine, $O_i$ is the probabilistic oracle affiliated with the agent, $O_{\bigcap i}$ is the closure of all agents' oracles, and $p_{i} \in \mathbb{Q} \cap [0,1]$ is an individual probability threshold set by each agent.</p>
+<p>How do we get these closures? Well, ideally $O_{\bigcap i}$ returns $0$ for queries $(M,p)$ if $p &lt; \min{p_{M_1}, \ldots, p_{M_n}}$ and $1$ if $p &gt; \max {p_{M_1}, \ldots, p_{M_n}},$ and randomizes for queries in the middle---for the purposes of this cooperation strategy, this turns out to work.</p>
+<p>I claim this set of agents has the same behavior as those acting in accordance with the PPL: they will all cooperate if the 'evidence' for cooperating is above each agents' individual threshold $p_i.$ In the previous case, the 'evidence' was the statement $\Box_{\max {p_{1},\ldots, p_{n}}}\bigwedge_{k=1}^n A_{k} \to \bigwedge_{k=1}^n A_{k}.$ Here, the evidence is the statement $O_{\bigcap i} \left( \bigwedge_{k=1}^n A_{k}\right) \to \bigwedge_{k=1}^n A_{k}.$</p>
+<p>To flesh out the correspondence further, we can show that the relevant properties of the $p$-belief operator are found in reflective oracles as well: namely, that instances of the weak distribution axiom schema are coherent and that necessitation holds.</p>
+<p>For necessitation, $\vdash \phi \implies \vdash \Box_{p}\phi$ turns into $M_{\phi}() = 1$ implying that $O(M_{\phi},p)=1,$ which is true by the properties of reflective oracles. For weak distributivity, $\vdash \phi \to \psi \implies \vdash \Box_{p} \phi \to \Box_{p}\psi$ can be analogized to 'if it is true that the Turing machine associated with $\phi$ outputs 1 implies that the Turing machine associated with $\psi$ outputs 1, then you should be at least $\phi$-certain that $\psi$-outputs 1, so $O(M_{\phi},p)$ should imply $O(M_{\psi}, p)$ in all cases (because oracles represent true properties of probabilistic oracle machines, which Turing machines can be embedded into).</p>
+<h2>Models</h2>
+<p>Moreover, we can consider oracles to be a rough model of the p-belief modal language in which the probabilistic Payor's Lemma holds. We can get an explicit model to ensure consistency (see the links with Christiano's system, as well as its interpretation in neighborhood semantics), but oracles seem like a good intuition pump because they actively admit queries of the same form as $Bel(\phi)&gt;p,$ and they are a nice computable analog.</p>
+<p>They're a bit like the probabilistic logic in the sense that a typical reflective oracle just has full information about what the output of a Turing machine will be if it halts, and the probabilistic logic gives $\mathbb{P}(\phi)=1$ to all sentences which are deducible from the set of tautologies in the language. So the correspondence has some meat.</p>
+<p><em>Crossposted to <a href="https://www.lesswrong.com/posts/HZusY5jPYvpmkTkZD/probabilistic-logic-less-than-greater-than-oracles">LessWrong</a>.</em></p>
+
+    </main>
+</body>
+</html>

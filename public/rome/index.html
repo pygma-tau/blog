@@ -3,25 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# Use paginator.current_index for title on subsequent pages #}
-    {% if paginator and paginator.current_index > 1 %}
-        <title>{{ section.title }} - Page {{ paginator.current_index }}</title>
-    {% else %}
-        <title>{{ section.title }}</title>
-    {% endif %}
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
+    <title>Rome</title>
+    <link rel="stylesheet" href="https://yudhister.com/style.css">
     <!-- MathJax for LaTeX rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script src="{{ get_url(path='js/footnotes.js') }}"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <script src="https://yudhister.com/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-        gtag('config', 'G-TKY9S092B5');
-    </script>
+		gtag('config', 'G-TKY9S092B5');
+	</script>
     <script>
 		window.MathJax = {
 		  tex: {
@@ -98,61 +92,24 @@
             <li>[<a href="/blog">Blog</a>]</li>
             <li>[<a href="/shelf">Shelf</a>]</li>
 			<li>[<a href="/atom.xml">Atom</a>]</li>
-        </ul>
     </nav>
     <main>
-        <h1>{{ section.title }}</h1>
-        {# Only show section content on the first page #}
-        {% if not paginator or paginator.current_index == 1 %}
-            {{ section.content | safe }}
-        {% endif %}
+        <h1>Rome</h1>
+        <p><i>March 20, 2024</i></p>
+        <p>A post-apocalyptic fever dream. The oldest civilized metropolis. Where sons are pathetic in the eyes of their father, and both are pathetic in the eyes of their grandfathers—all while wearing blackened sunglasses and leather jackets. Grown, not made.</p>
+<p>Rome is, perhaps, the first place I recognized as solely for visiting, never living. Unlike Tokyo, one feels this immediately. Japan’s undesirability stems primarily from its inordinate, sprawling bureaucracy that is, for the most part, hidden from the typical visitor. Rome’s undesirability is apparent for all to see—it’s loud, stifling, unmaintained, and requires arduous traversals.</p>
+<p>Population c. 100 C.E.: 1 million people.<br />
+Population c. 1000 C.E.: 35,000.<br />
+Population c. 2024 C.E.: 2.8 million people.</p>
+<p>Rebound? Not so fast—the global population in the year 100 was just 200 million.</p>
+<p>And this is obvious. The city center is still dominated by the Colosseum, the Imperial fora, and Trajan’s Market. Only the Vittoriano holds a candle to their extant glory. Yet the hordes of tourists still walk down the Via dei Forti Imperiali and congregate in stupidly long lines at the ticket booth to see ruins!</p>
+<p>I walked across the city from east to west, passing by a secondary school, flea market, and various patisseries (is that the correct wording?). The pastries were incredible. The flea market reminded me of Mexico, interestingly enough. Felt very Catholic.</p>
+<p>(All the buses and trams run late in Rome. This too, is very Catholic, as Orwell picked up on during his time in Catalonia and as anyone visiting a Mexican house would know. Plausibly also Irish?)</p>
+<p>Rome’s ivies pervade its structures. Villas, monuments, churches (all 900 of them), and fountains all fall victim to these creepers. It gives the perception of a ruined city, that Roman glory has come and gone—and when one is aware of Italian history, it is very, very hard to perceive Rome as anything else than an overgrown still-surviving bastion against the continuing spirit of the Vandals.</p>
+<p>Roman pines, too, are fungiform. Respighi’s tone poem doesn’t do justice to them. Perhaps this is just a Mediterranean vibe? But amongst the monumental Classical, Romanesque, and Neoclassical structures of the Piazza Venezia, these pines are punctual. Don’t really know how else to convey it.</p>
+<p>It is difficult to comprehend how the animalistic, gladitorial Roman society became the seat of the Catholic Church. This city is clearly Gaian, and clearly ruled by the very same gods their Pantheon pays homage to. The Christian God is not of nature, it is apart from nature. It is not Dionysian, it is not even Apollonian (because it cannot recognize or respect the Dionysian, and as such cannot exist in context of it, only apart from it). And yet, the Pope persists.</p>
+<p>I have not seen the Vatican yet. I want to. I will be back.</p>
 
-        {# Check if pagination is enabled for this section #}
-        {% if paginator %}
-            {# Loop through pages for the CURRENT pager #}
-            {% for page in paginator.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-
-            {# Add pagination navigation links #}
-            <nav class="pagination">
-                {% if paginator.previous %}
-                    <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
-                {% endif %}
-                <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-                {% if paginator.next %}
-                    <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
-                {% endif %}
-            </nav>
-
-        {% else %}
-            {# Fallback: If pagination is NOT enabled, show all pages #}
-            {% for page in section.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-        {% endif %}
     </main>
 </body>
 </html>
