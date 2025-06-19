@@ -64,8 +64,6 @@ Accepted words all have some constant value of $A^{\text(Word)},$ while rejected
 
 $L_3$ is a context-sensitive language, so it is only a member of the Type-1 grammar not the Type-0 grammar. However, for our purposes (realizing some practical implementation of a TM) it is roughly equivalent, as any finite TM can be realized as a two-stack PDA, and this models a two-stack PDA quite well.
 
-<h2>References</h3>
-
 [^1]: Dueñas-Díez, M., & Pérez-Mercader, J. (2019). How Chemistry Computes: Language Recognition by Non-Biochemical Chemical Automata. From Finite Automata to Turing Machines. iScience, 19, 514-526. [https://doi.org/10.1016/j.isci.2019.08.007](https://doi.org/10.1016/j.isci.2019.08.007)
 
 [^2]: Magnasco, M. O. (1997). Chemical Kinetics is Turing Universal. Physical Review Letters, 78(6), 1190-1193. [https://doi.org/10.1103/PhysRevLett.78.1190](https://doi.org/10.1103/PhysRevLett.78.1190)

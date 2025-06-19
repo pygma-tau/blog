@@ -207,28 +207,49 @@ blockquote {
     color: #333; /* Example text color */
 }
 
-/* ----------  Footnote block  ---------- */
-.footnotes hr {
-    /* hide the separator line */
-    display: none;
-    margin: 0;
+/* Variables */
+$main-colour: #bb5649; /* or your preferred color */
+
+/* Base superscript styles */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
-/* lay out the list a bit tighter (tweak to taste) */
-.footnotes ol {
-    padding-left: 1.5em; /* keep a small left indent */
-    margin: 0;
+sup {
+  top: -0.5em;
 }
 
-/* each footnote item */
-.footnotes li {
-    margin: 0 0 0.75em 0; /* space between notes */
-}
+/* Footnote styles */
+.footnote-definition {
+  padding-left: 0;
+  margin-bottom: 0.5rem;
 
-/* put the paragraph inline so the number and text share the line */
-.footnotes li p {
-    display: inline; /* critical line: keeps text next to the number */
-    margin: 0; /* kill the default <p> margins */
+  &:first-of-type {
+    // border-top: 1px solid;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  sup.footnote-definition-label {
+    font-size: 100%;
+    position: unset;
+    top: unset;
+
+    &::after {
+      content: '.';
+    }
+  }
+
+  p {
+    display: inline;
+  }
 }
 
 // .footnotes {
