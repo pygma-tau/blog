@@ -1,10 +1,10 @@
 ---
 title: "About"
-date: 2025-08-19
+date: 2025-10-01
 ---
 
-I train models at Standard Intelligence and study mathematics at Berkeley. Previously, I worked on multi-agent RL at Softmax, modeling decision theories at MATS, and probabilistic logics at the Center on Long-Term Risk. 
+I study mathematics at Berkeley. Previously I was at Softmax, MATS, and the Center on Long-Term Risk. 
 
-Some communities dear to my heart: FABRIC, Atlas, Rise, Emergent Ventures, Interact. 
+I am not quite a simulacra of myself, but I'm pretty close. 
 
 
