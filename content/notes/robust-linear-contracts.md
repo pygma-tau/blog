@@ -1,5 +1,5 @@
 ---
-title: "08/20 | linear contracts as optimally robust"
+title: "linear contracts as optimally robust"
 author: "Yudhister Kumar"
 date: 2025-08-20
 path: 2025-08-20

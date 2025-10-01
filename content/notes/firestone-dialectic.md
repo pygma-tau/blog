@@ -1,5 +1,5 @@
 ---
-title: "(Review) The Dialectic of Sex: The Case for Feminist Revolution"
+title: "Review | The Dialectic of Sex: The Case for Feminist Revolution"
 date: 2024-10-20
 path: "dialectic-of-sex"
 ---

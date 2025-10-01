@@ -95,7 +95,10 @@
         <ul>
             <li>[<a href="/">Home</a>]</li>
             <li>[<a href="/about">About</a>]</li>
-            <li>[<a href="/blog">Blog</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister@si.inc">Email</a>]</li>
 			<li>[<a href="/atom.xml">Atom</a>]</li>
         </ul>
     </nav>
@@ -106,51 +109,59 @@
             {{ section.content | safe }}
         {% endif %}
 
-        {# Check if pagination is enabled for this section #}
-        {% if paginator %}
-            {# Loop through pages for the CURRENT pager #}
-            {% for page in paginator.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
-
-            {# Add pagination navigation links #}
-            <nav class="pagination">
-                {% if paginator.previous %}
-                    <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
-                {% endif %}
-                <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-                {% if paginator.next %}
-                    <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
-                {% endif %}
-            </nav>
-
+        {% if section.extra.list_titles_only %}
+            <ul class="post-list">
+                {% for page in section.pages %}
+                    <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a> (<time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>)</li>
+                {% endfor %}
+            </ul>
         {% else %}
-            {# Fallback: If pagination is NOT enabled, show all pages #}
-            {% for page in section.pages %}
-                <article class="post">
-                    <header>
-                        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-                    </header>
-                    <div class="post-content">
-                        {{ page.content | safe }}
-                    </div>
-                </article>
-                {% if not loop.last %}
-                    <hr class="post-separator">
-                {% endif %}
-            {% endfor %}
+            {# Check if pagination is enabled for this section #}
+            {% if paginator %}
+                {# Loop through pages for the CURRENT pager #}
+                {% for page in paginator.pages %}
+                    <article class="post">
+                        <header>
+                            <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+                            <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+                        </header>
+                        <div class="post-content">
+                            {{ page.content | safe }}
+                        </div>
+                    </article>
+                    {% if not loop.last %}
+                        <hr class="post-separator">
+                    {% endif %}
+                {% endfor %}
+
+                {# Add pagination navigation links #}
+                <nav class="pagination">
+                    {% if paginator.previous %}
+                        <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
+                    {% endif %}
+                    <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+                    {% if paginator.next %}
+                        <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
+                    {% endif %}
+                </nav>
+
+            {% else %}
+                {# Fallback: If pagination is NOT enabled, show all pages #}
+                {% for page in section.pages %}
+                    <article class="post">
+                        <header>
+                            <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+                            <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+                        </header>
+                        <div class="post-content">
+                            {{ page.content | safe }}
+                        </div>
+                    </article>
+                    {% if not loop.last %}
+                        <hr class="post-separator">
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         {% endif %}
     </main>
 </body>

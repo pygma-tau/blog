@@ -1,5 +1,5 @@
 ---
-title: "08/18 | GHz momentum computing simulation #1"
+title: "GHz momentum computing simulation #1"
 author: Yudhister Joel Kumar
 date: 2025-08-18
 path: "2025-08-18"

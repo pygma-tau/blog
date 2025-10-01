@@ -1,5 +1,5 @@
 ---
-title: "08/19 | review: pieces of the action"
+title: "Review | Pieces of the Action"
 author: Yudhister Kumar
 date: 2025-08-19
 path: 2025-08-19
