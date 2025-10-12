@@ -14,7 +14,7 @@ $$
 where $N$ is the number of parameters in your language model, $D$ is the number of training tokens seen, $A,B,\alpha,\beta, L_{\infty}$ are constants, and $L(N,D)$ is the test loss. 
 
 Of course, this analysis is limited:
-- parameters do not hold across architectural shifts: dense vs. MoE for ex.
+- parameters do not hold across architectural shifts: [dense vs. MoE for ex](https://arxiv.org/abs/2501.12370). (h/t [Kushal](https://kushalthaman.github.io/) for sending me this paper)
 - "scale data and model size similarly" is derived from the regime where compute $C \propto ND,$ 
 - data repetition may or may not degrade performance in the long-term: it seems like [4x is the limit](https://arxiv.org/abs/2305.16264) for traditional autoregressive transformers, but [100x can be useful for diffusion LMs](https://arxiv.org/abs/2507.15857)
 - $L(N,D)$ is in-distribution test loss, loss often not predictive of downstream task performance, although [loss-to-loss predictions across different training distributions are predictable](https://arxiv.org/abs/2411.12925v1)
