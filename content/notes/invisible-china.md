@@ -2,6 +2,7 @@
 title: "Review | Invisible China"
 author: Yudhister Kumar
 date: 2023-10-14
+path: invisible-china
 ---
 
 Pretty good. Made me think, and Rozelle's unique perspective (economist who's spent 30+ years on the ground) adds an authentic flavor to the book.
