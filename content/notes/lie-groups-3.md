@@ -2,6 +2,7 @@
 title: "Some Problems about Lie Groups"
 author: Yudhister Kumar
 date: 2025-10-07
+draft: true
 ---
 
 [1] Show that the universal enveloping algebra $\mathcal{U}(\mathfrak{g})$ of a Lie algebra $\mathfrak{g}$ has no zero-divisors. 
