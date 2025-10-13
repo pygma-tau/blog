@@ -2,6 +2,7 @@
 title: "miscellaneous poetry drafts"
 author: Yudhister Kumar
 date: 2025-10-12
+path: poetry-1
 ---
 
 **I.**
