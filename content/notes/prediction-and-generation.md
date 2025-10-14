@@ -2,7 +2,7 @@
 title: "optimal generators != optimal predictors"
 author: "Yudhister Kumar"
 date: 2025-10-13
-path: "prediction-is-not-generation"
+path: prediction-is-not-generation
 ---
 
 [a long overdue response to [Aidan](https://aidanjs.com) :)]
