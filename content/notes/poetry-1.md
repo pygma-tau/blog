@@ -1,5 +1,5 @@
 ---
-title: "miscellaneous poetry drafts"
+title: "Miscellaneous Poetry Drafts"
 author: Yudhister Kumar
 date: 2025-10-12
 path: "poetry-1"

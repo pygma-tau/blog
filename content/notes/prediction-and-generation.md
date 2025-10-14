@@ -1,5 +1,5 @@
 ---
-title: "optimal generators != optimal predictors"
+title: "Prediction is not Generation"
 author: "Yudhister Kumar"
 date: 2025-10-13
 path: prediction-is-not-generation

@@ -1,5 +1,5 @@
 ---
-title: "do scaling laws for transfer learning exist?"
+title: "Scaling Laws for Transfer Learning"
 author: Yudhister Kumar
 date: 2025-10-11
 path: "scaling-transfer-1"
