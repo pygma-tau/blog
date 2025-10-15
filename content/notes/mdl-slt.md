@@ -43,6 +43,8 @@ I suppose this is why the empirical results are needed. But the empirical result
 
 <img src="/images/pythia-quantization.png" alt="pythia-llc" width="550"/>
 
+still don't quite understand the theory behind LLC estimation. MDL and SLT connections are cool though, it would be nice to get some naturality results bc the experimental results are not that convincing by themselves (many patterns replicate this, LLC estimation is an art not a science, and quantizing models arbitrarily and doing inference on them seems like it naturally leads to buggy implementations)
+
 [^1]: see technical conditions in the paper
 
 
