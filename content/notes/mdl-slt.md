@@ -1,5 +1,5 @@
 ---
-title: MDL Meets SLT
+title: MDL meets SLT
 author: Yudhister Kumar
 date: 2025-10-14
 path: mdl-slt
