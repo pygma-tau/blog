@@ -1,0 +1,26 @@
+---
+title: "Diffusion Roundup"
+author: Yudhister Kumar
+date: 2025-09-24
+path: diffusion-roundup
+---
+
+[1] **Diffusion models seem to outperform traditional autoregressive models in the large data limit on token-prediction tasks.** [^1] Autoregressive models are still superior in the low-data/compute-limited regime, and the threshold at which diffusion models become optimal follows a power-law in the dataset size (typically exceeding the Chinchilla threshold by a large margin).[^2] Diffusion models also see performance gains under “trivial” data augmentation methods for far longer than autoregressive models (e.g. reordering tokens), and this is plausibly because the generation method is fundamentally non-causal? (Much of the performance gap can be recovered by implementing similar data augmentation methods in the AR case, but it’s unclear if this scales to tasks that require “cognition” in the human sense of the word). Not entirely clear how this translates to better performance on real-world tasks in the data-limited regime; it could be that the compute scaling necessary is simply prohibitive, and it could also be that the implicit curriculum afforded by the de-noising process is simply insufficient at providing reasonable enough signal on difficult tasks. 
+
+[2] **Diffusion in-practice probably has the circuit complexity depth constraints of an attention-based transformer.** In the last few years, we’ve seen literature essentially claiming that attention in-practice is limited to modeling circuits in the class TC0 (polynomial width, constant depth Boolean circuit family)[^3] Adding chain-of-thought ~roughly increases this to NC1 (although there are some subtleties involving the lack of robustness to input-ordering).[^4] There are reasons to expect difficult problems, especially the sorts encountered in long-horizon RL, to require architectures that can internally simulate deep computation. These architectures have been recurrent thus far. However, recurrent architectures fail to adequately leverage the compute parallelism offered by GPUs and have many, many issues with unstable training dynamics, so scaling transformers is a better option. It’s probably not the case that diffusion models can prove an adequate replacement here, but it’s interesting that [a diffusion process with no constraints imposed by a score function can theoretically simulate any Turing-complete process, but when perfectly matching a score function still has the limitations of a TC0 representation](https://arxiv.org/abs/2507.12469). Results in the approximate regime pending.[^5]
+
+[3] **Diffusion is (kind of) spectral autoregression.**[^6] There are [two](https://sander.ai/2024/09/02/spectral-autoregression.html) [brilliant](https://www.fabianfalck.com/posts/spectralauto/) blog-posts on the subject, cumulatively arguing that DDPM has an inductive bias to generating low-frequency features before high-frequency features (in Fourier space; hence the name) but this is not necessarily true of all possible diffusion models (changing the model’s noising schedule to be frequency-agnostic doesn’t degrade performance on CIFAR10 and similar datasets, but not all noising schedules achieve the same performance!). How much does this matter for text-data domains? Audio? Video? Are there correspondences we can make between distributional structure and optimal noising schedules? In algorithmic cases, what does this mean? 
+
+I primarily find diffusion models interesting from a theoretical perspective, given that the corresponding SDE literature is rich and there are (potentially) deep connections to be made to modern ML. In particular, I expect we can better understand what feature orderings are optimal, which properties of distributions make them learnable, how much an inductive bias is a property of the model architecture vs. optimization algorithm or other factors, and to what extent recurrence can be represented with parallel architectures. This post should not be taken as definitive; it has not been edited and I welcome feedback. 
+
+[^1]: This section is summarizing the paper [Diffusion Beats Autoregression in Data-Constrained Settings](https://arxiv.org/abs/2507.15857). 
+
+[^2]: The metric the authors use is “number of unique tokens”—which is quite strange, given that the vocab size of a model is typically quite limited, and they mention training a 2.3B parameter diffusion model on a 500M unique token dataset. Perhaps they mean just the token size of a dataset with no repeated entries?
+
+[^3]: See [The Parallelism Tradeoff: Limitations of Log-Precision Transformers](https://arxiv.org/abs/2207.00729), [Transformers, parallel computation, and logarithmic depth](https://arxiv.org/abs/2402.09268), and [Theoretical limitations of multi-layer Transformer](https://arxiv.org/abs/2412.02975).
+
+[^4]: See [Chain of Thought Empowers Transformers to Solve Inherently Serial Problems](https://arxiv.org/abs/2402.12875). CoT/neuralese introducing “effective recurrence” into modern models seems to be important for timeline modeling. 
+
+[^5]: Reach out if you have thoughts!  
+
+[^6]: See A Fourier Space Perspective on Diffusion Models. 
