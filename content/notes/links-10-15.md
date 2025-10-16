@@ -2,6 +2,7 @@
 title: "Mid-October Links"
 author: Yudhister Kumar
 date: 2025-10-15
+path: "links-10-15"
 ---
 *i am tired so here is a linkpost. i'll try not to do more than two of these a month*
 
