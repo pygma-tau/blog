@@ -20,19 +20,14 @@ It is always necessary to make assumptions about world structure when predicting
 Considering the structure of one’s structural assumptions is critically important in domains where the world behavior has not been exhibited and it is of importance. Note:
 
 - The largest scientific breakthroughs are accompanied by structural assumptions about the world breaking. See the atomic bomb, CRISPR, heavier-than-air flight. Fundamentally, these “expand the domain of the possible.” Sometimes, the world structure is discovered first (as in nuclear theory leading to the first controlled chain reaction). Other times, a prototype uncovers the structure (see: penicillin). In both cases, the non-specialist intelligent reasoner understands a different possibility domain before and after.
-
 - Top-down searches for structural guarantees must be incredibly judicious in their assumptions, because the vast majority of hypotheses are incorrect. Ex post, the structure is obvious, but ex ante it is not. Consider Newton devoting as much energy to alchemy as the study of gravitation.
-
 - If we take the perspective that [alignment is an infinite problem](https://www.lesswrong.com/posts/nkeYxjdrWBJvwbnTr/an-advent-of-thought), there is no good reason to expect that the world structure we can reasonably assume is simple. It might be that it is infinitely complex and is only limited by our current understanding, and that we will recover finer and finer approximations of it as our understanding improves. At each stage of this process we will have to repeat our assumption examination from a roughly equivalent epistemic vantage point of staring into the abyss.
-
 - Much of the existential risk from AI development comes from tail risks and black swan events. Mitigating these requires a portfolio of solutions which each rely on decorrelated or independent world models (note this is not a guarantee).
 
 Natural corollaries of this observation:
 
 - we should be explicit about which world models are going into constructing safety cases,
-
 - we should be developing independent safety cases for high-stakes deployment situations,
-
 - we should emphasize diversity in theoretical agendas to buttress our ability to make such safety cases reliant on disjoint sets of assumptions.
 
 [^1]: This is a specific instance of the general case of “Swiss cheese models only work when the holes don’t line up in the same worlds,” which is probably not sufficiently justified in this post but is something I believe to be true.
