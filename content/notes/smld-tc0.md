@@ -1,0 +1,42 @@
+---
+title: Perfect SMLD is TC$^0$
+author: Yudhister Kumar
+date: 2025-10-16
+path: smld-tc0
+---
+
+This paper, [Perfect diffusion is TC^$0$ -- Bad diffusion is Turing-complete](https://doi.org/10.48550/arXiv.2507.12469), has been stuck in my head. Here's an exposition of $1/2$ of the result. 
+
+(I claim no novelty in either exposition or content for what is below)
+
+<h2>what is SMLD?</h2>
+
+Given a distribution $\rho_{data}$ over $\mathbb{R}^d,$ SMLD aims to learn a score-matching function $f_\theta$ which samples from $\nabla \log \rho_{data}$ well. In particular, for $x \sim \rho_0,$ which we define as $\rho_0 = \rho_{data},$ we aim for $f_\theta(x,t)$ to approximate $\nabla_x \log \rho_t.$ Why are we introducing time as a parameter? The point of diffusion models is to learn a function which can learn to *denoise* a process and thus learn to sample the underlying distribution well. SMLD does this by training a model to learn the score function in the reverse Langevin process for a given noise schedule. In more detail:
+- Take some noise schedule $\beta(t): [0, \infty) \to [0, \infty)$ such that $\int_0^\infty \beta(t) = \infty$ (this is to ensure the distribution gets fully noised). 
+- Evolve my data sample $x_t \sim \rho_t$ according to $dx_t = -\frac{1}{2} \beta(t) x_tdt + \sqrt{\beta(t)} dW_t,$ which is just Langevin dynamics (and $dW_t$ is the Brownian motion contributor). This has a corresponding evolution over the distributions given by $\partial_t \rho_t = \frac{1}{2} \beta(t) \left( \nabla \cdot (x \rho_t) + \Delta \rho_t\right)$ (straightforward from Fokker-Planck).
+- Fix a time $T>0.$ The reverse time-evolution process can be *exactly* characterized by $$d\hat{x}\_t = \frac{1}{2} \beta(T - t)\hat{x}\_tdt + \beta(T-t)\nabla_{\hat{x}\_t} \log \rho\_{T-t}(\hat{x}\_t) dt + \sqrt{\beta(T-t)}dW\_t,$$ and $\nabla_{\hat{x}\_t} \log \rho\_{T-t}(\hat{x}\_t)$ is exactly what we're trying to approximate with $f_\theta(\hat{x},T-t).$ 
+- So, if I sample $\hat{x}\_t \sim \mathcal{N}\_(0,I_d)$ (pure noise!), by solving the reversed SDE above and substituting $f\_\theta$ for the score function, I can approximate my underlying data distribution.
+
+<h2>TC$^0$ circuit families are (essentially) neural networks</h2>
+
+Circuit complexity classes describe "families of boolean circuits." A "family of boolean circuits" is just the set of all possible boolean circuits satisfying some properties; a boolean circuit is (abstractly) some DAG of "gates" (boolean functions) that takes a series of Boolean inputs to a Boolean output. TC$^0$ in particular satisfies:
+- polynomial width: the number of gates at each depth, is upper-bounded by a polynomial in the input-size $n,$
+- constant depth: the maximum number of gates from input to output is upper-bounded by some constant,
+- unbounded fan-in: each gate can receive inputs from arbitrarily many other gates,
+- each gate is either AND< OR, NOT, or MAJ (for "majority", returns True when half or more arguments are True and False otherwise).
+
+[You can use MAJ gates to simulate threshold gates.](https://theory.cs.uni-bonn.de/marek/publications/STCbMC.pdf). As such, this last bullet point is equivalent to:
+-  each gate is a *threshold gate*: $\text{step}(\sum_i w_ix_i + t),$ where $w_i,t$ are real numbers and $\text{step}$ returns $1$ if the value is greater than $1/2$ and $0$ otherwise. 
+
+This is a feed-forward neural network, where each gate is an activation function acting on Boolean inputs. TC$^0$ is the class of neural networks with width $< p(n)$ and depth $\leq D.$ Circuit complexity classes in general are somewhat pathological, and can solve sets of problems that one might not expect to be easily grouped together. But this is quite interestingly natural for ML purposes. 
+
+<h2>proof of the result</h2>
+
+**Theorem.** Take a TC$^0$ family of score-networks $f_{\theta, 0}, f_{\theta,1}, \ldots$ such that for each $n$ and each $x_1, \ldots, x_n$ the function $f_{\theta, n}(x,t|x_1,\ldots,x_n)$ exactly computes the score function of some initial distribution $\rho_{0,n}$ with bounded first moment. If this family solves a prefix language modeling problem in the SMLD infinite time limit with a constant probability bound, then the problem is in TC$^0.$ 
+
+What is a "prefix language modeling problem"? Next-token prediction: given $n$ previous tokens in an alphabet, predict token $n+1.$ This is solved by a circuit complexity class if a  family of circuits $C_i$ for every input size satisfying the complexity class solves the problem. 
+
+The proof relies on a result from the literature given in [O(d/T) Convergence Theory for Diffusion Probabilistic Models under Minimal Assumptions](https://arxiv.org/abs/2409.18959) which states that there exists some universal constant $c>0$ such that $$TV(p_X, p_Y) \leq c \frac{d \log^3T}{T} + c \epsilon_{score} \sqrt{\log T}.$$ Here $TV$ is the total variation distance, $X$ is the data distribution, and $Y$ is a distribution generated by DDPM denoising (essentially just a discretization of SMLD). One can use this to upper bound the total variation distance between the DDPM sampler and our denoising process by some constant $\epsilon',$ and setting our constant probability bound of finding a solution to $\epsilon$ we find that $\epsilon' = \epsilon/2$ is enough for our denoising process to solve the problem. This is then derandomized by a construction given in [Threshold circuits of bounded depth](https://www.sciencedirect.com/science/article/pii/002200009390001D), which reconstructs a TC$^0$ class. 
+
+One may wonder where we require "perfect" score matching! Well, the $c \epsilon_{score} \sqrt{\log T}$ term increases with $T,$ so for this proof to work completely cleanly one requires it to be set to $0.$ Practical diffusion networks are not like this --- there will always be some error.  
+
