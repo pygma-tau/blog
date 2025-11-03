@@ -18,3 +18,23 @@ Now I only read the books below, and in some sense [treat them as a set of promp
 - The Scaling Era: An Oral History of AI, 2019-2025
 - The Fabric Book
 - Ideal Commonwealths
+- Venus as a Boy
+- Kalpa Imperial
+- The Cyberiad
+- Studies in Hegelian Cosmology
+- Markings
+- The Pale King
+- Steps to an Ecology of Mind
+- Karl Marx's Theory of History: A Defence
+- Xenosystems
+- The Red Book of Varieties and Schemes
+- The Rising Sea: Foundations of Algebraic Geometry
+- Topology from a Differentiable Viewpoint
+- The Anthropic Cosmological Principle
+- Grand Futures
+- Intercourse
+- Synchronicity
+- Fanged Noumena
+- Log-Concave Sampling
+- The Energetics of Computing in Life and Machines
+- Proceedings of the 27th Solvay Conference on Physics | The Physics of Living Matter: Space, Time, and Information

@@ -1,7 +1,7 @@
 ---
 title: Astronomical Waste Given Acausal Considerations
 author: Yudhister Kumar
-date: 2025-10-22
+date: 2025-10-27
 path: astronomical-waste
 ---
 
@@ -13,7 +13,7 @@ Bostrom's original astronomical waste argument is as follows:
 2. Now consider the total number of digital humans simulatable with the energy stored in these stars, given that the energy is harvested with technologies currently assessed to be feasible. 
 3. This provides a lower-bound on the potential value lost per-unit-time, assuming an ethical stance at least somewhat similar to an aggregative total utilitarian. 
 4. This is a lot of value per-unit-time. 
-5. Correspondly, existential risk poses a threat so large it dominates all other considerations, as it eliminates the possibility of human colonization.
+5. Correspondingly, existential risk poses a threat so large it dominates all other considerations, as it eliminates the possibility of human colonization.
 
 This model is static. In particular, it does not consider dynamism in the size of the actualizable universe. By restricting to the local supercluster, one ignores the potential resources of the stars beyond, including those turned inaccessible by cosmological expansion. For the purposes of establishing a conservative bound on the potential value left on the table, these are nitpicks are minor. However, when assessing the tradeoffs between safety-focused and progress-focused policies under various ethical viewpoints, they matter. 
 
