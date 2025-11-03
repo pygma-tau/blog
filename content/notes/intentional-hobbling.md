@@ -2,6 +2,7 @@
 title: Hobbling-Induced Innovation
 author: Yudhister Kumar
 date: 2025-11-02
+path: intentional-hobbling
 ---
 
 - Rather famously, [Tesla refuses to use LIDAR](https://techcrunch.com/2019/04/22/anyone-relying-on-lidar-is-doomed-elon-musk-says/#:~:text=At%20Tesla's%20first%20Autonomy%20Day%20event%20in,by%20data%20collected%20by%20all%20Tesla%20vehicles.) and Autopilot only takes 2D observational video data as input. Autopilot is the only production-ready, end-to-end self-driving model. Waymo currently relies on a modular architecture using LIDAR, but is [pivoting to end-to-end as well](https://waymo.com/research/emma/). Tesla seems to have made the correct long-term technical bet (end-to-end models for self-driving), but at the cost of a *prima facie* nonsensical constraint (strictly less sensory input). 

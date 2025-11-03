@@ -2,6 +2,7 @@
 title: Idiolects?
 author: Yudhister Kumar
 date: 2025-11-01
+path: idiolects
 ---
 
 1. French fluency is neither necessary nor sufficient for understanding EGA. 
