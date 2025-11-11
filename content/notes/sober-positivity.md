@@ -38,7 +38,7 @@ A version that *is* emotionally compelling to me:
 
 *Almost everything you care about was built by someone who cared deeply. In the face of profoundly natural antagonism. We escaped the Malthusian trap by raising our carrying capacity through sheer grit; our society stability rests on a flimsy foundation of our greatest minds throwing themselves into meat-grinders to generate technological innovations to eke out another quarter-centipoint of growth. And you want to control one of the only hopes we have of preserving this, by muzzling innovation and redirecting our efforts away from progress?*
 
-I wish we had a better sense of the fragility of human value; I wish we better understood the importance of intangibles in society. This post was neither particularly positive nor sober, but I do think I have a deficiency in this realm. 
+I wish we had a better sense of the fragility of human value; I wish we better understood the importance of intangibles in society. 
 
 
 

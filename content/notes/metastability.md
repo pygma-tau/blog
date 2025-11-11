@@ -31,7 +31,7 @@ narrativistic meta-stability. the death of rigor. limits to legibility. delusion
 
 V. 
 
-local adaptivity vs. global adaptivity. selection pressures on good local heuristics vs. global ones. what does the cultural singularity look like?what sorts of ethical systems persist? singleton agent modularity + application allows for engaging with stable or metastable interfaces at each level. psychology is meta-stable, cells are crystallized, etc. 
+local adaptivity vs. global adaptivity. selection pressures on good local heuristics vs. global ones. what does the cultural singularity look like? what sorts of ethical systems persist? singleton agent modularity + application allows for engaging with stable or metastable interfaces at each level. psychology is meta-stable, cells are crystallized, etc. 
 
 phase transitions? hierarchical complexity? music? what does this imply about the existence of general meta-learners? 
 

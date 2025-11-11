@@ -1,0 +1,5 @@
+- equilibrium solvers with that library from the cybercat institute
+- ultracalvinism and dag hammarskjold
+- criticality L/n *
+- actual circuit solvers
+- approximate diffusion * 

@@ -1,10 +1,14 @@
 ---
 title: A Local Error Framework for Bounding KL Divergence
 author: Yudhister Kumar
-date: 2025-10-20
+date: 2025-11-06
 path: local-error-KL
 draft: true
 ---
+
+*DRAFT*
+
+(I might just want to make this about the proof of the shifted chain rule)
 
 [Below consists of applications of techniques derived in [Shifted Composition III: Local Error Framework for KL Divergence](http://arxiv.org/abs/2412.17997) by Altschuler and Chewi. Chewi consistently writes some of my favorite papers! I thought I'd try to understand the results in this one a little bit better, hence this post. As always, mistakes are mine, and these are *notes* rather than polished output]
 
@@ -33,7 +37,9 @@ $$
 &(c + c') \left[\frac{L^{-1}-1}{L^{-N}-1}W_2^2(\mu,\nu) + \max\\{(L-1)N, \log \bar{N}\\} \cdot \bar{\mathcal{E}}^2_{\text{strong}}  + \bar{N}(\bar{\mathcal{E}}\_{\text{weak}} + \gamma \bar{\mathcal{E}}\_{\text{strong}})\right],
 \end{align*} 
 $$
-where $\bar{N} = \max \\{N, \frac{1}{(1-L)_+}\\},$
+where $\bar{N} = \max \\{N, \frac{1}{(1-L)_+}\\},$ and $\bar{\mathcal{E}}$ is the maximum of the corresponding errors. 
+
+
 
 <h2>some computations</h2>
 
