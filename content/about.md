@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2025-11-05
+date: 2025-11-11
 ---
 
 Presently: 
@@ -39,7 +39,7 @@ I love my friends. You should check them out!
 - [Uzay](https://uzpg.me)
 - [Will](https://www.willhath.com/)
 
-[List is neither exhaustive nor necessarily symmetric]
+[Not exhaustive]
 
 <!-- Side quests:
 - In the first semester of our freshman year, a friend and I decided to start a formal verification startup. We spent two weeks making a flotsam Ada-to-Rust transpiler and YC rejected us at interview for being too early. 
