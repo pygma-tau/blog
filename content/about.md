@@ -20,7 +20,7 @@ I moonlight as a Berkeley student, where I am a [Regents & Chancellor's Scholar]
 
 When I was 16, I dropped out of high school and spent a year and a half with no permanent address. This had predictable and unpredictable consequences.
 
-I love my friends. You should check them out!
+I love my friends! You should check them out!
 
 - [Aidan](https://aidanjs.com)
 - [Devansh](https://devanshpanda.com/)
@@ -32,6 +32,7 @@ I love my friends. You should check them out!
 - [Khyathi](https://khyathikomalan.github.io/)
 - [Lev](https://lev.la/)
 - [Logan](https://logangraves.com/)
+- [Miles](https://mkodama.org/)
 - [Nicholas](https://nicholascc.github.io/)
 - [Nick](https://marsh.blue/)
 - [Rudolf](https://rudolf.website/)
