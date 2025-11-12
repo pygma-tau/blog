@@ -12,11 +12,11 @@ Previously:
 - open-source game theory with [Caspar Oesterheld](https://www.andrew.cmu.edu/user/coesterh/) at [MATS](https://matsprogram.org);
 - applied philosophy with [Abram Demski](https://scholar.google.com/citations?user=tsrblo8AAAAJ&hl=en) at the [Center on Long-Term Risk](https://longtermrisk.org). 
 
-I live in San Francisco; I grew up in Temecula, CA. 
+I live in San Francisco.
 
 When I was 16, I dropped out of high school and spent a year and a half with no permanent address. This had predictable and unpredictable consequences.
 
-I love my friends! 
+<!-- I love my friends! 
 
 - [Aidan](https://aidanjs.com)
 - [Devansh](https://devanshpanda.com/)
@@ -38,7 +38,7 @@ I love my friends!
 - [Uzay](https://uzpg.me)
 - [Will](https://www.willhath.com/)
 
-[Not exhaustive]
+[Not exhaustive] -->
 
 <!-- Side quests:
 - In the first semester of our freshman year, a friend and I decided to start a formal verification startup. We spent two weeks making a flotsam Ada-to-Rust transpiler and YC rejected us at interview for being too early. 
