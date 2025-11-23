@@ -2,6 +2,7 @@
 title: Criticality in Value Formation
 author: Yudhister Kumar
 date: 2025-11-22
+path: criticality-in-value-formation
 ---
 
 underspecified thesis: qualitative differences in phenomenal effects are primarily determined by the conditions under which nucleation occurs; the environmental conditions of phase transitions are the primary determinants of the long-run behavior.
