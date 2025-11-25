@@ -2,6 +2,7 @@
 title: Shelf
 date: 2025-10-01
 draft: false
+path: shelf
 ---
 
 I used to read widely. Never the same book twice. Over time I became intensely dissatisfied with my understanding of the world. I spoke of topics while my words rung shallow, I was right without ever quite knowing why. Writing, speaking, *thinking* felt empty. It was not that I had never understood, nor that I could not with some effort. The understanding was just never all mine. 

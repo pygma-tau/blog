@@ -27,6 +27,6 @@ path: idiolects
 20. I am trying to point at a superstructure and say "here is a superstructure." I am trying to identify the superstructure by a closure criterion, and I am trying to understand what the closure criterion is. Something language-like should be identifiable this way? And the appropriate notion of closure will then let us chunk correctly?
 21. Maybe superstructures are not generally identifiable via closure?
 22. [The load-bearing constraint for considering species as superorganisms is a closure property](https://www.lesswrong.com/posts/hrcYTMyjkHzwxzPdA/species-as-canonical-referents-of-super-organisms). They're not particularly well-describable by Dennett's intentional stance.
-23. I want to say "idiolect:species :: communicator:member-organism :: idiom:gene." 
+23. I want to say "idiolect:communicator::idiom :: species:member-organism:gene." 
 24. I don't want to identify lexemes as the atoms of a language-like-structure. [Chomsky et. al.'s new mathematical merge formalism is cool but construed](https://arxiv.org/abs/2311.06189), and I have not seen a clean way to differentiate meaningful lexeme composition from non-meaningful lexeme composition. 
 25. "Shared understanding" feels better? The point of a language is a mechanism by which communicators communicate, and it so happens that languages happen to be characterizable by some general formal propeties.
