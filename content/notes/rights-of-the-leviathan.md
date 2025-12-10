@@ -2,6 +2,7 @@
 title: commentary on Leviathan rights
 author: Yudhister Kumar
 date: 2025-12-07
+path: rights-of-the-leviathan
 ---
 
 [[see Leviathan XVII](https://www.gutenberg.org/cache/epub/3207/pg3207-images.html)]
@@ -29,3 +30,5 @@ date: 2025-12-07
 [11]. The sovereign may reward or punish his subjects as he sees fit. 
 
 [12]. The sovereign maintains a monopoly on status signifiers and honors conferred on subjects. 
+
+
