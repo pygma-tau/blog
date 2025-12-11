@@ -1,13 +1,26 @@
 ---
-title: institutional hardware vs. institutional software
+title: institutional hardware and institutional software
 author: Yudhister Kumar
 date: 2025-12-08
 path: hardware-software
 draft: true
 ---
 
+Consider a startup.
+
+Classically, employees at an early-stage startup are not tied to a functional role.  A team of two may band together intending to specialize in their chosen disciplines---Bradley writes code while Jeff handles sales, say---but not often can their work stay siloed. For instance, consumer software products require marathon amounts of time and energy to maintain, and Bradley will spend time answering support tickets just as Jeff will have to learn frontend. 
+
+(It may be that Bradley spends most of his time writing code and Jeff spends most of his time talking to customers!)
+
+How is the division 
+
+[1] In a marriage, vows / implicit vows are the hardware, while communication norms / protocls are the software (?)
+
+[2] in a 
 
 
+
+---
 
 Institutions[^1] typically have two symbiotic organizational "modes": 
 
