@@ -2,7 +2,7 @@
 title: Weihrauch Lattices
 author: Yudhister Kumar
 date: 2025-12-09
-path: weihrauch-Lattices
+path: weihrauch-lattices
 draft: true
 ---
 
