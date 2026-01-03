@@ -3,7 +3,6 @@ title: "SL5 Literacy"
 author: Yudhister Kumar
 date: 2026-01-02
 path: sl5-literacy
-draft: false
 ---
 
 In 2024, RAND released [a paper](https://www.rand.org/pubs/research_reports/RRA2849-1.html) aiming to develop security standards for "preventing [the] theft and misuse of frontier models." It introduced the "security level" framework for the first time, where each level SL1-SL5 is characterized by the necessary security properties a system must possess to resist threats from an attacker of a given cybercapacity. Examples:
