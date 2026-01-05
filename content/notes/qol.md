@@ -2,6 +2,7 @@
 title: surprisingly high-leverage QoL improvements
 author: Yudhister Kumar
 date: 2026-01-03
+path: qol
 ---
 
 [YMMV, reverse all advice given, what works for me may not work for thee, *caveat emptor*, etc.]

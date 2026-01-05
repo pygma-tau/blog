@@ -1,5 +1,5 @@
 ---
-title: "SL5 Literacy"
+title: "[draft] SL5 Literacy"
 author: Yudhister Kumar
 date: 2026-01-02
 path: sl5-literacy

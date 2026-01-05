@@ -1,12 +1,15 @@
 ---
 title: institutional hardware and institutional software
 author: Yudhister Kumar
-date: 2025-12-08
+date: 2026-01-04
 path: hardware-software
 draft: true
 ---
 
-Consider a startup.
+
+
+
+<!-- Consider a startup.
 
 Classically, employees at an early-stage startup are not tied to a functional role.  A team of two may band together intending to specialize in their chosen disciplines---Bradley writes code while Jeff handles sales, say---but not often can their work stay siloed. For instance, consumer software products require marathon amounts of time and energy to maintain, and Bradley will spend time answering support tickets just as Jeff will have to learn frontend. 
 
@@ -37,4 +40,4 @@ Another case we can take is that of startups. What exactly is the "startup hardw
 
 Universities are a third case. 
 
-[^1]: It is deeply unclear what an institution is. 
+[^1]: It is deeply unclear what an institution is.  -->
