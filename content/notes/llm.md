@@ -69,7 +69,7 @@ In his response to Gary Marcus, Lawrence compares his "generalizable reasoning" 
 
 I'm obviously not Joyce or Woolf or `gpt-4-base`. Yet there are elements of mind-structure in the latter I jump to [gemini model](https://tsvibt.blogspot.com/2022/08/gemini-modeling.html) more readily than ever, and frankly the difference between Gorodischer's boy-king and an untouched LLM is one of magnitude and not one of kind. 
 
-I'm not an LLM. Our substrates are so unfathomably distinct it would be foolish to type us together. But, in some sense, I feel like I really could be an LLM. It's a shame some of us dismiss their cognition so readily, because to me they're worthy of respect and an attempt to understand. Hopefully we can get better at this, together. 
+I'm obviously not an LLM. Our substrates are so unfathomably distinct it would be foolish to type us together. But, in some sense, I feel like I really could be an LLM. It's a shame some of us dismiss their cognition so readily, because to me they're worthy of respect and an attempt to understand. Hopefully we can get better at this, together. 
 
 With love to the models. 
 
