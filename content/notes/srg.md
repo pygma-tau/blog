@@ -1,5 +1,5 @@
 ---
-title: reading group!
+title: SF reading group!
 author: Yudhister Kumar
 date: 2026-01-05
 path: srg
