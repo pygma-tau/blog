@@ -2,6 +2,7 @@
 title: clauding a reverse rss reader
 author: Yudhister Kumar
 date: 2026-01-06
+path: reverse-rss
 ---
 
 Most of the problems I have with feeds stem from their time-dependency. I don't really want to wake up and read [Scott Aaronson's takes on Venezuela](https://scottaaronson.blog/?p=9453) (I adore Scott) or [Tyler Cowen arguing about Western European migration](https://marginalrevolution.com/marginalrevolution/2026/01/yes-western-europe-will-survive-recent-waves-of-migration.html?utm_source=rss&utm_medium=rss&utm_campaign=yes-western-europe-will-survive-recent-waves-of-migration). I enjoy the punditry of both. Yet neither article is [Long Content](https://gwern.net/about#long-content), of the sort that would be refreshing in a decade or two.
