@@ -5,6 +5,8 @@ date: 2026-01-08
 path: of-mice-and-men
 ---
 
+[*musings from 2 years ago, unedited*]
+
 [quite experimental. class = economic class mostly]
 
 California! ~central California, near the coast, south of Salinas and north of Santa Barbara. (near Monterey). 
