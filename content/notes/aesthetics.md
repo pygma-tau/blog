@@ -2,7 +2,7 @@
 title: Aesthetics
 author: Yudhister Kumar
 path: aesthetics
-date: 2026-01-08
+date: 2026-01-09
 ---
 
 [*musings from 2 years ago, unedited*]
