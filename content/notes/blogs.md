@@ -1,0 +1,150 @@
+---
+title: Blogs
+author: Yudhister Kumar
+date: 2026-01-09
+path: blogs
+---
+
+Good blogs. And websites too. No particular order. Updated semi-regularly.
+
+- [Owen Lynch](https://owenlynch.org/)---research software engineer at the Topos Institute. Mostly posts nowadays at [localcharts](https://forest.localcharts.org/owen-lynch.xml), which has a really cool UI that I should check out!
+- [Sinho Chewi](https://chewisinho.github.io/), Yale prof, Log-concave sampling ([book draft](https://chewisinho.github.io/main.pdf)), geometric optimization, complexity of sampling. 
+- [Gwern](https://gwern.net). NEET polymath? Actually not sure about either of these claims. Untold depths. More [here](/gwern). 
+- [Steve Hsu](https://infoproc.blogspot.com/)---theoretical physics prof. at MSU. does podcasts, comments widely, polymathic 
+- [pourteaux](https://read.pourteaux.xyz/)---Manhattan surgeon who has a "knack for falling down rabbit holes." Developer of an [institutional alignment](https://read.pourteaux.xyz/p/institutional-alignment) framework, writes about geopolitics, subcultures, crypto-adjacent.
+- [Edward Kmett](http://comonad.com/reader/)---comonad, blog for discussing "substructural logics, dependent types, type systems, comonads," etc. 
+- [Terence Tao](https://terrytao.wordpress.com/). 'Nuff said. 
+- [Alethios](https://alethios.substack.com/)---Taiwan substack. "Thinking about cities & public service in the age of AI."
+- [Scott Aaronson](https://scottaaronson.blog/)---Shtetl-Optimized. Also 'nuff said. 
+- [Casey Handmer](https://caseyhandmer.wordpress.com/)---energy, space, engineering, technical commentary. Founder of Terraform
+- [Scott Alexander](https://www.astralcodexten.com/), probably needs a mild amount of defending. great rationalist and writes well and has good takes sometimes
+- [Gavin Leech](https://gleech.org), gwern-aspiree, well-read, omnipotent critic
+- [Asimov Press](https://press.asimov.com/), biotech-focused magazine with "rigorous fact-checking". Published Richard Ngo's Tinker.
+- [Richard Ngo](https://www.narrativeark.xyz/)---speculative sci-fi fiction from OpenAI governance researcher. emphasis on AGI/ASI
+- [Arnaud Schenk](https://gestalt.cafe/). Posts aren't indexed, so [this thread](https://twitter.com/_ArnaudS_/status/1772961511251525686) has some good ones.
+- [Leila Clark](https://www.approachwithalacrity.com/). [101 things I'd tell myself from a decade ago](https://www.approachwithalacrity.com/101-things-for-my-past-self/). good writing
+- [Paul Graham](https://www.paulgraham.com/articles.html). See [here](/paulg).
+- [Peter Woit](https://www.math.columbia.edu/~woit/wordpress/). String theory, high-energy physics, fundamental physics, are there any other labels that work here to take up space
+- [Bryan Hayes](http://bit-player.org/). Science essays. Impeccable resume: Scientific America, Harvard, Berkeley.
+- [Gil Kalai](https://gilkalai.wordpress.com/). Geometric combinatorics, convex polytopes, Boolean functions.
+- [Luca Trevisan](https://lucatrevisan.wordpress.com/). In Theory. CS prof., Italian, SF, [Taipei](https://lucatrevisan.wordpress.com/category/places/taiwan/). 
+- [John Baez](https://johncarlosbaez.wordpress.com/about/). Official blog of the Azimuth Project. Many things, but a lot of math.
+- [Topos Institute](https://topos.site/blog/)---blog by Topos researchers. Great!
+- [RealClimate](https://www.realclimate.org/). "Climate science from climate scientists". Sane. Gavin Schmidt & Michael Mann, et. al.
+- [IQIM@Caltech](https://quantumfrontiers.com/). quantum info and matter research blog and general blog. great stuff, including Hamlet rewritten for a system of noncommuting charges. 
+- [Sean Carroll](https://www.preposterousuniverse.com/blog/). JHU, Santa Fe, physicist & philosopher. Great podcast.  
+- [Dave Bacon](https://dabacon.org/pontiff/). The Quantum Pontiff. Quite random
+- [Boaz Barak](https://windowsontheory.org/). Windows on Theory. Started by a group of people at Microsoft Research, theoretical CS blog, for debating theory of computing.
+- [Tim Urban](https://waitbutwhy.com/). Wait but Why. Just very good. 
+- [Ramis Movassagh](https://ramismovassagh.wordpress.com/blog/). Applied mathematician & mathematical physicist @Google Quantum AI. Past IBM, MIT. Mostly expository blog, kind of dead. 
+- [Aella](https://aella.substack.com/). 
+- [Sarah Constantin](https://sarahconstantin.substack.com/). Rough Diamonds. Takes a look at phenomenons in the world and tries to figure out why they exist, with simple methodologies. 
+- [Zvi Mowshowitz](https://thezvi.substack.com/). Don't Worry About the Vase. Mostly AI, policy, rationality, medicine & fertility, education and games. 
+- [Yassine Meskhout](https://ymeskhout.substack.com/p/the-happy-birth-day-question). Former public defender who now does culture war commentary. 
+- [Timothy Gowers](https://gowers.wordpress.com/). Mostly dead, sadly :(
+- [Michael Nielsen](https://michaelnotebook.com/). Quantum computing, open science, AI, SF. 
+- [xkcd](https://xkcd.com/). "A webcomic of romance, sarcasm, math, and language." 
+- [Vitalik Buterin](https://vitalik.eth.limo/). Founder of Ethereum. degen communism, d/acc, the end of childhood.
+- [Caspar Oesterheld](https://casparoesterheld.com/). Decision theory, acausal trade, AI alignment, game theory. My (former) mentor :D
+- [Andrew Gelman](https://statmodeling.stat.columbia.edu/). Columbia stats. The best statistics blog. 
+- [Cosma Shalizi](http://bactra.org/notebooks/). Studies large, complex, nonlinear dynamical systems through the lens of STATS and POWER. 
+- [Toby Ord](https://www.amirrorclear.net/). literature, visual art, music, game
+- [Paul Christiano](https://sideways-view.com). For unimportant things. For his alignment posting see [here](https://www.ai-alignment.com).
+- [Marginal Revolution](https://marginalrevolution.com/). Named by the pub name instead of Tyler Cowen/Alex Tabarrok because its brand is unique. Econ, culture, pol.
+- [David Pearce](https://www.hedweb.com/confile.htm). Links to *The Hedonistic Imperative* and his other writings. Brilliant, many books.
+- [Anders Sandberg](https://aleph.se/andart2/). Erratic, undeniably curious 
+- [Luke Muehlhauser](https://lukemuehlhauser.com/). music & archives, among other things
+- [Ozy Brennan](https://thingofthings.substack.com/). feminism & trans & culture war & ea
+- [Jan Kirchner](https://universalprior.substack.com/). On Brains, Minds, And Their Possible Uses. Comp neuro PhD @ MPI Brain Research Frankfurt. Dead since Jan 2023 :(
+- [Tom Adamczewski](https://bayes.net/). swe consulting, London. last posts on monitors, fertility, stats
+- [Mark Liberman](https://languagelog.ldc.upenn.edu/nll/). Linguistics blog since 2003 from UPenn
+- [Piero Scaruffi](https://www.scaruffi.com/). The Greatest Music Critic Of All Time. Possibly the GOAT of Art Critique as well. 
+- [Robin Hanson](https://www.overcomingbias.com/). Overcoming Bias. "A blog on why we believe and do what we do, why we preetend otherwise, how we might do better, and what our descendants might do, if they don't all die."
+- [Ben Kuhn](https://www.benkuhn.net/). Abyss starer, works at Anthropic, formerly Wave & Harvard. HN?
+- [Hacker News](https://news.ycombinator.com/). Reddit for hackers/software people, I think? Great links and discussions, hosted by YC.
+- [Kieran Healy](https://kieranhealy.org/). Sociology prof at Duke. Lucid humanities. 
+- [Gregory Lewis](https://thepolemicalmedic.wordpress.com/). Junior doctor in/around Oxford. EA. The Polemical Medic. NOTE: this is dead as of 2015, but sufficiently different from others in this list to leave up. 
+- [Philip Trammell](https://philiptrammell.com/blog). DPhil econ student at Oxford. GPI. Patient Philanthropy. 
+- [Alexey Guzey](https://guzey.com/). Inspired by Freeman Dyson and Augustine of Hippo (i have [takes](/augustine)). 
+- [Dan Luu](https://danluu.com/). Good HTML aesthetics. Software blog? 
+- [Pablo Stafforini](https://www.stafforini.com/blog/). Dead since 2022. Great Anki repositories. EA.
+- [Eric Schwitzgebel](https://schwitzsplinters.blogspot.com/), UCR philosophy professor!! philosophy of psychology, philosophy of mind, moral psychology, classical Chinese philosophy, epistemology, metaphilosophy, metaphysics, scifi...
+- [Bruce Schneier](https://www.schneier.com/). Public interest technologist focused on security. Great deep-dives
+- [David Roodman](https://davidroodman.com/). Senior advisor at OpenPhil. Economic development in poorer countries: microfinance, third world debt, environmental taxes, etc.
+- [Matt Clancy](https://mattsclancy.substack.com/). New Things Under the Sun, blog on innovation research. He works on innovation policy at OpenPhil. [This](https://www.newthingsunderthesun.com/) is his living literature review. 
+- [Jacob Trefethen](https://blog.jacobtrefethen.com/). Senior program officer at OpenPhil, new blog on scientific progress and funding mechanisms for science.
+- [Lewis Bollard](https://farmanimalwelfare.substack.com/). OpenPhil farm animal welfare bimonthly newsletter. 
+- [Works in Progress](https://worksinprogress.co/). "A magazine of new and underrated ideas to improve the world." By Stripe.
+- [Institute for Progress](https://ifp.org/latest-publications/). Policy, progress studies, link is to latest publications. 
+- [Jason Crawford](https://rootsofprogress.org/writing). Progress studies at The Roots of Progress. Reading lists, cellular reprogramming, origins of the steam engine. 
+- [Progress Forum](https://progressforum.org/). LW clone but for progress studies. Great!
+- [LessWrong](https://lesswrong.com). Home of alignment research, rationality, and good math posts. 
+- [EA Forum](https://forum.effectivealtruism.org/). Much larger than LessWrong, EA focused. Also a LW clone. 
+- [Ajeya Cotra](https://www.planned-obsolescence.org/). Technical AI safety at OpenPhil. Writes about scale vs. schlep (great naming)
+- [Joe Carlsmith](https://joecarlsmith.com/). Senior research analyst at OpenPhil working on existential risk. MTG green, meta-ethics, rationality, ethics...
+- [Carl Shulman](https://reflectivedisequilibrium.blogspot.com/). Marvelous. Also writes on the [EA Forum](https://forum.effectivealtruism.org/topics/carl-shulman) and [LessWrong](https://www.lesswrong.com/users/carlshulman). [Incomplete timeline of publications](https://timelines.issarice.com/wiki/Timeline_of_Carl_Shulman_publications) on issarice.
+- [David Eppstein](https://11011110.github.io/blog/). UCI CS prof, Wikipedia admin. links, somewhat dead
+- [William Kuszmaul](https://algorithmsoup.wordpress.com/). Harvard postdoc. algorithms, data structures, probability
+- [Qiaochu Yuan](https://qchu.wordpress.com/). link to his math blog. his other (modern-day) writing is [here](https://qchu.substack.com/).
+- [n-Category Cafe](https://golem.ph.utexas.edu/category/). "A group blog on math, physics, and philosophy". 
+- [Ars Mathematica](https://www.arsmathematica.net/). dead since 2015, use as archive
+- [David Mumford](https://www.dam.brown.edu/people/mumford/blog.html). Known for algebraic geometry, pattern theory. Posts about consciousness, AI, and Israel sometimes. 
+- [ATLAS of Finite Group Representations](https://brauer.maths.qmul.ac.uk/Atlas/v3/). What the name says. 
+- [Automorphic Forum](https://automorphicforum.wordpress.com/). Dead since 2012. Automorphic forms, number theory, representation theory, algebraic geometry, ...
+- [Abhishek Roy](https://www.ocf.berkeley.edu/~abhishek/). Postdoc in condensed matter theory at ITP Cologne. Keeps the chicago undergraduate maths & physics bibliographies up
+- [Willie WY Wong](https://qnlw.info/post/). MSU prof. Studies general relativity, fluid dynamics, geometric methods, nonlinear wave equations. 
+- [Compressed sensing resources](http://www.compressedsensing.com/). Again, see name
+- [Lance Fortnow & Bill Gasarch](https://blog.computationalcomplexity.org/). Blog on computational complexity by IIT CS prof and UMD CS prof. 
+- [Concrete Nonsense](https://concretenonsense.wordpress.com/). Group math blog that has been dead since 2015 :(
+- [forking and dividing](https://www.forkinganddividing.com/). map of the model-theoretic universe. very cool
+- [George Shakan](https://blog.georgeshakan.com/). data scientist. previously postdoc at Oxford under Ben Green. 
+- [Danny Calegari](https://lamington.wordpress.com/). Geometry and the imagination. Archive, dead since 2017
+- [floerhomology](https://floerhomology.wordpress.com/). dead since 2018. good archive
+- [fff](https://ffbandf.wordpress.com/). Forking, Forcing, and back&Forthing. Logic blog!! dead since 2013 tho, for archive
+- [Low Dimensional Topology](https://ldtopology.wordpress.com/). Dead since 2020, but *come on* it's *low-dimensional topology*, the *coolest thing since sliced bread*
+- [M-PHI](https://m-phi.blogspot.com/). A blog dedicated to mathematical philosophy. Might not be dead, latest post August 22, 2023. Many interesting articles and many cat photos!
+- [Djalil CHAFAÏ](https://djalil.chafai.net/blog/). French mathematician interested in geometric and probabilistic functional analysis, among other things. Great mathematics blog that I think is in English? 
+- [Mark Lewko](https://lewko.wordpress.com/). Grad student at UT Austin. Interested in finite fields and Fourier series, according to his [papers](https://sites.google.com/site/mlewko/)? Dead since 2013. 
+- [Alan Rendall](https://alanrendall.wordpress.com/). Hydrobates, mathematician thinking about stuff. Recently Sylvia Plath and Arendt. 
+- [Joel Moreira](https://joelmoreira.wordpress.com/about/). "I Can't Believe It's Not Random!". Ergodic theory & Ramsey theory and surrouding areas. Last post 2022.
+- [Joel David Hamkins](https://jdh.hamkins.org/). "mathematics and philosophy of the infinite." Mathematical and philosophical logic, with a focus on the infinite. Logic prof. at University of Notre Dame, previously at Oxford. Good work on forcing & large cardinals. [Newsletter: Infinitely More](https://www.infinitelymore.xyz/) (paid :( ). 
+- [Jérôme Buzzi](https://jbuzzi.wordpress.com/). Topology, dynamics, uniform hyperbolicity. French. 
+- [Keith Conrad's expository papers](https://kconrad.math.uconn.edu/blurbs/). Great!
+- [Tai-Danae Bradley](https://www.math3ma.com/). Interested in the intersection of quantum physics, machine intelligence, and category theory. 
+- [Cathy O'Neil](https://mathbabe.org/). "how do you know your AI is working well for everyone?", mathbabe, ea-adjacent, social commentary
+- [mathblogging.org](https://mathblogging.org/). Aggregator for the mathematical blogosphere
+- [Tony Gardiner](https://micromath.wordpress.com/). Founder of UKMT, brilliant pedagogue, dead at 2024. Also an OOM more kids take olympiads in the UK than the US. Wild
+- [Andreas Holmstrom](https://homotopical.wordpress.com/). Cohomology, homotopy theory, arithmetic geometry. Also runs [PeakMath](https://peakmath.org)
+- [Thomas Vidick](https://mycqstate.wordpress.com/). MyCQState. Caltech prof. Proofs with quantum stuff. 
+- [David Lowry-Duda](https://davidlowryduda.com/blog/). Senior Research Scientist at ICERM. Moderator on math.stackexchange. computational number theory
+- [nLab](https://ncatlab.org/nlab/show/HomePage). Wiki for collaborative work on math/physics/philosophy, sympathetic to the perspective of homotopy theory/algebraic topology/hott/higher category theory/higher categorical algebra
+- [Noncommutative geometry blog](https://noncommutativegeometry.blogspot.com/). just that
+- [Nonlocal Equations Wiki](https://web.ma.utexas.edu/mediawiki/index.php/Starting_page?). nonlocal elliptic and parabolic equations. bellman equation is an example
+- [Online Analysis Research Seminar](https://sites.google.com/view/o-a-r-s/). Talks on harmonic analysis & adjacent areas that are accessible to a general mathematical audience.
+- [Pengfei Zhang](https://pfzhang.wordpress.com/). sporadic posting---last one in 2024, so still decent rates. 
+- [Frank Calegari](https://www.galoisrepresentations.com/). Number theorist (sometimes) blogs about math. UChicago math prof
+- [Proof Wiki](https://www.proofwiki.org/wiki/Main_Page). 
+- [Jordan S. Ellenberg](https://quomodocumque.wordpress.com/). Quomodcumque. Fucking awesome. UW Madison math prof who roadtripped to the solar eclipse with his kids. Arithmetic algebraic geometry. 
+- [Peter Cameron](https://cameroncounts.wordpress.com/). 1969 Rhodes Scholar, good [travel diaries](https://cameroncounts.github.io/web/travel/). mathematician
+- [Astronomy Picture of the Day](https://apod.nasa.gov/apod/astropix.html). 
+- [Dirk Lorenz](https://regularize.wordpress.com/). Mathematics at TU Braunschweig. dead since 2019
+- [Rigorous Trivialities](https://rigtriv.wordpress.com/). Group blog dead since 2015. Arithmetic algebraic geometry, topology, mathematical physics. Charles Siegel, Jim Stankewicz, Matt Deland.
+- [Secret Blogging Seminar](https://sbseminar.wordpress.com/). 8 anon Berkeley math PhDs. dead-ish, last post 2020
+- [Sergey Denisov](https://sdenisov.wordpress.com/). Math prof at UW Madison. Dead since 2019
+- [Dustin Mixon](https://dustingmixon.wordpress.com/). Ohio State math prof. blog is kinda dead, 2 posts in the last 3 years. also called Short, Fat Matrices
+- [Toan Nguyen](https://sites.psu.edu/nguyen/). Penn State mathematician. 
+- [Kenneth Baker](https://sketchesoftopology.wordpress.com/). Sketches of low-dimensional topology. 
+- [Yemon Choi](https://ifwisdomwereteachable.wordpress.com/). algebra x functional analysis
+- [The L-functions and modular forms database](https://www.lmfdb.org/). LMFDB
+- [Tricki](https://www.tricki.org/). A really nice database on mathematical tricks that you can use in proofs. [how to use ultrafilters!](https://www.tricki.org/article/How_to_use_ultrafilters)
+- [The polymath blog](https://polymathprojects.org/). tim gowers's attempt at crowdsourcing mathematics. went well. dead since 2021
+- [World Digital Mathematics Library](https://www.mathunion.org/ceic/library/world-digital-mathematics-library-wdml)
+- [Thuses](https://thuses.com/). online publishing platform for mathematicians. dead since 2021, but one post 2023. i should write one
+- [Timothy Gowers' mathematical discussions](https://www.dpmms.cam.ac.uk/~wtg10/mathsindex.html)
+- [Vaughn Climenhaga](https://vaughnclimenhaga.wordpress.com/). Associate professor at University of Houston doing research in dynamical systems. 
+- [Yufei Zhao](https://yufeizhao.com/blog/). MIT combinatorialist, Putnam. Ashwin's PhD advisor
+- [Dominic Cummings](https://dominiccummings.substack.com/). reads well. brexit guy. attempting to reform maths ed in the uk
+- [Curtis Yarvin](https://graymirror.substack.com). Blogs at Gray Mirror. Formerly Mencius Moldbug. Radical monarchist. 
+- [James W. Phillips](https://jameswphillips.substack.com/). Former special adviser to the PM for Science and Tech. systems neuroscientist. 'trying to prepare for agi'. co-founder of ARIA
+- [ARIA](https://ariaresearch.substack.com/). UK's ARPA. 
+- 

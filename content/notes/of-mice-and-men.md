@@ -1,7 +1,7 @@
 ---
 title: "Review | Of Mice and Men"
 author: Yudhister Kumar
-date: 2026-01-08
+date: 2026-01-07
 path: of-mice-and-men
 ---
 
