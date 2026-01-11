@@ -2,6 +2,7 @@
 title: a brief diatribe on morality
 author: Yudhister Kumar
 date: 2026-01-10
+path: morality-1
 ---
 
 A good friend asked me today: *why aren't the AI labs evil?*
