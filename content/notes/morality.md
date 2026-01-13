@@ -1,5 +1,5 @@
 ---
-title: a brief diatribe on morality
+title: a brief diatribe on safetyism
 author: Yudhister Kumar
 date: 2026-01-10
 path: morality-1

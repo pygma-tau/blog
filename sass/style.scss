@@ -4,15 +4,15 @@ body {
     color: #000000;
     font-size: 16px;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 
 main {
     max-width: 600px;
-    width: calc(100% - 100px);
+    width: 100%;
     padding: 0px 10px;
     box-sizing: border-box;
 
@@ -39,101 +39,45 @@ main {
 }
 
 nav {
-    width: 100px;
-    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px 10px;
     box-sizing: border-box;
 
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
 
         li {
-            margin-bottom: 10px;
+            margin: 0;
         }
     }
 }
 
 // Media query for mobile devices
 @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-
     main {
-        max-width: 100%;
-        width: 100%;
         padding: 0px;
     }
 
     nav {
-        width: 100%;
-        padding: 0px 0;
-        margin-bottom: 10px;
-        order: -1;
-
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-
-            li {
-                margin: 0 10px 10px 0;
-            }
-        }
-    }
-
-    /* Mobile styles for content layout */
-    .content-layout {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .pagination-sidebar {
-        width: 100%;
-        position: static;
-        order: -1; /* Move pagination to top on mobile */
-    }
-
-    .pagination-sidebar .pagination {
-        text-align: center;
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .pagination-sidebar .pagination > * {
-        display: inline-block;
-        text-align: center;
-        padding: 5px 10px;
-    }
-
-    .pagination-sidebar .pagination a {
-        border-bottom: none;
-        border: 1px solid #007bff;
-        border-radius: 3px;
-    }
-
-    .pagination-sidebar .pagination a:hover {
-        background-color: #007bff;
-        color: white;
-        padding-left: 10px;
-    }
-
-    .pagination-sidebar .page-number {
-        border-bottom: none;
-        padding-bottom: 5px;
+        padding: 10px 0;
     }
 }
 
 // Additional styles for better readability on mobile
 @media (max-width: 768px) {
     h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     h3 {
@@ -141,7 +85,11 @@ nav {
     }
 
     body {
-        font-size: 12px;
+        font-size: 15px;
+    }
+
+    main {
+        padding: 0 15px;
     }
 }
 
@@ -154,11 +102,22 @@ pre {
 h1 {
     font-weight: normal;
     font-size: 32px;
+    text-align: center;
 }
 
 h2 {
     font-weight: normal;
     font-size: 24px;
+    text-align: center;
+}
+
+// Center date display
+main > h1 + p {
+    text-align: center;
+}
+
+article header {
+    text-align: center;
 }
 
 h3 {

@@ -14,8 +14,6 @@ Previously:
 
 I live in San Francisco.
 
-When I was 16, I dropped out of high school and spent a year and a half with no permanent address. This had predictable and unpredictable consequences.
-
 <!-- I love my friends! 
 
 - [Aidan](https://aidanjs.com)
