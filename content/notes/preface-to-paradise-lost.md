@@ -9,7 +9,7 @@ Perhaps the best section of the book deals with Milton's taxonomy of worthy poem
 
 <blockquote>
 
-(A) Epic.<br>
+<i>(A) Epic.<br>
 &emsp;I.<br>
 &emsp;&emsp;(a) The diffuse Epic [Homer, Virgil, and Tasso].<br>
 &emsp;&emsp;(b) The brief Epic [the Book of Job].<br>
@@ -22,7 +22,7 @@ Perhaps the best section of the book deals with Milton's taxonomy of worthy poem
 &emsp;(b) On the model of Canticles or the Apocalypse.<br>
 (C) Lyric.<br>
 &emsp;(a) On the Greek model ['Pindarus and Callimachus'].<br>
-&emsp;(b) On Hebrew models ['Those frequent songs throughout the Law and the Prophets'].
+&emsp;(b) On Hebrew models ['Those frequent songs throughout the Law and the Prophets'].</i>
 
 </blockquote>
 
