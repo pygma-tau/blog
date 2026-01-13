@@ -8,20 +8,20 @@ date: 2026-01-12
 Perhaps the best section of the book deals with Milton's taxonomy of worthy poems to write, namely:
 
 <blockquote>
-(A) Epic.  
-    I. 
-        (a) The diffuse Epic [Homer, Virgil, and Tasso].
-        (b) The brief Epic [the Book of Job].  
-    II. 
-        (a) Epic keeping the rules of Aristotle.  
-        (b) Epic following Nature.  
-    III. Choice of subject ['what king or knight before the conquest'].  
-(B) Tragedy.  
-    (a) On the model of Sophocles and Euripides.      
-    (b) On the model of Canticles or the Apocalypse.  
-(C) Lyric.  
-    (a) On the Greek model ['Pindarus and Callimachus'].  
-    (b) On Hebrew models ['Those frequent songs throughout the Law and the Prophets'].
+(A) Epic.    
+    I.   
+        (a) The diffuse Epic [Homer, Virgil, and Tasso].   
+        (b) The brief Epic [the Book of Job].     
+    II.    
+        (a) Epic keeping the rules of Aristotle.     
+        (b) Epic following Nature.     
+    III. Choice of subject ['what king or knight before the conquest'].     
+(B) Tragedy.     
+    (a) On the model of Sophocles and Euripides.         
+    (b) On the model of Canticles or the Apocalypse.     
+(C) Lyric.     
+    (a) On the Greek model ['Pindarus and Callimachus'].     
+    (b) On Hebrew models ['Those frequent songs throughout the Law and the Prophets'].    
 </blockquote>
 
 (this is from his <i>Reason of Church Government</i>, [src](https://milton.host.dartmouth.edu/reading_room/reason/book_1/text.shtml))
