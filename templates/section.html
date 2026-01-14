@@ -13,9 +13,6 @@
     <!-- MathJax for LaTeX rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script src="{{ get_url(path='js/footnotes.js') }}"></script>
-    {% if section.path is containing("notes") %}
-    <script src="{{ get_url(path='js/filter.js') }}" defer></script>
-    {% endif %}
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
     <script>
@@ -124,11 +121,18 @@
                 {% endfor %}
             </ul>
         {% else %}
-            {# Check if pagination is enabled for this section #}
-            {% if paginator %}
-                {# Loop through pages for the CURRENT pager #}
-                {% for page in paginator.pages %}
-                    <article class="post" data-good="{{ page.extra.good | default(value=false) }}">
+            {# Notes section with client-side filtering and pagination #}
+            {% if section.path is containing("notes") %}
+                {% for page in section.pages %}
+                    {% set page_year = page.date | date(format="%Y") | int %}
+                    {% if page.extra.passable is defined %}
+                        {% set is_passable = page.extra.passable %}
+                    {% elif page_year <= 2025 %}
+                        {% set is_passable = true %}
+                    {% else %}
+                        {% set is_passable = false %}
+                    {% endif %}
+                    <article class="post" data-passable="{{ is_passable }}">
                         <header>
                             <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
                             <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
@@ -141,8 +145,23 @@
                         <hr class="post-separator">
                     {% endif %}
                 {% endfor %}
-
-                {# Add pagination navigation links #}
+                <nav class="pagination"></nav>
+            {% elif paginator %}
+                {# Other sections with Zola pagination #}
+                {% for page in paginator.pages %}
+                    <article class="post">
+                        <header>
+                            <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+                            <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+                        </header>
+                        <div class="post-content">
+                            {{ page.content | safe }}
+                        </div>
+                    </article>
+                    {% if not loop.last %}
+                        <hr class="post-separator">
+                    {% endif %}
+                {% endfor %}
                 <nav class="pagination">
                     {% if paginator.previous %}
                         <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
@@ -152,11 +171,10 @@
                         <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
                     {% endif %}
                 </nav>
-
             {% else %}
-                {# Fallback: If pagination is NOT enabled, show all pages #}
+                {# Fallback: If pagination is NOT enabled #}
                 {% for page in section.pages %}
-                    <article class="post" data-good="{{ page.extra.good | default(value=false) }}">
+                    <article class="post">
                         <header>
                             <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
                             <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
@@ -172,5 +190,8 @@
             {% endif %}
         {% endif %}
     </main>
+    {% if section.path is containing("notes") %}
+    <script src="{{ get_url(path='js/filter.js') }}"></script>
+    {% endif %}
 </body>
 </html>

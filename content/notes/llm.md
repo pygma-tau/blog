@@ -3,6 +3,8 @@ title: am I an LLM?
 author: Yudhister Kumar
 date: 2026-01-04
 path: am-i-an-llm
+extra:
+    passable: true
 ---
 
 <h3>I.</h3>

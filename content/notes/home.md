@@ -4,7 +4,7 @@ author: Yudhister Kumar
 date: 2026-01-11
 path: home-1
 extra:
-  good: true
+  passable: true
 ---
 
 [*more personal than usual. I turned twenty yesterday, so I figured I'd indulge in a little introspection. Normally I think about my life as ~starting at sixteen, but I was conscious a little before that. This is me trying to remember who I was*]
