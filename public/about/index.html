@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>About</h1>
+        <p><i>November 11, 2025</i></p>
+        <p>Presently:</p>
+<ul>
+<li>pretraining computer action models at <a href="https://si.inc/">Standard Intelligence</a>;</li>
+<li>thinking about agent foundations with <a href="https://www.iliad.ac/">ILIAD</a>.</li>
+</ul>
+<p>Previously:</p>
+<ul>
+<li>multi-agent RL at <a href="https://softmax.com/">Softmax</a>;</li>
+<li>open-source game theory with <a href="https://www.andrew.cmu.edu/user/coesterh/">Caspar Oesterheld</a> at <a href="https://matsprogram.org">MATS</a>;</li>
+<li>applied philosophy with <a href="https://scholar.google.com/citations?user=tsrblo8AAAAJ&amp;hl=en">Abram Demski</a> at the <a href="https://longtermrisk.org">Center on Long-Term Risk</a>.</li>
+</ul>
+<p>I live in San Francisco.</p>
+
+    </main>
+</body>
+</html>

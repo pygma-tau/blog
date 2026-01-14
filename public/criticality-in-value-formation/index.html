@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criticality in Value Formation</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>Criticality in Value Formation</h1>
+        <p><i>November 22, 2025</i></p>
+        <p>underspecified thesis: qualitative differences in phenomenal effects are primarily determined by the conditions under which nucleation occurs; the environmental conditions of phase transitions are the primary determinants of the long-run behavior.</p>
+<ul>
+<li>examples: <a href="https://www.nature.com/articles/srep10101">prion diseases</a>, <a href="https://www.pnas.org/doi/10.1073/pnas.0437744100">ritonavir</a>. cases where a structure exhibits polymorphism &amp; the particular polymorph propagated is sensitive to initial conditions</li>
+<li>counterexamples: error-correcting codes (robust to perturbation), some chaotic systems (no 'qualitatively different' basins in double pendulum behavior), mutational reproductive success (more fit mutations will propagate more widely, this is not generally determined by the time at which the mutation appears in the population)</li>
+</ul>
+<p>is this true for value formation? some cases:</p>
+<ul>
+<li>broadly, "developmental interpretability," insofar as one is interested in characterizing the stage-wise development of a neural network's policy. the SLT thesis as pursued by Timaeus (see <a href="https://timaeus.co/research/2025-10-05-influence-dynamics">Influence Dynamics and Stagewise Data Attribution</a>, <a href="https://timaeus.co/research/2025-08-01-embryology-of-a-language-model">Embryology of a Language Model</a>, <a href="https://timaeus.co/research/2025-04-25-modes">Modes of Sequence Models and Learning Coefficients</a>) falls in this category, as does characterizing the inductive bias of SGD, expanding the SLT story to encompass RL, attempts to link algorithmic information theory to modern training dynamics, the "neural nets as QFTs" perspective (see <a href="https://arxiv.org/abs/2310.03789">Grokking as a First Order Phase Transition in Two Layer Networks</a>).
+<ul>
+<li>pros: empirical work on actual neural nets we can train and try to interpret!</li>
+<li>cons: much work involves toy models and doesn't address the "what are values" question; there's a streetlighting effect where we find structure that we look for &amp; ignore the parts of the network which look "random" from this perspective</li>
+<li>meta-con of all? the theoretical interp work being somewhat predicated on the thesis that the algorithmic structure of the learned policy is determined by phase transitions in some thermodynamic-ish measurables of the network
+<ul>
+<li>comp-mech/Simplex not like this</li>
+</ul>
+</li>
+<li>success of these agendas should be evidence in favor of the thesis</li>
+</ul>
+</li>
+<li>sharp-left turn discourse
+<ul>
+<li>existence of sharp-left turns implies criticality in value formation (not polymorphism)</li>
+<li>my summary of <a href="https://www.lesswrong.com/posts/GNhMPAWcfBCASy8e6/a-central-ai-alignment-problem-capabilities-generalization">the original argument</a>:
+<ul>
+<li>"being generally capable" is instrumentally useful in a way that "being aligned" is not (also my understanding of the corrigibility is anti-natural argument), so there exists a strong attractor towards capability improvement that does not exist for alignment, alignment &amp; capabilities are not aligned in the limit thus capabilities generalize farther &amp; faster than alignment so your alignment breaks</li>
+</ul>
+</li>
+<li>i don't quite understand the arguments or counterarguments or really the arguments for why corrigibility is anti-natural?</li>
+<li>one way I want to concretize this is saying something about the stability of a logical inductor's value of statements which refer to itself (goals are 'just' beliefs about future actions, values are 'just' persistent goals)
+<ul>
+<li>LIs have Introspection (4.11) and Self-Trust (4.12) which makes their behavior nice in the limit</li>
+<li>plausibly you'd want to study beliefs in a game-like setting, either with information revelation over agent preferences or environment state, and see what happens?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>humans
+<ul>
+<li>trauma / philosophy / psychosis / abnormal psychological effects can induce extreme value shifts. this does not seem to be accompanied by an overall increase in individual performance</li>
+<li>humans raised in a slightly abnormal environment are pretty normal. humans raised outside of society are not very normal.</li>
+<li>the 'philosopher AI concern' comes from a belief that at some point the agents will be able to arbitrarily reflect &amp; decide what their values should be. i feel like consequentialist agents at time $t_0$ are incentivized not to let this happen at time $t_1 &gt; t_0.$</li>
+<li>in particular humans cannot arbitrarily intervene on their values very well</li>
+</ul>
+</li>
+</ul>
+
+    </main>
+</body>
+</html>

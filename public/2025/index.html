@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 In Review</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>2025 In Review</h1>
+        <p><i>January 01, 2026</i></p>
+        <p>2025 was odd.</p>
+<p>It was the best of times. I am happier today than I ever have been. I learned gorgeous and utilitarian concepts alike; I crossed the employability threshold and work with incredible comrades; I live in a home with some of my favorite people on the planet. I'll be 20 soon and the future is bright.</p>
+<p>It was the worst of times. Mired in a haze of hopelessness and confusion. I spent months and months in pain and as an insomniac; I was cripplingly sick for half a year. For the first time, I have regrets. Proper ones, ones that I'll never forget as long as I live.</p>
+<p>It is good to have lived, maybe. I never want to let the preconditions for this year exist again.</p>
+<h3>Ideas</h3>
+<p>Spent the first half of the year thinking about how to think about neural networks. Mean-field approaches to spin glasses, nonequilibrium QFT, KL bounds via stochastic coupling, depth-width tradeoffs, representational capacity (benchmarked by circuit complexity classes), singular learning theory, computational mechanics, variational reformulations of RL. Some of it was misguided, much was interesting.</p>
+<p>Vaintrob et. al. have been pursuing a QFT-inspired approach to interpretability. It's really cool, and I'm excited to (hopefully) see their empirical work come out this year. Dmitry's post on <a href="https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform?commentId=A8Ziwhts35dgqbz52">"SLT as a thermodynamic theory of Bayesian learning, but not the thermodynamic theory of Bayesian learning"</a> is one of the most interesting I've read this year.</p>
+<p>Read Debreu on microeconomics. Yasheng Huang on Chinese capitalism. Ran a Land-focused reading group running through Bateson, Hegel, analytical Marxism, Kant, and Land himself. Finnegans Wake and EGA are both prime examples of <a href="https://www.yudhister.me/idiolects/">idiolects</a>. Yuxi Liu has a great blog. Read the formalization of Chomsky's syntax-semantics theory while recovering from surgery. Thought about chromosomal selection and inducing meiosis in oogonia at the Reproductive Frontiers conference.</p>
+<p>Summer rolled around, I was briefly back to 95% capacity, and I was contracting for ILIAD (the org) &amp; planning to intern at Softmax. Making an open problems list for ODYSSEY (the conference) was enlightening. Curation is very, very difficult! Making sure that your theoretical brainchildren touch grass is almost as hard!</p>
+<p>Softmax forced me to properly learn to code. Programming is very different when done collaboratively in a shared codebase, doubly so when one's research code must be written quickly, efficiently, and in a manner interpretable to others. I'm glad I got to think about multi-agent RL and what makes good management good.</p>
+<p>My thoughts for the rest of the year were less legible. Tiling is an important problem. Formalizing it is hard. Acausal coalitional structure is confusing. Astronomical waste may or may not be an issue. Transpiling meta-ethical frameworks is hard. Biosingularitarian governance is hard. Is macrohistory determined by the nucleation stages of technological development or by deep convergent pressures leading to certain outcomes? How would we know?</p>
+<p>At SI, we think about meta-learning and recurrence, among other things. Attempting to understand these deeply has been fruitful. A Berkeley professor ran a seminar on Adorno and poetry with a wonderful reading list. Semiotic physics is confusing, but Owain Evans has some good frames. Evolutionary optimization is surprisingly sample-efficient. Training deep neural networks is hard. Post-AGI futures are confusing and hard to think about, but Korinek has good frames. Weight-sparse models are deeply interesting.</p>
+<p>In 2026, I want to drastically shorten my map-territory feedback loops. Intellectually, my greatest flaw this year was not investing in it. Admittedly, I probably did not have the energy for it. Luckily, this year is shaping up to be different.</p>
+<h3>Some Randomly Sampled Moments</h3>
+<p>[redacted]</p>
+<h3> People </h3>
+<p>[redacted]</p>
+<h3>Miscellanea</h3> 
+<p>[TBD]</p>
+
+    </main>
+</body>
+</html>

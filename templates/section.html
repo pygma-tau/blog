@@ -13,6 +13,9 @@
     <!-- MathJax for LaTeX rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script src="{{ get_url(path='js/footnotes.js') }}"></script>
+    {% if section.path is containing("notes") %}
+    <script src="{{ get_url(path='js/filter.js') }}" defer></script>
+    {% endif %}
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
     <script>
@@ -110,6 +113,10 @@
             {{ section.content | safe }}
         {% endif %}
 
+        {% if section.path is containing("notes") %}
+        <p class="filter-toggle-wrapper">[<a href="#" id="filter-toggle">show all</a>]</p>
+        {% endif %}
+
         {% if section.extra.list_titles_only %}
             <ul class="post-list">
                 {% for page in section.pages %}
@@ -121,7 +128,7 @@
             {% if paginator %}
                 {# Loop through pages for the CURRENT pager #}
                 {% for page in paginator.pages %}
-                    <article class="post">
+                    <article class="post" data-good="{{ page.extra.good | default(value=false) }}">
                         <header>
                             <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
                             <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
@@ -149,7 +156,7 @@
             {% else %}
                 {# Fallback: If pagination is NOT enabled, show all pages #}
                 {% for page in section.pages %}
-                    <article class="post">
+                    <article class="post" data-good="{{ page.extra.good | default(value=false) }}">
                         <header>
                             <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
                             <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>

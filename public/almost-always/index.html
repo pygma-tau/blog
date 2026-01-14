@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>five ways to say &#x27;Almost Always&#x27; and actually mean it</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>five ways to say &#x27;Almost Always&#x27; and actually mean it</h1>
+        <p><i>April 23, 2023</i></p>
+        <h2>In English</h2>
+<p>A boring, colloquial way.</p>
+<blockquote>
+<p>"<em>Almost all the eggs are gone!" (as half a dozen remain)</em></p>
+</blockquote>
+<h2>Not-Finite-ness</h2>
+<p>A slightly-less-boring mathy way.</p>
+<blockquote>
+<p>"<em>Almost all prime numbers are odd!</em>"</p>
+</blockquote>
+<p>There are infinitely many primes. There is exactly one even prime number (2). Infinity minus one is... infinity.</p>
+<blockquote>
+<p>"<em>Almost all natural numbers are larger than one-hundred thousand quadrillion quadrillion vigintillion! (10^83)</em>"</p>
+</blockquote>
+<p>There are infinitely many natural numbers. There are infinitely many natural numbers larger than one-hundred thousand quadrillion quadrillion vigintillion. No practical difference between 10^83 and 1 (other than that one is an upper bound on the number of atoms in the universe).</p>
+<p>You formalize this with sets: if you have some (infinite) set, a subset whose complement has a finite cardinality encompasses almost everything in the set. We call this <em>cofiniteness.</em></p>
+<h2>Probability ~One</h2>
+<p>A way to quantify surety.</p>
+<blockquote>
+<p>"<em>Almost all the people will lose money at the casino!</em>"</p>
+</blockquote>
+<p>I'm not sure what the exact rates are, but I'd bet money on this being true.</p>
+<blockquote>
+<p>"<em>Almost all numbers are composite!</em>"</p>
+</blockquote>
+<p>It is well known that the number of prime numbers below \(N\)is approximately \(N / \ln N\). In the limit as \(N\) goes to infinity, the ratio of primes to non-primes numbers goes to approximately zero. So if you choose a random positive integer, I would bet my life savings that it's composite.</p>
+<blockquote>
+<p>"<em>Almost all graphs are</em> <a href="https://en.wikipedia.org//wiki/Asymmetric_graph"><em>asymmetric</em></a><em>.</em>"</p>
+</blockquote>
+<p>An intuitive explanation: if you take all possible combinations of nodes and vertices and let the number of each tend towards infinity, you should expect chaos to triumph over order. (sorry Ramsey). This does depend on a certain definition of symmetry, however, and a clearer statement would be "<em>almost all graphs have only one automorphism.</em>"</p>
+<h2>The Lebesgue Measure is Not-Zero</h2>
+<p>A straightforward-yet-strange way for real numbers.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Lebesgue_measure">Lebesgue measure</a> is what you get when you try to generalize length, area, and volume to \(n\)-dimensions. It forms the basis for our current understanding of integration, and helps us figure out how big stuff is.</p>
+<p>Something with zero volume basically doesn't exist anyway.</p>
+<blockquote>
+<p>"<em>Almost all real numbers are irrational!</em>"</p>
+</blockquote>
+<p>Well yes, all the rationals have measure zero. All countable sets have measure zero, and the rationals are countable.</p>
+<p>(Measures are nice: they're a neat generalization of physical scales (mass, volume, etc.) to arbitrary mathematical objects. They're particularly useful for dealing with continuous things <del>we love Lebesgue measures</del>)</p>
+<blockquote>
+<p>"<em>Almost all real numbers are noncomputable!</em>"</p>
+</blockquote>
+<p>Well yes? Of course an arbitrary real number can't be computed to arbitrary precision by a finite algorithm? <a href="https://en.wikipedia.org/wiki/Computable_number">Computable numbers</a> are <em>countable,</em> remember? Nevermind that <em>basically all the numbers we deal with are computable,</em> this is <em>obvious.</em></p>
+<p>(Measure zero stuff basically doesn't exist, even if they're the only things we use on a daily basis)</p>
+<blockquote>
+<p>"<em>Almost all real numbers aren't in the Cantor set!</em>"</p>
+</blockquote>
+<p>Well yes, of course! Even though the <a href="https://en.wikipedia.org/wiki/Cantor_set">Cantor set</a> is uncountably infinite, it still has measure zero! It's a weird pseudo-fractal embedding of the real line that somehow manages to lose everything in translation but still keep all the relevant information.</p>
+<p>(Idk, the Cantor set is weird)</p>
+<h2>It is Contained in a Nonprincipal Ultrafilter</h2>
+<p>A <em>filter</em> \(\mathcal{F}\) on an arbitrary set \(I\) is a collection of subsets of \(I\) that is closed under set intersections and supersets. (Note that this means that the smallest filter on \(I\) is \(I\) itself).</p>
+<p>An <em>ultrafilter</em> is a filter which, for every \(A \subseteq I\), contains either \(A\) or its complement. A <em>principal</em> ultrafilter contains a finite set.</p>
+<p>A <em>nonprincipal ultrafilter</em> does not.</p>
+<p>This turns out to be an incredibly powerful mathematical tool, and can be used to generalize the concept of "almost all" to esoteric mathematical objects that might not have well-defined or intuitive properties.</p>
+<p>(One of the coolest uses of nonprincipal ultrafilters is in the construction of the hyperreals, post forthcoming).</p>
+<p>Let \(\mathcal{U}\) be a nonprincipal ultrafilter over the natural numbers. It obviously contains no finite sets, but we run into a slight issue when we take the set </p>
+<p>\[E = {2,4,6,8, \ldots }\]</p>
+<p> and its complement </p>
+<p>\[O = {1,3,5,7, \ldots }.\]</p>
+<p> By the filter axioms, only one of these can be in \(\mathcal{U}\), and one of them <em>has</em> to be in \(\mathcal{U}\). And thus, we can safely say:</p>
+<blockquote>
+<p>"<em>Almost all natural numbers are <strong>even</strong>.</em>"</p>
+</blockquote>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+        <title>Notes - Page 4</title>
+    
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+    
+    <script src="https://yudhister.me/js/filter.js" defer></script>
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TKY9S092B5');
+    </script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Notes</h1>
+        
+        
+
+        
+        <p class="filter-toggle-wrapper">[<a href="#" id="filter-toggle">show all</a>]</p>
+        
+
+        
+            
+            
+                
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/intentional-hobbling/">Hobbling-Induced Innovation</a></h2>
+                            <time datetime="2025-11-02">November 02, 2025</time>
+                        </header>
+                        <div class="post-content">
+                            <ul>
+<li>Rather famously, <a href="https://techcrunch.com/2019/04/22/anyone-relying-on-lidar-is-doomed-elon-musk-says/#:~:text=At%20Tesla&#x27;s%20first%20Autonomy%20Day%20event%20in,by%20data%20collected%20by%20all%20Tesla%20vehicles.">Tesla refuses to use LIDAR</a> and Autopilot only takes 2D observational video data as input. Autopilot is the only production-ready, end-to-end self-driving model. Waymo currently relies on a modular architecture using LIDAR, but is <a href="https://waymo.com/research/emma/">pivoting to end-to-end as well</a>. Tesla seems to have made the correct long-term technical bet (end-to-end models for self-driving), but at the cost of a <em>prima facie</em> nonsensical constraint (strictly less sensory input).</li>
+<li><a href="https://deepmind.google/discover/blog/alphago-zero-starting-from-scratch">AlphaGo Zero</a> was the first of its kind to be trained only on self-play, without reliance on human data. It beat Lee Sedol and the rest is history.</li>
+<li>At <a href="https://www.softmax.com/">Softmax</a>, we made the Cogs face in their chosen direction before taking a step. This made the agents harder to train and led to less consistent behavioral patterns. However, we made progress on our goal-conditioning agenda.</li>
+<li><a href="https://en.wikipedia.org/wiki/Thoughts_on_Flash">Apple deprecated Flash on iOS in 2010</a>, pivoting to a solely <a href="https://en.wikipedia.org/wiki/HTML5">HTML5</a>-based stack. Adobe stopped developing Flash for mobile in 2011 and eventually deprecated Flash entirely in 2020. Apple lost market share in the short-term but clearly won (Flash was not a good product).</li>
+<li>Rust's borrow checker forbids shared mutable aliasing. As a result, memory safety errors have been drastically reduced (compared to C/C++) and new security levels have been reached.</li>
+</ul>
+<p>All five of these share the property of "removing functionality to hopefully raise the long-term ceiling of performance." It is unclear if all of these modifications did raise the ceiling! Hindsight informs us that unsupervised learning on human data for two-player, zero-sum, perfect information games is indeed a crutch. But it seems to be relatively straightforward to integrate LIDAR or radar data into an E2E self-driving model training stack, and both grant visibility in environments where video-only data is differentially disadvantaged.</p>
+<p>Picking at the Tesla case more: it is true that LIDAR sensor per-unit prices were <a href="https://www.geoweeknews.com/news/32-channel-lidar-for-8k-ousters-newest-lidar-finds-a-sweet-spot">at ~$8,000 in 2019</a>. Integrating that would kill any chance at making an affordable FSD consumer vehicle. Today, <a href="https://www.reuters.com/business/autos-transportation/mercedes-signs-deal-with-luminar-develop-latest-lidar-sensors-2025-04-29/">Luminar has brought this down to $500 in the USA</a> and <a href="https://www.reuters.com/technology/chinas-hesai-halve-lidar-prices-next-year-sees-wide-adoption-electric-cars-2024-11-27/">Chinese manufacturer Hesai sells sensors for $200 a pop</a>. Prices will continue to fall, LIDAR will no longer be price-prohibitive, and <a href="https://youtu.be/AlF2H8zeyw8?t=2285">Rivian plans to take advantage of the full sensor array when developing its FSD model</a>. What gives?</p>
+<p>Google X has the mindset that <a href="https://blog.x.company/how-to-kill-good-things-to-make-room-for-truly-great-ones-867fb6ef026">one must kill good things to make way for truly great ones</a>. "Necessity is the mother of invention." Making a 10x breakthrough is only 2x harder. And for sure, constraining the problem to only its essential inputs can result in more scalable and successful solutions (SpaceX's Raptor 3 is no exception). But was it fundamentally necessary for Tesla to ban LIDAR?</p>
+<p>Argument for: LIDAR was prohibitively expensive, Tesla would have failed to get the necessary distribution for data collection by using LIDAR. Counter: fair, but doesn't address why there's a lack of radar (very useful in low-visiblity scenarios, cheap, would have improved safety).</p>
+<p>Argument for: Elon-culture is a package deal, Elon-culture was the determinative factor in the development of Autopilot, Elon-culture takes the hardcore minimalism and runs with it. Counter: I can believe this (<a href="https://youtu.be/65kPGCg4VFA?t=2504">Casey Handmer says this</a>), but it still seems so obviously optimal that once the 0-1 is achieved you optimize for having a good product. Human eyes are not optimized for terrestrial vision, there's no point sticking to the human form factor!</p>
+<p>Moving away from Tesla: I think we can construct a typology of reasons why one would intentionally hobble their development (via restriction) for the sake of innovation. First, because it bakes in a fundamental limitation (AlphaGo is like this, Tesla's original argument can be argued to be like this). Second, because restriction allows for better design (as in the case of Rust and Apple's refusal to use Flash), and better design creates a healthier ecosystem (this seems to be mostly applicable to platform-based products). Third, because adopting the stance of doing a Hard thing is useful, and artificially increasing the Hardness of the task has better consequences (I think of Elon like this, within limits: push up to the boundaries set by physics and no farther).</p>
+<p>It takes skill to understand the directions in which one can make a problem harder productively. <a href="https://techcrunch.com/2012/09/11/mark-zuckerberg-our-biggest-mistake-with-mobile-was-betting-too-much-on-html5/?utm_source=chatgpt.com">Facebook actually failed miserably at pivoting to HTML5 at the same time as Apple</a>. Tesla's removal of radar <a href="https://insideevs.com/news/658439/elon-musk-overruled-tesla-autopilot-engineers-radar-removal/">ruffled feathers in the engineering team</a>. Survivorship bias rules all, and given PMF it's probably easier to make development too hard rather than too easy (following customer incentive-gradients sets a floor &amp; strong signal).</p>
+<p>It's probably good to implement a kind of regularization in research-heavy, 0-1 product development: strip out all the assumptions, solve the core task, add additional configurations on top of a good foundation. I don't think it's necessary to continue hobbling oneself when its proven unnecessary. That is masochism, and your competitors will beat you.</p>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/idiolects/">Idiolects?</a></h2>
+                            <time datetime="2025-11-01">November 01, 2025</time>
+                        </header>
+                        <div class="post-content">
+                            <ol>
+<li>French fluency is neither necessary nor sufficient for understanding EGA.</li>
+<li>There's a certain sense in which understanding a particular French "dialect" (the collection of words + localized grammar + shared mental context required to make sense of EGA, the one which forms the basis for modern French algebraic geometry (?)) is a sufficient condition for understanding EGA.</li>
+<li>There's also a sense in which understanding this French algebro-geometric dialect is an almost necessary condition for understanding EGA past a certain point (happy to consider disputations, and perhaps the understanding one receives from the necessity condition is less directed at the concepts which the literature built off of but rather the peculiarities of Grothendieck et. al.'s mental states &amp; historical context).</li>
+<li>Packaging "shared mental context" with a "dialect" and subsequently claiming that understanding the "dialect" is necessary and sufficient for understanding the embedded concepts is begging the question.</li>
+<li>It seems like there is this restricted language associated with a set of concepts, the concepts themselves can are understood in the context of the restricted language, the concepts are mostly divorced from the embedded grammar of the parent language, and we don't have a very good way of drawing a boundary around this "restricted language."</li>
+<li>In a general sense, this kind of "conceptual binding" is not rigid. Strong Sapir-Whorf is incorrect, the Ghananian can learn English, I can just read Hartshorne or solely Anglophonic literature to learn algebraic geometry.</li>
+<li>However, canonical boundaries make sense even when the the boundaries are leaky. A species is not completely closed under reproduction, however it makes sense to think of species as effectually reproductively closed. A cell wall separates a cell from its environment, even if osmosis or active transport allows for various molecules to be transported in and out.</li>
+<li>One might expect this binding to be "stronger" when the inferential distance between the typical concepts of some reference class of language-speaker and the concepts discussed in the "dialect" to be larger.</li>
+<li>A general description of a language used by a group of communicators is the tuple (alphabet, shared conception of grammatical rules, shared semantic conception of language atoms &amp; combinator outputs).</li>
+<li>Outside of purely formal settings, the shared conceptions of grammar &amp; semantics will be leaky. <a href="https://tsvibt.blogspot.com/2023/05/the-possible-shared-craft-of-deliberate.html">How much can be purely recovered from shared words</a>?</li>
+<li>However, there are natural attractors in this space. Ex. traditional dialects, modern languages. Shared conception diffs between language-speakers are significantly smaller than shared conception diffs between two different language speakers (this is by default unresolvable unless there's some shared conception of translation, at which point they're sort of speaking the same conceptual language?)</li>
+<li>When talking about algebraic geometry, it feels like an English geometer and a French geometer are speaking more similar languages than a French geometer and a French cafe owner.</li>
+<li>I want to say: "an idiolect is a natural attractor in the space of languages for a group of communicators discussing a certain set of concepts, the idioms of the idiolect are identified with the concepts discussed, and the idiolect is quasi-closed under idiomatic composition."</li>
+<li>Identifying shared languages as emergent coordination structures between a group of communicators feels satisfying.</li>
+<li>However, returning to the case of algebraic geometry, it feels like I can "grok" the definitions of the structures described without understanding the embedded French grammar in EGA. Maybe the correct decomposition of a shared language is (shared idiomatic conception) + (translation interface), and we should just care about the "pre-idiolect."</li>
+<li>This is just a world model? Describable without reference to other communicators? Loses some aspect of "coordination"?</li>
+<li>Maybe the pre-idiolect is s.t. n communicators can communicate idioms &amp; their compositions with minimal description of a translation interface.</li>
+<li>The idiom &lt;-&gt; concept correspondence feels correct. Like, on some level, one of the primary purposes of a grammatical structure is to take the concepts which are primarily bound to words &amp; make sense of their composition, and lexicogenesis is a large part of language-making. But it feels like restricting to wordly atoms is too constraining and there are structural atoms that carry semantic meaning, and idiom can encompass these.</li>
+<li>How do you reify concept-space enough to chunk it into non-overlapping parts?</li>
+<li>I am trying to point at a superstructure and say "here is a superstructure." I am trying to identify the superstructure by a closure criterion, and I am trying to understand what the closure criterion is. Something language-like should be identifiable this way? And the appropriate notion of closure will then let us chunk correctly?</li>
+<li>Maybe superstructures are not generally identifiable via closure?</li>
+<li><a href="https://www.lesswrong.com/posts/hrcYTMyjkHzwxzPdA/species-as-canonical-referents-of-super-organisms">The load-bearing constraint for considering species as superorganisms is a closure property</a>. They're not particularly well-describable by Dennett's intentional stance.</li>
+<li>I want to say "idiolect:communicator::idiom :: species:member-organism:gene."</li>
+<li>I don't want to identify lexemes as the atoms of a language-like-structure. <a href="https://arxiv.org/abs/2311.06189">Chomsky et. al.'s new mathematical merge formalism is cool but construed</a>, and I have not seen a clean way to differentiate meaningful lexeme composition from non-meaningful lexeme composition.</li>
+<li>"Shared understanding" feels better? The point of a language is a mechanism by which communicators communicate, and it so happens that languages happen to be characterizable by some general formal propeties.</li>
+</ol>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/astronomical-waste/">Astronomical Waste Given Acausal Considerations</a></h2>
+                            <time datetime="2025-10-27">October 27, 2025</time>
+                        </header>
+                        <div class="post-content">
+                            <p>[<em>speculative draft</em>]</p>
+<p>Bostrom's original astronomical waste argument is as follows:</p>
+<ol>
+<li>Consider all stars in the Virgo supercluster.</li>
+<li>Now consider the total number of digital humans simulatable with the energy stored in these stars, given that the energy is harvested with technologies currently assessed to be feasible.</li>
+<li>This provides a lower-bound on the potential value lost per-unit-time, assuming an ethical stance at least somewhat similar to an aggregative total utilitarian.</li>
+<li>This is a lot of value per-unit-time.</li>
+<li>Correspondingly, existential risk poses a threat so large it dominates all other considerations, as it eliminates the possibility of human colonization.</li>
+</ol>
+<p>This model is static. In particular, it does not consider dynamism in the size of the actualizable universe. By restricting to the local supercluster, one ignores the potential resources of the stars beyond, including those turned inaccessible by cosmological expansion. For the purposes of establishing a conservative bound on the potential value left on the table, these are nitpicks are minor. However, when assessing the tradeoffs between safety-focused and progress-focused policies under various ethical viewpoints, they matter.</p>
+<p>Obviously, the natural extension is to introduce models of spacefaring civilizational expansion and develop more quantitative estimates of "median"-case spatial diffusion under reasonable hypotheses. This analysis would be informative and useful. I will not be pursuing it further in this post.</p>
+<p>Rather, I am interested in a more esoteric setting. Acausal bargaining strategies give agents the ability to influence universes beyond their traditionally considered scope (e.g. the lightcone) by independently considering and instantiating the values of agents who would, given their value instantiation in our world, take actions in partial accordance with our values in theirs. A "coalition" then forms between agents who engage in this reciprocal trade.</p>
+<p>What properties might this coalition have?</p>
+<ul>
+<li>It is composed of agents who care about their values being instantiated across the space of universes the agents in the coalition occupy. These agents then likely have values which are universal.</li>
+<li>It is composed of agents whom are sufficiently cognitively advanced to reason in similar thought-patterns to the ones described. Given that human understanding is at a nascent stage, this puts a rough lower bound on capability.</li>
+<li>The coalition is necessarily composed of agents which are willing to trade with us.</li>
+<li>[other properties that can likely be gleaned by a mind with more intelligence than mine]</li>
+</ul>
+<p>These are local properties, in that they are agent properties which then place some constraints on the environments the agents find themselves in. They are not global properties (constraints on the laws of physics of the relevant universes). Our reasoning about the space of acausally-influencable universes via acausal bargaining is thus necessarily agent-centric.</p>
+<p>Under these considerations, the actualizable universe of a member of a given coalition is the union of the causally-actualizable universes of the members of the coalition. Astronomical waste concerns would then occur whenever considering actions or inactions leading to a decrease in the size of the actualizable universe.</p>
+<p>What actions or inactions would affect the size of the actualizable universe? It's difficult to come up with a natural conception of global temporality in this setting: local constraints on agent environments tell us little about what stage of the cosmological lifetime the agent exists in. Interpreting temporality within a member's lightcone is easier: waiting to implement acausal bargaining strategies leads to a loss of value-bargaining-power, given that the size of the member's causally-actualizable universe decreases in accordance with classical astronomical waste arguments.</p>
+<p>It is tempting to say that this loss is massive, much more massive than the temporal loss associated with one's own causally-actualizable universe. I refrain from claiming this strongly because I do not have a good understanding of what bargaining strategies within an acausal coalition look like. Finnveden's <a href="https://lukasfinnveden.substack.com/p/asymmetric-ecl">Asymmetric ECL</a> and Treutlein's <a href="https://arxiv.org/pdf/2307.04879">Modeling evidential cooperation in large worlds</a> are good places to look to star thinking about this. (Dai makes the argument that it seems like our universe is pretty small, so it stands to reason there's much more to be gained via acausal trade.)</p>
+<p>[<em>even more speculative</em>]</p>
+<p>It is also possible that a multiplicity of coalitions is induced by agents throughout the multiverse having conflicting values. Given the aggregative tendency to ensure value-lock-in for successor agents, it is potentially the case that coalitional lock-in at the civilizational level occurs shortly after knowledge of basic acausal bargaining strategies. It is not insane to assume heterogeneity in size of the coalitional actualizable universes. Implying that large sources of astronomical waste may come from choosing incorrectly, or joining coalitions of less size.</p>
+<p>[I note that it is possible the notion of an "acausal coalition" is flawed and in fact acausal trades are not closed in this manner---A can trade with B and B can trade with C while C might not be able to trade with A.]</p>
+<p>[TODO: introduce bargaining models, quantify classical astronomical waste in the spatial setting, quantify universe "smallness" under variety of cosmological models]</p>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/smld-tc0/">Perfect SMLD is TC$^0$</a></h2>
+                            <time datetime="2025-10-16">October 16, 2025</time>
+                        </header>
+                        <div class="post-content">
+                            <p>This paper, <a href="https://doi.org/10.48550/arXiv.2507.12469">Perfect diffusion is TC^$0$ -- Bad diffusion is Turing-complete</a>, has been stuck in my head. Here's an exposition of $1/2$ of the result.</p>
+<p>(I claim no novelty in either exposition or content for what is below)</p>
+<h2>what is SMLD?</h2>
+<p>Given a distribution $\rho_{data}$ over $\mathbb{R}^d,$ SMLD aims to learn a score-matching function $f_\theta$ which samples from $\nabla \log \rho_{data}$ well. In particular, for $x \sim \rho_0,$ which we define as $\rho_0 = \rho_{data},$ we aim for $f_\theta(x,t)$ to approximate $\nabla_x \log \rho_t.$ Why are we introducing time as a parameter? The point of diffusion models is to learn a function which can learn to <em>denoise</em> a process and thus learn to sample the underlying distribution well. SMLD does this by training a model to learn the score function in the reverse Langevin process for a given noise schedule. In more detail:</p>
+<ul>
+<li>Take some noise schedule $\beta(t): [0, \infty) \to [0, \infty)$ such that $\int_0^\infty \beta(t) = \infty$ (this is to ensure the distribution gets fully noised).</li>
+<li>Evolve my data sample $x_t \sim \rho_t$ according to $dx_t = -\frac{1}{2} \beta(t) x_tdt + \sqrt{\beta(t)} dW_t,$ which is just Langevin dynamics (and $dW_t$ is the Brownian motion contributor). This has a corresponding evolution over the distributions given by $\partial_t \rho_t = \frac{1}{2} \beta(t) \left( \nabla \cdot (x \rho_t) + \Delta \rho_t\right)$ (straightforward from Fokker-Planck).</li>
+<li>Fix a time $T&gt;0.$ The reverse time-evolution process can be <em>exactly</em> characterized by $$d\hat{x}_t = \frac{1}{2} \beta(T - t)\hat{x}_tdt + \beta(T-t)\nabla_{\hat{x}_t} \log \rho_{T-t}(\hat{x}_t) dt + \sqrt{\beta(T-t)}dW_t,$$ and $\nabla_{\hat{x}_t} \log \rho_{T-t}(\hat{x}_t)$ is exactly what we're trying to approximate with $f_\theta(\hat{x},T-t).$</li>
+<li>So, if I sample $\hat{x}_t \sim \mathcal{N}_(0,I_d)$ (pure noise!), by solving the reversed SDE above and substituting $f_\theta$ for the score function, I can approximate my underlying data distribution.</li>
+</ul>
+<h2>TC$^0$ circuit families are (essentially) neural networks</h2>
+<p>Circuit complexity classes describe "families of boolean circuits." A "family of boolean circuits" is just the set of all possible boolean circuits satisfying some properties; a boolean circuit is (abstractly) some DAG of "gates" (boolean functions) that takes a series of Boolean inputs to a Boolean output. TC$^0$ in particular satisfies:</p>
+<ul>
+<li>polynomial width: the number of gates at each depth, is upper-bounded by a polynomial in the input-size $n,$</li>
+<li>constant depth: the maximum number of gates from input to output is upper-bounded by some constant,</li>
+<li>unbounded fan-in: each gate can receive inputs from arbitrarily many other gates,</li>
+<li>each gate is either AND&lt; OR, NOT, or MAJ (for "majority", returns True when half or more arguments are True and False otherwise).</li>
+</ul>
+<p><a href="https://theory.cs.uni-bonn.de/marek/publications/STCbMC.pdf">You can use MAJ gates to simulate threshold gates.</a>. As such, this last bullet point is equivalent to:</p>
+<ul>
+<li>each gate is a <em>threshold gate</em>: $\text{step}(\sum_i w_ix_i + t),$ where $w_i,t$ are real numbers and $\text{step}$ returns $1$ if the value is greater than $1/2$ and $0$ otherwise.</li>
+</ul>
+<p>This is a feed-forward neural network, where each gate is an activation function acting on Boolean inputs. TC$^0$ is the class of neural networks with width $&lt; p(n)$ and depth $\leq D.$ Circuit complexity classes in general are somewhat pathological, and can solve sets of problems that one might not expect to be easily grouped together. But this is quite interestingly natural for ML purposes.</p>
+<h2>proof of the result</h2>
+<p><strong>Theorem.</strong> Take a TC$^0$ family of score-networks $f_{\theta, 0}, f_{\theta,1}, \ldots$ such that for each $n$ and each $x_1, \ldots, x_n$ the function $f_{\theta, n}(x,t|x_1,\ldots,x_n)$ exactly computes the score function of some initial distribution $\rho_{0,n}$ with bounded first moment. If this family solves a prefix language modeling problem in the SMLD infinite time limit with a constant probability bound, then the problem is in TC$^0.$</p>
+<p>What is a "prefix language modeling problem"? Next-token prediction: given $n$ previous tokens in an alphabet, predict token $n+1.$ This is solved by a circuit complexity class if a  family of circuits $C_i$ for every input size satisfying the complexity class solves the problem.</p>
+<p>The proof relies on a result from the literature given in <a href="https://arxiv.org/abs/2409.18959">O(d/T) Convergence Theory for Diffusion Probabilistic Models under Minimal Assumptions</a> which states that there exists some universal constant $c&gt;0$ such that $$TV(p_X, p_Y) \leq c \frac{d \log^3T}{T} + c \epsilon_{score} \sqrt{\log T}.$$ Here $TV$ is the total variation distance, $X$ is the data distribution, and $Y$ is a distribution generated by DDPM denoising (essentially just a discretization of SMLD). One can use this to upper bound the total variation distance between the DDPM sampler and our denoising process by some constant $\epsilon',$ and setting our constant probability bound of finding a solution to $\epsilon$ we find that $\epsilon' = \epsilon/2$ is enough for our denoising process to solve the problem. This is then derandomized by a construction given in <a href="https://www.sciencedirect.com/science/article/pii/002200009390001D">Threshold circuits of bounded depth</a>, which reconstructs a TC$^0$ class.</p>
+<p>One may wonder where we require "perfect" score matching! Well, the $c \epsilon_{score} \sqrt{\log T}$ term increases with $T,$ so for this proof to work completely cleanly one requires $\epsilon_{score}$ to be set to $0.$ Practical diffusion networks are not like this --- there will always be some error.</p>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/links-10-15/">Mid-October Links</a></h2>
+                            <time datetime="2025-10-15">October 15, 2025</time>
+                        </header>
+                        <div class="post-content">
+                            <p><em>i am tired so here is a linkpost. i'll try not to do more than two of these a month</em></p>
+<ol>
+<li><a href="https://www.youtube.com/watch?v=pJfqnE1wRqk">Misha Gromov mathematizes biology</a> (in an IHES lecture series). See also his <a href="https://www.ihes.fr/~gromov/wp-content/uploads/2018/08/ergobrain.pdf">manuscript on ergosystems</a>.</li>
+<li><a href="https://arxiv.org/abs/0804.2764">Gauge/string dualities as special cases of Schur-Weyl duality</a>.</li>
+<li>Tao on <a href="https://terrytao.wordpress.com/2008/10/28/when-are-eigenvalues-stable/">when eigenvalues are stable under (small) perturbations</a>, <a href="https://terrytao.wordpress.com/2008/09/27/what-is-a-gauge/">what gauges are</a>, and <a href="https://terrytao.wordpress.com/2025/05/04/orders-of-infinity/">orders of infinity</a>.</li>
+<li><a href="https://www.biorxiv.org/content/10.1101/2023.07.28.550667v1">Constructed languages are processed by the same brain mechanisms as natural languages</a>.</li>
+<li>Negarestani on <a href="https://toyphilosophy.com/2018/10/19/the-psyche-and-the-carrion/">the alien will</a>, <a href="https://toyphilosophy.com/2018/04/02/on-toy-aesthetics-wittgensteins-pinball-machine-part-1/">toy aesthetics</a>, and <a href="https://toyphilosophy.com/2018/02/02/toy-philosophy-universes-part-1/">toy philosophy</a>. He also has a <a href="https://toyphilosophy.com/2018/02/09/complexity-collection/">complexity sciences reading list</a> which is surprisingly reasonable.</li>
+<li><a href="https://friedl.app.uni-regensburg.de/papers/1at-uptodate.pdf">A 3000pg algebraic topology reference with pictures</a>.</li>
+<li>Tsvi on <a href="https://tsvibt.blogspot.com/2022/08/gemini-modeling.html">gemini modeling</a> and <a href="https://tsvibt.blogspot.com/2022/10/counting-down-vs-counting-up-coherence.html">counting down vs. counting up coherence</a>.</li>
+<li>Schulman on <a href="https://thinkingmachines.ai/blog/lora/">when low-rank LoRA underperforms and matches fullFT</a>. In particular, 1-rank LoRA is sufficient for RL tasks.</li>
+<li><a href="https://arxiv.org/abs/2509.12202v1">Associative memory in an optical spin glass made of rubidium Bose-Einstein condensates</a>. Ganguli is a co-author.</li>
+<li>Lada Nuzhna on <a href="https://www.ladanuzhna.xyz/writing/trillion-dollar-biotechs">where are all the trillion dollar biotechs?</a></li>
+<li>Francis Bach with <a href="https://arxiv.org/abs/2505.19227">some more "classical" settings for scaling laws</a>. See accompanying <a href="https://francisbach.com/scaling-laws-text/">blog</a> <a href="https://francisbach.com/scaling-laws-of-optimization/">posts</a>.</li>
+<li>Andrew Critch has an interesting blog post on <a href="https://acritch.com/deserving-trust/">Newcombian implications on self-trust</a>. Christiano also has a blog post on <a href="https://sideways-view.com/2016/11/14/integrity-for-consequentialists/">integrity for consequentialists</a>.</li>
+<li><a href="http://link.springer.com/10.1007/BFb0058516">Homotopy is not concrete</a>.</li>
+<li><a href="https://www.newyorker.com/magazine/2015/11/23/doomsday-invention-artificial-intelligence-nick-bostrom">Nick Bostrom profile in the New Yorker</a>.</li>
+<li>Dean Ball on <a href="https://www.hyperdimensional.co/p/what-its-like-to-work-at-the-white">what it's like to work in the White House</a>. He ~wrote the AI Action Plan.</li>
+<li>Vitalik on <a href="https://vitalik.eth.limo/general/2025/10/05/memory13.html">memory access actually taking $O(N^{1/3})$ time</a>, <a href="https://vitalik.eth.limo/general/2025/09/21/low_risk_defi.html">low-risk defi as an Ethereum business model</a>, <a href="https://vitalik.eth.limo/general/2025/07/07/copyleft.html">copy-left vs. permissive licenses</a>, and <a href="https://vitalik.eth.limo/general/2025/08/12/ideas.html">musings on ideologies</a>. His posts are great. Highly recommend.</li>
+<li>Ben Kuhn on <a href="https://www.benkuhn.net/impact/">how taste can be the leading contributor to impact</a>. See also Chris Olah's <a href="https://colah.github.io/notes/taste/">exercises for developing research taste</a>.</li>
+<li><a href="https://emilyriehl.github.io/files/semantics.pdf">Exposition of homotopy type theory with $\infty$-topos semantics</a> by Emily Riehl. I really like these! They're cogent and clear.</li>
+<li>The Ohio State University is hosting an <a href="https://classics.osu.edu/events/international-conference-ancient-magic">International Conference on Ancient Magic</a> this weekend.</li>
+<li><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202509872">Aging as a loss of goal-directedness</a>, from the Levin lab.</li>
+<li>Eliot's <a href="https://poets.org/poem/hollow-men">The Hollow Men</a> and Blake's <a href="https://poets.org/poem/proverbs-hell">The Proverbs of Hell</a>.</li>
+<li><a href="https://www.owlposting.com/p/the-optimistic-case-for-protein-foundation-193">An optimistic case for protein foundation model companies</a>.</li>
+<li><a href="https://arxiv.org/abs/2310.03789v3">Grokking as a first order phase transition in neural networks</a>. Good example of <a href="https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform?commentId=A8Ziwhts35dgqbz52">mean field theory as a thermodynamic theory of learning</a>.</li>
+<li>If you like the items on this list, or <em>especially</em> if you wish the items on this list were better, <a href="mailto:yudhister@berkeley.edu">email me</a>!</li>
+</ol>
+
+                        </div>
+                    </article>
+                    
+                
+
+                
+                <nav class="pagination">
+                    
+                        <a class="previous" href="https://yudhister.me/notes/page/3/">‹ Previous</a>
+                    
+                    <span class="page-number">Page 4 of 11</span>
+                    
+                        <a class="next" href="https://yudhister.me/notes/page/5/">Next ›</a>
+                    
+                </nav>
+
+            
+        
+    </main>
+</body>
+</html>

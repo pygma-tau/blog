@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review | Pieces of the Action</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>Review | Pieces of the Action</h1>
+        <p><i>August 19, 2025</i></p>
+        <p><em>nb: attempting a daily posting cadence. adjust quality priors accordingly</em></p>
+<p>[1] Bush has quite a dim view of the institutional management of British science during WW2. Frequently, he points out that Churchill has too much influence over Cherwell (and it's Churchill's fault), he devotes an entire chapter to decrying the archetype of Geoffrey Pyke ("how to mitigate and excise tyros from an institution"), and his only interactions with Churchill were spats over the post-war sharing of nuclear secrets (which caused Churchill to ask FDR to fire him). In general, complaints are that it was overcomplicated, insufficiently meritocratic, and subject to the political whims of the executive. Britishers did not understand the importance of the "engineer." Of course, he quite likes Britishers on the whole, but there is a sense in which the British effort had negative polarity on exactly the qualities which made the OSRD so effective.</p>
+<p>[2] What did make the OSRD effective? Autonomy, resources, collaboration with industry and academics, and a culture which made sure that issues were raised to the correct person, regardless of status. FDR never interfered with its runnings, even when they encompassed the Manhattan Project. Bush himself fielded suggestions on anti-submarine warfare from American hobbyists looking to contribute. Effective managers were essential—people who were well respected, deferred to authority, and could execute with little direction. Beyond that, it seems like Bush himself was essential, if only because of the sheer weight of the interpersonal relationships needed to be cultivated while working in Washington. The book itself is simply a long series of anecdotes involving important people, discussing their moods and motivations. Ultimately, this is how the world runs.</p>
+<p>[3] He is proud of the development of the proximity fuze and the mass production of penicillin. Neither would have been possible without intense scientific research as well as the might of American industry being brought to bear. With regards to the modern day, I do believe that this is a lesson to never quite underestimate the potential state capacity of the American nation. Bush himself highlights that the pluralism of technological development in American peacetime is exactly what makes it so powerful during war—the USA can simply generate ideas and implement them at scale much more effectively than any other.</p>
+<p>[4] The anecdotes are quite wonderful. I enjoyed his advice on teaching; his discussion of what it meant to be an "inventor"; his admiration of Harry Truman and those in the Roosevelt administration who, despite holding absurd economic views, were still good men; his promotion of steam-powered cars (!); his appreciation of "military men"; and many others. A reminder of a different time.</p>
+
+    </main>
+</body>
+</html>

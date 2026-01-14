@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbling-Induced Innovation</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>Hobbling-Induced Innovation</h1>
+        <p><i>November 02, 2025</i></p>
+        <ul>
+<li>Rather famously, <a href="https://techcrunch.com/2019/04/22/anyone-relying-on-lidar-is-doomed-elon-musk-says/#:~:text=At%20Tesla&#x27;s%20first%20Autonomy%20Day%20event%20in,by%20data%20collected%20by%20all%20Tesla%20vehicles.">Tesla refuses to use LIDAR</a> and Autopilot only takes 2D observational video data as input. Autopilot is the only production-ready, end-to-end self-driving model. Waymo currently relies on a modular architecture using LIDAR, but is <a href="https://waymo.com/research/emma/">pivoting to end-to-end as well</a>. Tesla seems to have made the correct long-term technical bet (end-to-end models for self-driving), but at the cost of a <em>prima facie</em> nonsensical constraint (strictly less sensory input).</li>
+<li><a href="https://deepmind.google/discover/blog/alphago-zero-starting-from-scratch">AlphaGo Zero</a> was the first of its kind to be trained only on self-play, without reliance on human data. It beat Lee Sedol and the rest is history.</li>
+<li>At <a href="https://www.softmax.com/">Softmax</a>, we made the Cogs face in their chosen direction before taking a step. This made the agents harder to train and led to less consistent behavioral patterns. However, we made progress on our goal-conditioning agenda.</li>
+<li><a href="https://en.wikipedia.org/wiki/Thoughts_on_Flash">Apple deprecated Flash on iOS in 2010</a>, pivoting to a solely <a href="https://en.wikipedia.org/wiki/HTML5">HTML5</a>-based stack. Adobe stopped developing Flash for mobile in 2011 and eventually deprecated Flash entirely in 2020. Apple lost market share in the short-term but clearly won (Flash was not a good product).</li>
+<li>Rust's borrow checker forbids shared mutable aliasing. As a result, memory safety errors have been drastically reduced (compared to C/C++) and new security levels have been reached.</li>
+</ul>
+<p>All five of these share the property of "removing functionality to hopefully raise the long-term ceiling of performance." It is unclear if all of these modifications did raise the ceiling! Hindsight informs us that unsupervised learning on human data for two-player, zero-sum, perfect information games is indeed a crutch. But it seems to be relatively straightforward to integrate LIDAR or radar data into an E2E self-driving model training stack, and both grant visibility in environments where video-only data is differentially disadvantaged.</p>
+<p>Picking at the Tesla case more: it is true that LIDAR sensor per-unit prices were <a href="https://www.geoweeknews.com/news/32-channel-lidar-for-8k-ousters-newest-lidar-finds-a-sweet-spot">at ~$8,000 in 2019</a>. Integrating that would kill any chance at making an affordable FSD consumer vehicle. Today, <a href="https://www.reuters.com/business/autos-transportation/mercedes-signs-deal-with-luminar-develop-latest-lidar-sensors-2025-04-29/">Luminar has brought this down to $500 in the USA</a> and <a href="https://www.reuters.com/technology/chinas-hesai-halve-lidar-prices-next-year-sees-wide-adoption-electric-cars-2024-11-27/">Chinese manufacturer Hesai sells sensors for $200 a pop</a>. Prices will continue to fall, LIDAR will no longer be price-prohibitive, and <a href="https://youtu.be/AlF2H8zeyw8?t=2285">Rivian plans to take advantage of the full sensor array when developing its FSD model</a>. What gives?</p>
+<p>Google X has the mindset that <a href="https://blog.x.company/how-to-kill-good-things-to-make-room-for-truly-great-ones-867fb6ef026">one must kill good things to make way for truly great ones</a>. "Necessity is the mother of invention." Making a 10x breakthrough is only 2x harder. And for sure, constraining the problem to only its essential inputs can result in more scalable and successful solutions (SpaceX's Raptor 3 is no exception). But was it fundamentally necessary for Tesla to ban LIDAR?</p>
+<p>Argument for: LIDAR was prohibitively expensive, Tesla would have failed to get the necessary distribution for data collection by using LIDAR. Counter: fair, but doesn't address why there's a lack of radar (very useful in low-visiblity scenarios, cheap, would have improved safety).</p>
+<p>Argument for: Elon-culture is a package deal, Elon-culture was the determinative factor in the development of Autopilot, Elon-culture takes the hardcore minimalism and runs with it. Counter: I can believe this (<a href="https://youtu.be/65kPGCg4VFA?t=2504">Casey Handmer says this</a>), but it still seems so obviously optimal that once the 0-1 is achieved you optimize for having a good product. Human eyes are not optimized for terrestrial vision, there's no point sticking to the human form factor!</p>
+<p>Moving away from Tesla: I think we can construct a typology of reasons why one would intentionally hobble their development (via restriction) for the sake of innovation. First, because it bakes in a fundamental limitation (AlphaGo is like this, Tesla's original argument can be argued to be like this). Second, because restriction allows for better design (as in the case of Rust and Apple's refusal to use Flash), and better design creates a healthier ecosystem (this seems to be mostly applicable to platform-based products). Third, because adopting the stance of doing a Hard thing is useful, and artificially increasing the Hardness of the task has better consequences (I think of Elon like this, within limits: push up to the boundaries set by physics and no farther).</p>
+<p>It takes skill to understand the directions in which one can make a problem harder productively. <a href="https://techcrunch.com/2012/09/11/mark-zuckerberg-our-biggest-mistake-with-mobile-was-betting-too-much-on-html5/?utm_source=chatgpt.com">Facebook actually failed miserably at pivoting to HTML5 at the same time as Apple</a>. Tesla's removal of radar <a href="https://insideevs.com/news/658439/elon-musk-overruled-tesla-autopilot-engineers-radar-removal/">ruffled feathers in the engineering team</a>. Survivorship bias rules all, and given PMF it's probably easier to make development too hard rather than too easy (following customer incentive-gradients sets a floor &amp; strong signal).</p>
+<p>It's probably good to implement a kind of regularization in research-heavy, 0-1 product development: strip out all the assumptions, solve the core task, add additional configurations on top of a good foundation. I don't think it's necessary to continue hobbling oneself when its proven unnecessary. That is masochism, and your competitors will beat you.</p>
+
+    </main>
+</body>
+</html>

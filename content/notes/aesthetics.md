@@ -3,6 +3,8 @@ title: Aesthetics
 author: Yudhister Kumar
 path: aesthetics
 date: 2026-01-08
+extra:
+  good: true
 ---
 
 [*musings from 2 years ago, unedited*]

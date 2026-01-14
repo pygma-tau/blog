@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mid-October Links</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>Mid-October Links</h1>
+        <p><i>October 15, 2025</i></p>
+        <p><em>i am tired so here is a linkpost. i'll try not to do more than two of these a month</em></p>
+<ol>
+<li><a href="https://www.youtube.com/watch?v=pJfqnE1wRqk">Misha Gromov mathematizes biology</a> (in an IHES lecture series). See also his <a href="https://www.ihes.fr/~gromov/wp-content/uploads/2018/08/ergobrain.pdf">manuscript on ergosystems</a>.</li>
+<li><a href="https://arxiv.org/abs/0804.2764">Gauge/string dualities as special cases of Schur-Weyl duality</a>.</li>
+<li>Tao on <a href="https://terrytao.wordpress.com/2008/10/28/when-are-eigenvalues-stable/">when eigenvalues are stable under (small) perturbations</a>, <a href="https://terrytao.wordpress.com/2008/09/27/what-is-a-gauge/">what gauges are</a>, and <a href="https://terrytao.wordpress.com/2025/05/04/orders-of-infinity/">orders of infinity</a>.</li>
+<li><a href="https://www.biorxiv.org/content/10.1101/2023.07.28.550667v1">Constructed languages are processed by the same brain mechanisms as natural languages</a>.</li>
+<li>Negarestani on <a href="https://toyphilosophy.com/2018/10/19/the-psyche-and-the-carrion/">the alien will</a>, <a href="https://toyphilosophy.com/2018/04/02/on-toy-aesthetics-wittgensteins-pinball-machine-part-1/">toy aesthetics</a>, and <a href="https://toyphilosophy.com/2018/02/02/toy-philosophy-universes-part-1/">toy philosophy</a>. He also has a <a href="https://toyphilosophy.com/2018/02/09/complexity-collection/">complexity sciences reading list</a> which is surprisingly reasonable.</li>
+<li><a href="https://friedl.app.uni-regensburg.de/papers/1at-uptodate.pdf">A 3000pg algebraic topology reference with pictures</a>.</li>
+<li>Tsvi on <a href="https://tsvibt.blogspot.com/2022/08/gemini-modeling.html">gemini modeling</a> and <a href="https://tsvibt.blogspot.com/2022/10/counting-down-vs-counting-up-coherence.html">counting down vs. counting up coherence</a>.</li>
+<li>Schulman on <a href="https://thinkingmachines.ai/blog/lora/">when low-rank LoRA underperforms and matches fullFT</a>. In particular, 1-rank LoRA is sufficient for RL tasks.</li>
+<li><a href="https://arxiv.org/abs/2509.12202v1">Associative memory in an optical spin glass made of rubidium Bose-Einstein condensates</a>. Ganguli is a co-author.</li>
+<li>Lada Nuzhna on <a href="https://www.ladanuzhna.xyz/writing/trillion-dollar-biotechs">where are all the trillion dollar biotechs?</a></li>
+<li>Francis Bach with <a href="https://arxiv.org/abs/2505.19227">some more "classical" settings for scaling laws</a>. See accompanying <a href="https://francisbach.com/scaling-laws-text/">blog</a> <a href="https://francisbach.com/scaling-laws-of-optimization/">posts</a>.</li>
+<li>Andrew Critch has an interesting blog post on <a href="https://acritch.com/deserving-trust/">Newcombian implications on self-trust</a>. Christiano also has a blog post on <a href="https://sideways-view.com/2016/11/14/integrity-for-consequentialists/">integrity for consequentialists</a>.</li>
+<li><a href="http://link.springer.com/10.1007/BFb0058516">Homotopy is not concrete</a>.</li>
+<li><a href="https://www.newyorker.com/magazine/2015/11/23/doomsday-invention-artificial-intelligence-nick-bostrom">Nick Bostrom profile in the New Yorker</a>.</li>
+<li>Dean Ball on <a href="https://www.hyperdimensional.co/p/what-its-like-to-work-at-the-white">what it's like to work in the White House</a>. He ~wrote the AI Action Plan.</li>
+<li>Vitalik on <a href="https://vitalik.eth.limo/general/2025/10/05/memory13.html">memory access actually taking $O(N^{1/3})$ time</a>, <a href="https://vitalik.eth.limo/general/2025/09/21/low_risk_defi.html">low-risk defi as an Ethereum business model</a>, <a href="https://vitalik.eth.limo/general/2025/07/07/copyleft.html">copy-left vs. permissive licenses</a>, and <a href="https://vitalik.eth.limo/general/2025/08/12/ideas.html">musings on ideologies</a>. His posts are great. Highly recommend.</li>
+<li>Ben Kuhn on <a href="https://www.benkuhn.net/impact/">how taste can be the leading contributor to impact</a>. See also Chris Olah's <a href="https://colah.github.io/notes/taste/">exercises for developing research taste</a>.</li>
+<li><a href="https://emilyriehl.github.io/files/semantics.pdf">Exposition of homotopy type theory with $\infty$-topos semantics</a> by Emily Riehl. I really like these! They're cogent and clear.</li>
+<li>The Ohio State University is hosting an <a href="https://classics.osu.edu/events/international-conference-ancient-magic">International Conference on Ancient Magic</a> this weekend.</li>
+<li><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202509872">Aging as a loss of goal-directedness</a>, from the Levin lab.</li>
+<li>Eliot's <a href="https://poets.org/poem/hollow-men">The Hollow Men</a> and Blake's <a href="https://poets.org/poem/proverbs-hell">The Proverbs of Hell</a>.</li>
+<li><a href="https://www.owlposting.com/p/the-optimistic-case-for-protein-foundation-193">An optimistic case for protein foundation model companies</a>.</li>
+<li><a href="https://arxiv.org/abs/2310.03789v3">Grokking as a first order phase transition in neural networks</a>. Good example of <a href="https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform?commentId=A8Ziwhts35dgqbz52">mean field theory as a thermodynamic theory of learning</a>.</li>
+<li>If you like the items on this list, or <em>especially</em> if you wish the items on this list were better, <a href="mailto:yudhister@berkeley.edu">email me</a>!</li>
+</ol>
+
+    </main>
+</body>
+</html>

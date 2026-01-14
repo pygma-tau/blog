@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaling Laws for Transfer Learning</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>Scaling Laws for Transfer Learning</h1>
+        <p><i>October 11, 2025</i></p>
+        <p>Chinchilla scaling posits that</p>
+<p>$$
+L(N,D) = L_{\infty} + AN^{-\alpha} + BD^{-\beta},
+$$</p>
+<p>where $N$ is the number of parameters in your language model, $D$ is the number of training tokens seen, $A,B,\alpha,\beta, L_{\infty}$ are constants, and $L(N,D)$ is the test loss.</p>
+<p>Of course, this analysis is limited:</p>
+<ul>
+<li>parameters do not hold across architectural shifts: <a href="https://arxiv.org/abs/2501.12370">dense vs. MoE for ex</a>. (h/t <a href="https://kushalthaman.github.io/">Kushal</a> for sending me this paper)</li>
+<li>"scale data and model size similarly" is derived from the regime where compute $C \propto ND,$</li>
+<li>data repetition may or may not degrade performance in the long-term: it seems like <a href="https://arxiv.org/abs/2305.16264">4x is the limit</a> for traditional autoregressive transformers, but <a href="https://arxiv.org/abs/2507.15857">100x can be useful for diffusion LMs</a></li>
+<li>$L(N,D)$ is in-distribution test loss, loss often not predictive of downstream task performance, although <a href="https://arxiv.org/abs/2411.12925v1">loss-to-loss predictions across different training distributions are predictable</a></li>
+<li><a href="https://epoch.ai/blog/chinchilla-scaling-a-replication-attempt">the original Chinchilla paper likely did their regressions wrong</a></li>
+</ul>
+<p>Still, it is remarkable that test loss performance is so clearly a function of parameters and dataset size, with little assumptions made about the distributional structure or architectural specifics (this holds across varying depth/width ratios, for instance). I find two questions natural:</p>
+<ul>
+<li>does scaling hold outside of the cross-entropy pretraining regime?</li>
+<li>can we derive scaling relationships for downstream task performance? in particular, how predictable is transfer learning?</li>
+</ul>
+<p>In 2021, OpenAI <a href="https://arxiv.org/abs/2102.01293">studied the question</a> of "how much more quickly does a pretrained LM achieve low loss on a finetuning dataset than an LM initialized from scratch on the dataset?" (Note pretraining and finetuning on this case are "the same operation", the objective is still cross-entropy). They find that the "effective data transferred"<sup class="footnote-reference"><a href="#1">1</a></sup> $D_T$ is described by
+$$
+D_T = k(D_F)^\alpha (N)^\beta,
+$$
+where $D_F$ is the size of the finetuning dataset (in tokens) and $N$ is the number of non-embedding parameters of the model.<sup class="footnote-reference"><a href="#2">2</a></sup> This is great! Strong evidence of the generality of abstractions the model learns in pretraining (especially given the independence of $\beta$ from the source distribution). However, it doesn't explicitly tell us about downstream task performance given an external metric.</p>
+<p><a href="https://arxiv.org/abs/2411.12925v1">Brandfonbrener et. al. do somewhat better</a>. They derive scaling relationships for train-train, train-test, and test-test loss transfer for models trained on different datasets, which can be expressed as</p>
+<p>$$L_i(\hat{f}_j^{N,D}) \approx K \cdot \left( L_k(f_l^{N,D}) - E_{k | l}\right)^\kappa + E_{i|j},$$</p>
+<p>where you have models $f_j, f_l$ trained on distributions $j,l$ evaluated on distributions $i, k$ and you're fitting the constants $K, \kappa.$<sup class="footnote-reference"><a href="#3">3</a></sup> As an example, the case of train-train would be where $(i,j) = (0,0)$ and $(k, l) = (1,1).$ We pair models by $(N,D)$ for coherence. Notably, these laws hold for diverse datasets, but only well in low-loss regimes and when $E_{m|n}$ terms can be well estimated. Still no breaking of the pretraining regime, and no explicit predictions for downstream metric performance!</p>
+<p><a href="https://arxiv.org/abs/2507.00885">There's a meta-analysis out this year that claims that scaling laws are unreliable for dowstream task performance prediction.</a>. Seems correct. Metrics are noisy and don't have nice algorithmic properties like cross-entropy loss might. Perhaps intriguing is their observation that irregular scaling is (1) common and (2) can occur for cross-entropy on normal tasks and normal LM datasets. <a href="https://proceedings.mlr.press/v202/liu23ao/liu23ao.pdf">This paper claims that larger models &amp; models trained for longer have better downstream task performance even when holding loss constant.</a> Which is an argument for certain training setups &amp; architectures having better inductive biases?</p>
+<p>Honestly, I am kind of sad that the extant literature here seems to be tainted by publication bias? I wouldn't really trust these papers (or the ten others I read writing this), and I want to run the experiments myself. The Tinker API seems good for doing this quickly. I'll go do that.</p>
+<p>(Titular question pending.)</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>In essence, the number of tokens that you "save" seeing in finetuning by pretraining.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Notably $\beta$ only depends on architecture and TARGET distribution (not SOURCE), while $\alpha$ is a rough "distributional proximity" proxy that can be easily estimated.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>$E_{m|n}$ is the irreducible loss of a model trained on with infinite compute on distribution $n$ evaluated on distribution $m.$</p>
+</div>
+
+    </main>
+</body>
+</html>

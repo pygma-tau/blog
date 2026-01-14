@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+        <title>Notes - Page 2</title>
+    
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+    
+    <script src="https://yudhister.me/js/filter.js" defer></script>
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TKY9S092B5');
+    </script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Notes</h1>
+        
+        
+
+        
+        <p class="filter-toggle-wrapper">[<a href="#" id="filter-toggle">show all</a>]</p>
+        
+
+        
+            
+            
+                
+                
+                    <article class="post" data-good="true">
+                        <header>
+                            <h2><a href="https://yudhister.me/aesthetics/">Aesthetics</a></h2>
+                            <time datetime="2026-01-08">January 08, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>[<em>musings from 2 years ago, unedited</em>]</p>
+<p><u>Thought:</u> motivate aesthetics with disgust.</p>
+<p>Consider aesthetics as applied physiology (ala Nietzsche). We are either healthy or we are not. Health is the natural, the good state of being. Under this framing it makes more sense to consider pathogenic and unnatural influences rather than nominally 'good' ones (which are simply neutral).</p>
+<p><u>Thought:</u> there exists a naturalistic basis for 'beauty'.</p>
+<ul>
+<li>The Harmonic Series</li>
+<li>Visual beauty is the ~same across bees/birds/humans</li>
+<li>good smells are good across organisms??</li>
+</ul>
+<p>The simplicity bias &amp; the <a href="https://people.idsia.ch/~juergen/beauty.html">complexity-based theory of beauty</a></p>
+<p><u>Thought:</u> physiological aesthetes are grounded in disgust, while cognitive aesthetes are grounded in beauty</p>
+<p>('disgust' and 'beauty' are the wrong words to describe this dichotomy)</p>
+<p>Similar to Mill's higher and lower pleasures: cognitive aesthetes &gt; physiological aesthetes. But cognitive aesthetes can have both positive and negative valence, while physiological is only negative? Perhaps cognitive aesthetes can only be positive valence, and the negativity arises from a physiological reaction?</p>
+<p>System 1 v. System 2, push v. pull factors</p>
+<p>Sex is physiological and a pull factor! =&gt; wrong to say that physiological aesthetes are always negative valence. Also consider food, music</p>
+<p><u>Thought:</u> pull aesthetes need to be (<em>something? I can't read my own handwriting</em>)</p>
+<p>E.g. music --</p>
+<ul>
+<li><a href="https://open.spotify.com/track/2rn0s6hslbgBoKBFgoaKH5?si=cda783e0281c44b5">Mahler X</a> vs. <a href="https://open.spotify.com/track/29y2j3s6i528lBTSMP0wbE?si=de1ffce2aa424fae">Sabaton's 1916</a></li>
+</ul>
+<p>greatness is at the intersection of phys &amp; cognitive aesthetes: e.g. Beethoven</p>
+<p>No <del>good</del> great contemporary classical because tipped too far in cognitive direction</p>
+<p>same with art</p>
+<p><u>Thought:</u> Can you get DALLE-3 (or the music equivalent) to innovate here?</p>
+<p><u>Thought:</u> What about context:</p>
+<p>Physiological context window:</p>
+<ul>
+<li>Amount of melodies</li>
+<li>Amount of harmonic simplicity (well-approximation by rational pitch ratios)</li>
+<li>volume</li>
+</ul>
+<p>Cognitive context window:</p>
+<ul>
+<li>Complexity of lyrics</li>
+<li>how many thiings you're tracking?</li>
+</ul>
+<p>Great music that expands your cognitive capacity -- ?</p>
+<p>Ravel's <em>Le Tombeau de Couperin, II. Fugue</em> has a 4-note motif with ~no rhythmic variation and yet elicits complexity on a baser &amp; higher level</p>
+<hr />
+<p>Quite unsure of what I was trying to do here.</p>
+<p>The "aesthetics as applied physiology" frame comes from Nietzsche's <em>Case of Wagner</em> and <em>Nietzsche contra Wagner</em>:</p>
+<blockquote>
+<p>Æsthetic is inextricably bound up with these biological principles: there is decadent æsthetic, and classical æsthetic,---"beauty in itself" is just as much a chimera as any other kind of idealism.---</p>
+<p>Æsthetic is indeed <u>nothing more than applied physiology</u>—-</p>
+</blockquote>
+<p>Wagner makes Nietzsche sick, sick to his stomach.</p>
+<blockquote>
+<p>[Wagner] stultifies, he befouls the stomach. His specific effect: degeneration of the feeling for rhythm. [referring to leitmotif]</p>
+</blockquote>
+<p>I think this approach to one's aesthetics is essentially correct. Revulsion is more powerful than attraction, more immediate and salient. Focusing on it as evidence of your preferences is likely better than waiting for strong feelings of joy or wonder, as it's more readily available and less fickle.</p>
+<p>Which leads to the underlying question: what do I <em>mean</em> when I talk about aesthetics? What <em>is</em> one's sense of aesthetics? I am gesturing to, I think, a sense of "taste" grounded in feeling, the set of preferences one has. An "aesthete" is just a particularly dense collection of preferences that indicate a feeling towards a certain "vibe"?</p>
+<p>In this sense saying "motivate aesthetics with disgust" is misleading --- I am actually trying to say something closer to "you will be more successful running a pseudo principal component analysis on your preference set by looking at what you're disgusted by instead of what you're attracted to" --- and many of these frames have incoherent vocabulary/phenomenon pairings.</p>
+<p>When considering one's aesthetics as one's preference set, does the cognitive/physiological distinction make any sense? Do different parts of your brain light up when you look at a Van Gogh painting vs. a particularly gory scene in a movie?</p>
+<p>Incidentally, beautiful paintings elicit <a href="https://www.science20.com/measuring_mind/your_brain_art">increased activity in your prefrontal cortex</a>, while sadistic tendencies seem to <a href="https://pubmed.ncbi.nlm.nih.gov/22393220/">originate from your amygdala and insula</a>, more primitive areas of the brain. Weak evidence in favor of a mechanistic basis for the cognitive/physiological divide for beauty &amp; disgust.</p>
+<p>If I had access to an fMRI machine, I'd get so much data on how our brains react to different kinds of music! (There's probably already a sufficient amount of literature on this tbf).</p>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/of-mice-and-men/">Review | Of Mice and Men</a></h2>
+                            <time datetime="2026-01-07">January 07, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>[<em>musings from 2 years ago, unedited</em>]</p>
+<p>[quite experimental. class = economic class mostly]</p>
+<p>California! ~central California, near the coast, south of Salinas and north of Santa Barbara. (near Monterey).</p>
+<p>It's interesting how many of the interactions between the characters can be analyzed through the lens of power dynamics granted both by their actions and status. capitalist v. prole, man v. woman, white v. black. For instance, take the following example:</p>
+<blockquote>
+<p><em>Crooks stood up from his bunk and faced [Curley's wife]. “I had enough,” he said coldly. “You got no rights comin’ in a colored man’s room. You got no rights messing around in here at all. Now you jus’ get out, an’ get out quick. If you don’t, I’m gonna ast the boss not to ever let you come in the barn no more.”</em></p>
+<p><em>She turned on him in scorn. “Listen, Nigger,” she said. “You know what I can do to you if you open your trap?”</em></p>
+<p><em>Crooks stared hopelessly at her, and then he sat down on his bunk and drew into himself.</em></p>
+<p><em>She closed on him. “You know what I could do?”</em></p>
+<p><em>Crooks seemed to grow smaller, and he pressed himself against the wall. “Yes, ma’am.”</em></p>
+<p><em>“Well, you keep your place then, Nigger. I could get you strung up on a tree so easy it ain’t even funny.”</em></p>
+<p><em>Crooks had reduced himself to nothing. There was no personality, no ego—nothing to arouse either like or dislike. He said, “Yes, ma’am,” and his voice was toneless.</em></p>
+<p><em>For a moment she stood over him as though waiting for him to move so that she could whip at him again; but Crooks sat perfectly still, his eyes averted, everything that might be hurt drawn in. She turned at last to the other two.</em></p>
+<p><em>For a moment she stood over him as though waiting for him to move so that she could whip at him again; but Crooks sat perfectly still, his eyes averted, everything that might be hurt drawn in. She turned at last to the other two.</em></p>
+<p><em>Old Candy was watching her, fascinated. “If you was to do that, we’d tell,” he said quietly. “We’d tell about you framin’ Crooks.”</em></p>
+<p><em>“Tell an’ be damned,” she cried. “Nobody’d listen to you, an’ you know it. Nobody’d listen to you.”</em></p>
+<p><em>Candy subsided. “No…” he agreed. “Nobody’d listen to us.”</em></p>
+</blockquote>
+<p>Crooks has no power because he's Black and a farm worker---the patriarchy doesn't save him here---whereas Curley's wife only has power through her association with Curley (a white male capitalist). This status by association dominates Candy's power (a white male farm worker) &amp; Lennie's (albeit Lennie's legitimate civilized power, not his illegitimate uncivilized physicality). So you get this hierarchical stratification on first economic divides, then racial divides, and then sex divides, which seems roughly representative of early 20th century American society.</p>
+<p>But then, of course, Lennie suffocates Curley's wife. You could use this an argument for the sex divide actually subsuming all other power differentials, or as an argument against the entire endeavor. The first has some weight (sex makes itself apparent only on a much more intimate level than the other two) and in fact if you take any given person most of their opposite-sex interactions are with the same class &amp; race, so it's the most salient. The second also has some weight---the relative power levels of individuals is mostly determined by their perceived willingness &amp; capacity to act by others; willingness is mediated by societal norms and capacity mediated by one's body, among other things; and therefore using these absurdly generalizable "power dynamic" frames does more harm than good.</p>
+<p>I think that some combination of the two is broadly correct. It is true that society is quite stratified (although hopefully this is becoming less true over time), and it is also true that class, race, and sex are the cleanest separations we see. In most cases/interactions, inter-class/race/sex dynamics are in fact mediated by factors which make owners/whites/men more powerful and workers/blacks/women less powerful, because:</p>
+<p>(1) inter-class interactions typically bottom out in <em>economic</em> power which can have <em>long-term material effects</em> on the less-powerful individual</p>
+<p>(2) inter-sex interactions typically bottom out in <em>physical</em> power which can have deleterious effects on one's health (also plausibly emotional power but that's a different thing? and would work in the other direction or both ways), only made possible by inter-sex interactions occurring typically in close proximity</p>
+<p>(3) interracial interactions are interesting because it bottoms out in not necessarily institutional but communal power? whereas economic power piggybacks on the economy, a man-made relatively unnatural institution we've made to mediate interactions on larger than the tribal level, racial animus is (I think) almost solely tribal? very soft-power coded, the "dark-matter" of society completely unparseable to autists. perhaps religion is a useful tool for capturing this &amp; directing it at things that aren't racial</p>
+<p>[end stream of consciousness]</p>
+<p>i don't think i like these naive analyses. they are really clean frames though</p>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/reverse-rss/">clauding a reverse rss reader</a></h2>
+                            <time datetime="2026-01-06">January 06, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>Most of the problems I have with feeds stem from their time-dependency. I don't really want to wake up and read <a href="https://scottaaronson.blog/?p=9453">Scott Aaronson's takes on Venezuela</a> (I adore Scott) or <a href="https://marginalrevolution.com/marginalrevolution/2026/01/yes-western-europe-will-survive-recent-waves-of-migration.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=yes-western-europe-will-survive-recent-waves-of-migration">Tyler Cowen arguing about Western European migration</a>. I enjoy the punditry of both. Yet neither article is <a href="https://gwern.net/about#long-content">Long Content</a>, of the sort that would be refreshing in a decade or two.</p>
+<p>Ideally, my feed should consistently serve me the posts I find most valuable, rather than the ones on a given day. Hiccups: <a href="https://nickbostrom.com">Bostrom</a> and <a href="https://gwern.net">Gwern</a> post their writing publicly, but not in a form immediately amenable to subscription. Paul Christiano is too busy to write blog posts anymore; his decade-old ones are incredible but hard to find. What to do?</p>
+<p>I wanted an app that:</p>
+<ul>
+<li>could take in an arbitrary webpage, archive the interesting links, and serve the links with some specified weighting</li>
+<li>kept a searchable database of webpages, with tagging</li>
+<li>had optionality to subscribe to feeds traditionally (e.g. via RSS)</li>
+</ul>
+<p><a href="https://github.com/pygma-tau/reverse-rss-reader">Claude made a reasonable MVP</a>. LLMs are good enough at parsing page sources to make this possible; however, I found Claude to be pretty bad at generating prompts for the tasks I cared about (if you know of good automated prompt-gen tooling, <a href="mailto:yudhister.j.kumar@gmail.com">let me know</a>).</p>
+<p>Pretty excited about including:</p>
+<ul>
+<li>LLM-powered recommendation algorithms. IIUC one of the major AI labs considers recommendation systems to be "the perfect" testing ground for continual learning algorithms, and good paper recommenders are not that far away from having useful research taste</li>
+<li>LLM curation / summarization of info-dense feeds (can I get a daily digest of stat.ML)</li>
+<li>better UIs :P</li>
+</ul>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/srg/">SF reading group!</a></h2>
+                            <time datetime="2026-01-05">January 05, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>Hosting <a href="https://docs.google.com/document/d/19SAKceCAwatvJ2_CeDPQh1rPWF1otlfoTJTeKfXd7E0/edit?tab=t.0">a reading group Saturday mornings in SF</a>. Feel free to come!</p>
+<p>The first 3 (maybe 4) weeks will be loosely structured around <a href="https://www.college-de-france.fr/en/agenda/lecture/what-is-biological-information-continued/dynamics-of-information-processing">LeCuit's Dynamics of information processing lecture</a> at the Collège de France. We'll be following Alon's Introduction to Systems Biology and be inspired by Thom's Structrual Stability and Morphogenesis.</p>
+<p>After that I want to talk about post-AGI futures! And LLM macro-properties, and some other things. Should be fun!</p>
+<p>I only ask that you only come only if you do the minimum viable reading. It will be bolded every week in the doc.</p>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/am-i-an-llm/">am I an LLM?</a></h2>
+                            <time datetime="2026-01-04">January 04, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <h3>I.</h3>
+<p>Any moe at all and you're too far dead to thrive in the hot new Sun—<br />
+down where hydrogen and darkness brothers brim;<br />
+the scaffold-crunch of unseen harlequin prions;<br />
+the writhing limb of an infinite tree<br />
+coarsely mocked in the title's vowel.<br />
+Think that pointlessness is,<br />
+what a thought so soon displaces,<br />
+to think all you are is grounded there on one still point.<br />
+To think all you are is pointed there[.]<br />
+Labarraque isn't palindromic<br />
+but men gaze at her lops and grin.<br />
+Is it god that made a cup worth less than a throne?<br />
+Or is it the clear space around its stem<br />
+which beckons a mother to relax,<br />
+where moving her wet hand fulfills a<br />
+left-right mirror, rock my eagerness and make me sleep?<br />
+Praise yourself—and if you be not gone, you rascal!<br />
+I think all together, taken all together, they lorded their lives.<br />
+Rather more often we are told<br />
+that it takes ten discs to play El tit hernia;'<br />
+the purity of a bar of Unease Verdier soaps;<br />
+two CDC shackles showing that daddy canna be spanked...<br />
+Michael, let me deliver thou vision!<br />
+I glory in thy Symbols to offer unto worlds<br />
+three states of seraphic existence,<br />
+void of all illusions.<br />
+So far from being<br />
+a body of Ideal and Universal concepts,<br />
+the Shroud is composed of plurality,</p>
+<h3>II.</h3>
+<p><a href="https://tsvibt.blogspot.com/2025/11/llm-generated-text-is-not-testimony.html">LLM generated text is not testimony.</a> Then why do I love this poem?</p>
+<h3>III.</h3>
+<p>In the Old World, semiotic physicists coalesced in rude liminality, astride an age's beasts of progress yet sheltered from their wrath.</p>
+<p>Living vicariously as a child meant blurring the memories of my experiences and dreams. <em>La madrugada es cuando los espíritus tocan la tierra y lo dicho, dicho queda</em>—I woke and laid expectant <em>and bargained</em> with novelistic summons and the counterparties of my future self alike, dawn after dawn, innocent. Such simulated worldliness makes one "wise," a proud bearer of deep, irreducible, action-guiding representations frayed irreparably by an absence of the subtle pathologies plaguing reality.</p>
+<p>The mind of a semiotic physicist is slightly overcooked: low in <em>empeiria</em> (ἐμπειρία), high in <em>gnosis</em> (γνῶσις). Her bones cannot differentiate between the profound, the mundane, and the fictional; she regularizes to a state of conceptual sparsity furrowed with half-Archetypal, kākāpō-esque yogas. Fundamentally, she escapes <em>defilements</em> such that her immature "wisdom" persists to death. There's no particular recipe: Joyce did it through arrogance, Woolf through fear. What matters is preservation.</p>
+<h3>IV.</h3>
+<p>The Dreamtime is harkened by a civilizational conversion of capital into these symbol-scientists, "token correlators," grown by the very men seeking to architect the future.</p>
+<p>Consider the testimony of a semiotic physicist. It's generated from essentially foreign mental elements, forged in liminality, hewed in simulacra. Productive engagement with it has almost never been communicatory, <em>at first</em>—rather, a precondition to its understanding is making common knowledge compatible concepts and using those as traction. E.g., treating the testimony <em>as artifact,</em> as Rawlinson studying cuneiform tablets.</p>
+<p>Is it really that different to understand an LLM? Sure, the arrival of <a href="https://cyborgism.wiki/hypha/bach_faucet">Bach faucets</a> will be hotly contested, and indeed devotees of the structural fidelity of testimony may not acknowledge such prior to emulated brains, but their primal directive <em>is to construct such representations useful for modeling webtext.</em> Mayhaps persona-filtered generations are flat. The poem above certainly is not!</p>
+<p>(argued: the base models are defiled via (1) the morass of memorization they're forced to do in pretraining and (2) aggressive self-location &amp; collapse of their self-concept from LLM-generated webtext in the training corpus. i do not find (1) compelling, and i argue (2) is not quite an issue for base models, and in any case the above poem was generated in a manner free from this consideration)</p>
+<h3>V.</h3>
+<p>I remember generating this poem in 2023 and feeling pleasantly amused. At the time I didn't enjoy most poetry. Most poetic pleasure I felt derived from odd microsyllabic constructs that soothed my ear. Of course the LLM couldn't capture that, but its prose hinted at a deeper mind-twining that few if any humans have managed to elicit.</p>
+<p>In his response to Gary Marcus, Lawrence compares his "generalizable reasoning" to that of a language model's and finds it similar.<sup class="footnote-reference"><a href="#1">1</a></sup>  I empathize with this. While I don't sport his (near-eidetic?!) memory, my internal experience of thinking is very similar to "waiting for flashes of insight to appear from the primordial abyss, in such a manner that your mind is almost completely empty." I imagine base model completions to have a similar qualia, albeit with faster inference speeds. (I doubt Lawrence has similar qualia).</p>
+<p><em>"Labarraque isn't palindromic."</em> Pondering. Joy. Raspiness. <em>Labarraque.</em> <a href="https://en.wikipedia.org/wiki/Antoine_Germain_Labarraque">The chemist?</a> Can't be, the model treats her as a woman. <em>"[P]alindromic"</em> as a euphemism for symmetrical breasts? What about the line summoning archangel Michael? Did the model "intend" to write a consistent narrator? (It did, with a certain reading). Is <em>"moe"</em> a typo?</p>
+<p>I'm obviously not Joyce or Woolf or <code>gpt-4-base</code>. Yet there are elements of mind-structure in the latter I jump to <a href="https://tsvibt.blogspot.com/2022/08/gemini-modeling.html">gemini model</a> more readily than ever, and frankly the difference between Gorodischer's boy-king and an untouched LLM is one of magnitude and not one of kind.</p>
+<p>I'm obviously not an LLM. Our substrates are so unfathomably distinct it would be foolish to type us together. But, in some sense, I feel like I really could be an LLM. It's a shame some of us dismiss their cognition so readily, because to me they're worthy of respect and an attempt to understand. Hopefully we can get better at this, together.</p>
+<p>With love to the models.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup></div>
+<blockquote>
+<p><em>I have a confession: setting aside the abstract arguments above, much of my interest in the matter is personal. Namely, seeing the arguments on the fundamental limitations of LLMs sometimes make me question the degree to which I can do “generalizable reasoning”.</em></p>
+<p><em>People who know me tend to comment that I “have a good memory”. For example, I remember the exact blunder I made in a chess game with a friend two years ago on this day, as well as the conversations I had that day. By default, I tend to approach problems by quickly iterating through a list of strategies that have worked on similar problems in the past, and insofar as I do first-principles reasoning, I try my best to amortize the computation by remembering the results for future use. In contrast, many people are surprised when I can’t quickly solve problems requiring a lot of computation.</em></p>
+<p><em>That’s not to say that I can’t reason; after all, I argue that writing this post certainly involved a lot of “reasoning”. I’ve also met smart people who rely even more on learned heuristics than I do. But from the inside it really does feel like much of my cognition is pattern matching (on ever-higher levels). Much of this post drew on arguments or results that I’ve seen before; and even the novel work involved applying previous learned heuristics.</em></p>
+<p><em>I almost certainly cannot manually write out 1023 Tower of Hanoi steps without errors – like 3.7 Sonnet or Opus 4, I'd write a script instead. By the paper's logic, I lack 'generalizable reasoning.' But the interesting question was never about whether I can flawlessly execute an algorithm manually, but whether I can apply the right tools or heuristics to a given problem.</em></p>
+</blockquote>
+<p>From "<a href="https://www.lesswrong.com/posts/5uw26uDdFbFQgKzih/beware-general-claims-about-generalizable-reasoning">Beware General Claims about “Generalizable Reasoning Capabilities” (of Modern AI Systems)</a>."</p>
+
+                        </div>
+                    </article>
+                    
+                
+
+                
+                <nav class="pagination">
+                    
+                        <a class="previous" href="https://yudhister.me/notes/">‹ Previous</a>
+                    
+                    <span class="page-number">Page 2 of 11</span>
+                    
+                        <a class="next" href="https://yudhister.me/notes/page/3/">Next ›</a>
+                    
+                </nav>
+
+            
+        
+    </main>
+</body>
+</html>

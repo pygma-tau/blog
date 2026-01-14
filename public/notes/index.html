@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+        <title>Notes</title>
+    
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+    
+    <script src="https://yudhister.me/js/filter.js" defer></script>
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TKY9S092B5');
+    </script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Notes</h1>
+        
+        
+            
+        
+
+        
+        <p class="filter-toggle-wrapper">[<a href="#" id="filter-toggle">show all</a>]</p>
+        
+
+        
+            
+            
+                
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/human-stain/">Review | The Human Stain</a></h2>
+                            <time datetime="2026-01-13">January 13, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>I started reading <em>The Human Stain</em> from a quote on Twitter. Sadly, I cannot find it as of right now, but it was a pertinent and apt comparison of French and American intellectualism (thanks <a href="https://uzpg.me">Uzay</a>).</p>
+<p>Aha! Here it is:</p>
+<blockquote>
+<p><em>. . . and knows something about these ambitious French kids trained in the elite lycées, Extremely well prepared, intellectually well connected, very smart immature young people endowed with the most snobbish French education and vigorously preparing to be envied all their lives, they hang out every Saturday night at the cheap Vietnamese restaurant on rue St. Jacques talking about great things, never any mention of trivalities or small talk—ideas, politics, philosophy only. Even in their spare time, when they are all alone, they think only about the reception of Hegel in twentieth-century French intellectual life. The intellectual must not be frivolous. Life only about thought. Whether brainwashed to be aggressively Marxist or to be aggressively anti-Marxist, they are congeintally apalled by everything American . . .</em></p>
+<p><em>But in America, no one appreciates the special path she was on in France and its enourmous prestige. She's not getting the type of recognition she was trained to get as a member of the French intellectual elite. She's not even getting the kind of resetnment she was trained to get . . . Her fellow foreign graduate students tell her that she's too good for Athena College, it would be too déclassé, but her fellow American graduate students, who would kill for a job teaching in the Stop &amp; Shop boiler room, think that her uppityness is characteristcally Delphine.</em></p>
+</blockquote>
+<p>Foils make or break narratives. Delphine Roux—a young intellectual heiress who grew up fed by a silver spoon—is the perfect counterpart to Coleman Silk, an old boxer always an outsider to the circles he traveled in. Both are not quite a part of the American academic elite: Delphine is too French and Coleman is Black and light-skinned (and functionally a Jew). Yet they manage to find themselves on opposite sides of a cultural divide. Professor Silk is an archetypal Tyler Cowen classic 'conservative' (as is Kareem Abdul-Jabbar), a professed believer in meritocracy and fair and equal consideration. Professor Roux is an ardent anti-racist and feminist, and while the two are not inherently opposed to each other, in practice (and as described) those who possess such beliefs are predisposed to clash.</p>
+<p>Says Silk to Roux:</p>
+<blockquote>
+<p><em>"Providing the most naive of readers with a feminist perspective on Euripides is one of the best ways you could devise to close down their thinking before it's even had a chance to begin to demolish a single one of their brainless 'likes'. I have trouble believing that an educated woman coming from a French academic backbround like your own believes there <u>is</u> a feminist perspective on Euripides that isn't simply foolishness. Have you really been edified in so short a time, or is this just old-fashioned careerism grounded right now in the fear of one's feminist colleagues? Because if it <u>is</u> just careerism, it's fine with me. It's human and I understand. But if it's an intellectual committment to this idiocy, then I am mystified, because you are not an idiot. Because you know better. Because in France surely nobody from the École normale would dream of taking this stuff seriously. Or would they? To read two plays like <u>Hippolytus</u> and <u>Alcestis</u>, then to listen to a week of classroom discussion on each, then to have nothing to say about either of them other than that they are 'degrading to women,' isn't a 'perspective,' for Christ's sake—it's mouthwash. It's just the latest mouthwash."</em></p>
+</blockquote>
+<p>(Silk is a classicist)</p>
+<p>When Silk called a pair of chronic absenteers 'spooks', an uproar was raised and he resigned from his faculty post at Athena College. Subsequently, Roux took one of the victims, Tracy, under her wing for a while, but she subsequently failed out of all of her classes and moved out of the city to stay with a half-sister in Tulsa, Oklahoma. When she finds out of his affair with the believed illiterate, divorced,  janitor Faunia Farley who just had her two children die in a tragic fire, she labels Silk a predator and attempts to destroy his reputation.</p>
+<p>It is important to note that Silk, at this point in time, has invented a Jewish background. His deceased wife was a Jew, and his newfound family never knew of his Black ancestry. He has been cut off from his ancestral family as a result of his successful attempts to 'pass' as white. It is perhaps for this reason that the attempt to oust him based on his perceived racism succeeded, and also a great source of dramatic irony.</p>
+<p>Farley is brilliant. She is strong-willed, independent, yet broken from the deaths of her children. She blames herself for the death of her kids because she chose to save her boyfriend from the flaming fire first. She is old, much older than her years of thirty-four would indicate, and potentially older than Coleman.</p>
+<blockquote>
+<p><em>"I see you, Coleman. You're not closing the doors. You still have the fantasies of love. You know something? I really need a guy older than you. Who's had all the love-shit kicked out of him totally. You're too young for me, Coleman. Look at you. You're just a little boy falling in love with your piano teacher. You're falling for me, Coleman, and you're much too young for the likes of me. I need a much older man. I think I need a man at least a hundred. Do you have a friend in a wheelchair you can introduce me to? Wheelchairs are ok—I can dance and push. Maybe you have an older brother. Look at you, Coleman. Looking at me with those schoolboy eyes. Please, please, call your older friend. I'll keep dancing, just get him on the phone. I want to talk to him."</em></p>
+</blockquote>
+<p>Her ex-husband, Lester Farley, also blames her for the death of his kids. He's a Vietnam war veteran, and we get some fun segues into a VA therapist's attempts at curing him of his PTSD by repeatedly taking him to Chinese restaurants as exposure therapy. Ultimately, he likely murders the couple of Silk and Farley by driving a car into theirs, sending them toppling over a cliff.</p>
+<p>I cannot do justice to the multiplicity of narratives Roth weaves throughout this book. Silk's journey from Black to Jew, Zuckerman's (the narrator, the entire book is framed) realization of Silk's past, Farley grappling with the loss of her children, the other Farley grappling with the demons of Vietnam, digressions into intellectualism through Roux as below:</p>
+<blockquote>
+<p><em>Narrative structure and temporality. The internal contradictions of the work of art. Rousseau hides himself and then his rhetoric gives himself away. (A little like her, thinks the dean, in that autobiographical essay.) The critic's voice is as legitimate as the voice of Herodotus. Narratology. The diegetic. The differences between diegesis and mimesis. The bracketed experience. The proleptic quality of the text.</em></p>
+</blockquote>
+<p>Above all, it is fun to read. At one point Coleman is a crow.</p>
+<p>The title, from Silk's funeral:</p>
+<blockquote>
+<p><em>"That's what comes of being hand-raised," said Faunia. "That's what comes of hanging around all his life with people like us. The human stain," she said, and without revulsion or contempt or even condemnation. Not even with sadness. <u>That's how it is</u>. . .</em></p>
+</blockquote>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/preface-to-paradise-lost/">Review | A Preface to Paradise Lost</a></h2>
+                            <time datetime="2026-01-12">January 12, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>Perhaps the best section of the book deals with Milton's taxonomy of worthy poems to write, namely:</p>
+<blockquote>
+<p><i>(A) Epic.<br>
+ I.<br>
+  (a) The diffuse Epic [Homer, Virgil, and Tasso].<br>
+  (b) The brief Epic [the Book of Job].<br>
+ II.<br>
+  (a) Epic keeping the rules of Aristotle.<br>
+  (b) Epic following Nature.<br>
+ III. Choice of subject ['what king or knight before the conquest'].<br>
+(B) Tragedy.<br>
+ (a) On the model of Sophocles and Euripides.<br>
+ (b) On the model of Canticles or the Apocalypse.<br>
+(C) Lyric.<br>
+ (a) On the Greek model ['Pindarus and Callimachus'].<br>
+ (b) On Hebrew models ['Those frequent songs throughout the Law and the Prophets'].</i></p>
+</blockquote>
+<p>(this is from his <i>Reason of Church Government</i>, <a href="https://milton.host.dartmouth.edu/reading_room/reason/book_1/text.shtml">src</a>)</p>
+<p>Notably, each category draws from both Classical and Scriptural examples, and some fit better than others. The Canticles as tragedies?? They're psalms! for heaven's sake. Revelation (the Apocalypse of St. John) is slightly more sane in this regard, but really still in quite a different class from Euripides.</p>
+<p>Milton was apparently going to write an Arthuriad instead of Paradise Lost. As a fan of Arthuriana, I can't say he made the correct call. . ., but tragedies are preferable to comedies.</p>
+<blockquote>
+<p><em>Milton's hesitation between the classical and the ro­mantic types of epic is one more instance of something which runs through all his work; I mean the co-existence, in a live and sensitive tension, of apparent opposites. We have already noted the fusion of Pagan and Biblical interests in his very map of poetry. We shall have occasion, in a later section, to notice, side by side with his rebelliousness, his individualism, and his love of liberty, his equal love of discipline, of hierarchy, of what Shakespeare calls 'degree'. From the account of his early reading in Smectymnuus we gather a third tension. His first literary loves, both for their style and their matter, were the erotic (indeed the almost pornographic) elegiac poets of Rome: from them he graduated to the idealized love poetry of Dante and Petrarch and of 'those lofty fables which recount in solemn cantos the deeds of knighthood': from these to the philo­ sophical sublimation of sexual passion in 'Plato and his equal (i.e. his contemporary) Xenophon'. An original voluptuous­-ness greater, perhaps, than that of any English poet, is pruned, formed, organized, and made human by progressive purifica­tions, themselves the responses to a quite equally intense aspiration-an equally imaginative and emotional aspiration-towards chastity. The modern idea of a Great Man is one who stands at the lonely extremity of some single line of de­velopment--one either as pacific as Tolstoi or as military as Napoleon, either as clotted as Wagner or as angelic as Mozart. Milton is certainly not that kind of great man. He is a great Man. 'On ne montre pas sa grandeur,' says Pascal, 'pour etre a une extremite, mais bien en touchant les deux a la jois et remplissant tout l'entre-deux.'</em></p>
+</blockquote>
+<p>Catholicism cannot exist without paganism, and all that.</p>
+<p>Lewis critiques Eliot's belief that 'great poets are the only judges of great poetry' on simple grounds: how do you recognize the great poets? But, Eliot-sim replies, only good men can judge goodness, and only doctors can judge medical skill. Yet all humans are subject to moral law, while not all humans are deemed to be judged to be a poet or not a poet. As for the other, poets have the right to judge the skill of a poet, but not the value of a poet---that is reserved for the readers.</p>
+<p>An epic is either Homeric or Virgilian.</p>
+<p>The Homeric (Primary) Epic is a performance. Wholly oral, never read or written, meant for an heroic court. Characterized by the Middle English <i>solempne</i>, solemnity yet lacking the implied gloom, oppression, or austerity. The opening feast of Gawain and the Green Knight is a solemnity in this sense. And while the <i>Iliad</i> and <i>Odyssey</i> are too long to be recited as a whole, they are still written in a recitative style.</p>
+<p>Aesthetically, the Primary Epic "emphasiz[es] the unchanging human environment." Imagine onomatopoeia, yet imbued in the entire work. "There is no use in disputing whether any episode could really have happened. We have seen it happen." Beowulf takes a more romantic view, "its landscapes have a spiritual quality", whereas the Iliad is objective, possessed with more of a sense of good and evil.</p>
+<p>Primary epic does not inherently deal with a great subject. Odysseus is the king of a small country. The telling of the Trojan War is a front for the story of Achilles and Hector.</p>
+<blockquote>
+<p><em>The truth is that Primary Epic neither had, nor could have, a great subject in the later sense. That kind of greatness arises only when some event can be held to effect a profound and more or less permanent change in the history of the world, as the founding of Rome did, or still more, the fall of man. Before any event can have that significance, history must have some degree of pattern, some design. The mere endless up and down, the constant aimless alternations of glory and misery, which make up the terrible phenomenon called a Heroic Age, admit no such design. No one event is really very much more important than another. No achievement can be permanent: today we kill and feast, tomorrow we are killed, and our women led away as slaves. Nothing 'stays put', nothing has a significance beyond the moment. Heroism and tragedy there are in plenty, therefore good stories in plenty; but no 'large design that brings the world out of the good to ill'.</em></p>
+<p>. . .</p>
+<p><em>Primary Epic is great, but not with the greatness of the later kind. In Homer, its greatness lies in the human and personal tragedy build up against this background of meaningless flux. It is all the more tragic because there hangs over the heroic world a certain futility.</em></p>
+</blockquote>
+<p>Beowulf animates this despair: heroes fight literal monsters as well as man.</p>
+<p>The Virgilian (Secondary) Epic innovates. No longer was the focus on the great and timeless, instead, it was on the great and revolutionary (revolutionary by virtue of interfacing with reality). It is here we take our modern-day understanding of heroes from. Achilles raged against the world, and the world didn't care. He died less than a martyr---he was dispensible. Aeneas raged against the world, and built an empire. It is through his story that the greatest themes are invoked, and the Romans understood their world through the lens of his story.</p>
+<p>It's a bit weird that the Romans cared about something less pure than the Greeks, and as a result they grew up. Plausibly this was the genesis of "caring"? When the Romans were "compelled to see something more important than happiness" they invented a hero, Aeneas, who sought more than happiness, who would not bow, who would not accept.</p>
+<blockquote>
+<p><em>A great deal of what is mistaken for pedantry in Milton (we hear too often of his 'immense learning') is in reality evocation. If Heaven and Earth are ransacked for simile and allusion, this is not done for display, but in order to guide our imaginations with unobtrusive pressure into the channels where the poet wishes them to flow; and as we have already seen, the learning which a reader requires in responding to a given allusion does not equal the learning Milton needed to find it.</em></p>
+</blockquote>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="true">
+                        <header>
+                            <h2><a href="https://yudhister.me/home-1/">home is what the heart remembers</a></h2>
+                            <time datetime="2026-01-11">January 11, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>[<em>more personal than usual. I turned twenty yesterday, so I figured I'd indulge in a little introspection. Normally I think about my life as ~starting at sixteen, but I was conscious a little before that. This is me trying to remember who I was</em>]</p>
+<ul>
+<li>
+<p>When I was 15, I used to take a bus to school. Wake at 5:40AM --&gt; catch the 5:55 --&gt; stare with bleary eyes out across farmland and reservoirs for three-quarters of an hour --&gt; bike another three miles --&gt; be late to 0th period by a couple minutes. It was fun. One of the two regular drivers was mute and always waited for me to show up before starting his route. I never talked to the other one.</p>
+</li>
+<li>
+<p>The first time I took the bus back, I was wearing a full-body banana costume and carrying 30lbs of camera equipment. Left the bike at school because I realized I couldn't manage everything, got very tired (you try walking uphill in a plastic bodysuit at the end of summer in a desert with 30lbs of camera equipment), missed the bus, was refused water at Starbucks for a lack of quarters, got accosted by a pale-skinned meth addict, convinced said addict to buy me 25c water, hopped on the last bus and made it home</p>
+</li>
+<li>
+<p>The second time I took the bus back was mostly uneventful. I remember sitting in the back listening to a Lex Fridman podcast (I had just discovered podcasts as a consumption medium) while a gang of (mostly Black) middle schoolers ran onto the bus chugging gallon cartons of whole milk. One or two older women accompanied them; I remember being surprised that I was the only Latino. Only later did I realize that the route stopped at the regional prison, and these kids were visiting their fathers during visitation hours.<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+</li>
+<li>
+<p>I am grateful both of my parents are still alive, that neither are drug addicts, that against reasonably stark odds they remained financially solvent, housed, and ultimately cordial with each other. My then-best-friend's stepfather is now imprisoned for a decade; she lived in fear of being shot by her neighbors when she went for a walk. At least seven of my other friends were fatherless: one literally lost their home in a tough job market, another had a opiate-addicted mother so lived with his grandmother, a twin I knew shared a phone with her sister to appease her mother's safety concerns. An upperclassman who taught me how to film videos lost his mother to suicide.</p>
+</li>
+<li>
+<p>All of these people went to college. Most first-gen. CS, aerospace engineering, CS, cogsci?, pre-med. Others became roboticists or went to the <a href="https://www.usna.edu/homepage.php">Naval Academy</a>. Really, deeply grateful to have known them. Some of the best people I've met.<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+</li>
+<li>
+<p>Arguably, the formative moment in my education was when my AP Lang teacher forced me to learn how to write. I've been negative enough today, but I really don't like words. I hopefully will one day! But I've never really instinctively read on the level of words (or sentences), so it's hard for me to perceive the mind of someone who does. (And I think good writing must engage with gears of the minds of others).</p>
+<ul>
+<li>
+<p>Timed essays are a peculiar construct because they're not truth-seeking whatsoever. The goal is essentially just to argue an arbitrary point effectively to another in a way that is internally consistent, grammatically correct, and showcases 'mastery of the English language.' I remember being unable to write anything for hours at first, because I couldn't conceptualize the argument in sufficient detail to know where to start.</p>
+</li>
+<li>
+<p>Eventually I got the hang of it.</p>
+</li>
+<li>
+<p>She wrote me a recommendation letter to apply to MIT a year early. I didn't finish the application because my laptop was stolen, I didn't have money to buy a new one, and I was so tired.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The other formative moment in my education was discovering the <a href="https://www.ocf.berkeley.edu/~abhishek/chicmath.htm">Chicago undergraduate mathematics bibliography</a>.</p>
+</li>
+<li>
+<p>I appreciate my biology teacher for teaching me Java and how to mix sound systems. I appreciate my chemistry teacher for letting me ignore her and do QMech problems in the back of her class. I appreciate my physics teacher for teaching me the virtue of humility (and letting me make a bunch of friends!). I appreciate my oft-beleaguered principal for letting me skip school three times a week to travel a different sixty miles to the nearest university.<sup class="footnote-reference"><a href="#3">3</a></sup> I appreciate my literature teacher for casting me as Iago, and generally being so kind to me.</p>
+</li>
+<li>
+<p>My calculus teacher was a saint. He would probably take offense to that. He kept four flags in his classroom: Prussian, Israeli, Ohioan, and American. One of our quiz questions was finding the optimal number of kids to his family to adopt, given separate welfare curves for each individual in the family and budgetary constraints. He knew Hebrew and taught me what the Nicene Creed was for the first time (twas a long wandering down that path).</p>
+</li>
+<li>
+<p>I remember starting to go to mass because I had a massive crush on a Catholic girl in my physics class. Eventually I read Augustine and realized error-management in a living theology is really hard.</p>
+</li>
+<li>
+<p>I spent about 500 hours memorizing a binder. Unfortunately, I did not really try to memorize it.<sup class="footnote-reference"><a href="#4">4</a></sup> I now know a surprising amount about the effects drought patterns had on civilizational collapses over the course of human history, Jared Diamond, the music theory of glass armonica repertoire, the context suburbia held in the 1950s American short story scene, and the economics of Southern Californian water rights. It was a lot of fun. Thank you to the teacher who held this torch.</p>
+</li>
+<li>
+<p>On the last day of school, I and two others were the last people on campus. After helping the janitor clean up the mess from graduation, we cast copper in a 1200C crucible. Ingenuity was required to bypass various circuit breakers, but we got it done.</p>
+</li>
+</ul>
+<p>It was a good time. I don't think I'd trade it for the world.<sup class="footnote-reference"><a href="#5">5</a></sup></p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>The part of the Inland Empire I grew up in was half Hispanic and less than ten percent Black. At other times of day, you'd see middle-aged women / single moms en route to the local community college, or farm workers commuting.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>I think this particular combination of ills and successes is almost uniquely American and quite regional.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>Also for teaching me what a quant was, letting me use district funding regulations to a kind of ridiculous degree, giving me tickets to my first baseball game, and honestly also being one of the best men I've ever met.</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>One of my larger regrets is not learning how to care deeply about the labor of accomplishment until quite recently.</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
+<p>Taken as a metaphor in the metaphoric sense, etc. etc.</p>
+</div>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/morality-1/">a brief diatribe on safetyism</a></h2>
+                            <time datetime="2026-01-10">January 10, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>A good friend asked me today: <em>why aren't the AI labs evil?</em></p>
+<p>My load-bearing answer is that I see the moral imperative to preserve the the generators of progress as comparable in magnitude to the imperative to prevent harm (even when considering harms posed by superintelligences), and so while I agree unabashed accelerationism is misguided and likely leads to catastrophic outcomes, it is difficult for me to describe those trying as "evil."<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>(From similar generators, I weakly hold that OpenAI is 'less evil' than Anthropic, because it seems that the effects 'culty' organizations have on the world are worse than 'non-culty' ones, for structural reasons like worldview homogeneity / top-down vs bottom-up governance / systematic underrating of illegible-from-current-perspective deep harms)</p>
+<p>Why?</p>
+<ul>
+<li>
+<p>progress is fragile; progress is necessary for the continued emancipation of sentient beings; progress is really the only way to create self-preserving systems that tend towards greater net emancipation because, albeit near tautologically, 'progress' creates 'slack', a lack of 'slack' indicates the agency of the constituents is stripped, an abundance of 'slack' allows systems to adopt robust and diverse stances;<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+</li>
+<li>
+<p>risks from superintelligence are immense. from a suffering-focused perspective, it's likely that the most important interventions of the next twenty years revolve around growing AIs to be dispositionally benevolent / not spiteful. extinction is likely. however, I believe past experience should bias us towards naive mitigations of perceived catastrophic risks to have deeply harmful, unintended, adverse consequences, and so I am less sympathetic to arguments of 'you shouldn't build it' (or even 'you shouldn't build it now')</p>
+</li>
+<li>
+<p>there's an argument from aesthetics to be made. secretly, these arguments are advocating for norm-preservation, where the norms themselves have been hard-won &amp; illegible yet are adaptive forms of bounded consequentialism. (are the norms intrinsic or systematically enforced?)</p>
+</li>
+</ul>
+<p>A rejoinder: sure, but sane accelerationism has never been tried. We should place our civilizational efforts into becoming wiser, and intentionally take steps forward into doom, if we choose to. Current structures (race-dynamics, etc.) differentially favor progress over care, so you should be skeptical of pro-progress arguments. Incentives are aligned for people to pursue progress in a way they are not in the pursuit of increased wisdom.</p>
+<p>I agree that if we could systematically become wiser, we should put effort into systematically becoming wiser. But we don't have a good track record of becoming wiser (at least intentionally), and naive applications of care are likely net harmful.</p>
+<p>From my perspective, the proper way to 'apply care' requires taking advantage of the preconditions for progress-generating environments. History is neither completely determined by the initial conditions of pivotal technologies, and neither is it beholden to pre-existing convergent pressures. However:</p>
+<ul>
+<li>developing technologies is a robust lever for disruption, and it is near-uniquely encouraged by progress-generating environments;</li>
+<li>path-dependence in the invention and distribution of technologies is real, and intentionally shaping the civilizational arc is possible by counterfactually accelerating a pivotal technology</li>
+</ul>
+<p>In other words, if you truly care I think you should be ambitious, develop interventions compatible with modern incentive structures, and shut up and calculate when deciding on a plan of action.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Another answer: I'm more agnostic than most on the net-positive nature of current human civilization and its naturally extrapolated trajectories. This isn't loadbearing.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>I somewhat buy that "evilness" is synonymous with "intrinsically slack-sucking."</p>
+</div>
+
+                        </div>
+                    </article>
+                    
+                        <hr class="post-separator">
+                    
+                
+                    <article class="post" data-good="false">
+                        <header>
+                            <h2><a href="https://yudhister.me/blogs/">Blogs</a></h2>
+                            <time datetime="2026-01-09">January 09, 2026</time>
+                        </header>
+                        <div class="post-content">
+                            <p>Good blogs. And websites too. No particular order. Updated semi-regularly.</p>
+<ul>
+<li><a href="https://owenlynch.org/">Owen Lynch</a>---research software engineer at the Topos Institute. Mostly posts nowadays at <a href="https://forest.localcharts.org/owen-lynch.xml">localcharts</a>, which has a really cool UI that I should check out!</li>
+<li><a href="https://chewisinho.github.io/">Sinho Chewi</a>, Yale prof, Log-concave sampling (<a href="https://chewisinho.github.io/main.pdf">book draft</a>), geometric optimization, complexity of sampling.</li>
+<li><a href="https://gwern.net">Gwern</a>. NEET polymath? Actually not sure about either of these claims. Untold depths. More <a href="/gwern">here</a>.</li>
+<li><a href="https://infoproc.blogspot.com/">Steve Hsu</a>---theoretical physics prof. at MSU. does podcasts, comments widely, polymathic</li>
+<li><a href="https://read.pourteaux.xyz/">pourteaux</a>---Manhattan surgeon who has a "knack for falling down rabbit holes." Developer of an <a href="https://read.pourteaux.xyz/p/institutional-alignment">institutional alignment</a> framework, writes about geopolitics, subcultures, crypto-adjacent.</li>
+<li><a href="http://comonad.com/reader/">Edward Kmett</a>---comonad, blog for discussing "substructural logics, dependent types, type systems, comonads," etc.</li>
+<li><a href="https://terrytao.wordpress.com/">Terence Tao</a>. 'Nuff said.</li>
+<li><a href="https://alethios.substack.com/">Alethios</a>---Taiwan substack. "Thinking about cities &amp; public service in the age of AI."</li>
+<li><a href="https://scottaaronson.blog/">Scott Aaronson</a>---Shtetl-Optimized. Also 'nuff said.</li>
+<li><a href="https://caseyhandmer.wordpress.com/">Casey Handmer</a>---energy, space, engineering, technical commentary. Founder of Terraform</li>
+<li><a href="https://www.astralcodexten.com/">Scott Alexander</a>, probably needs a mild amount of defending. great rationalist and writes well and has good takes sometimes</li>
+<li><a href="https://gleech.org">Gavin Leech</a>, gwern-aspiree, well-read, omnipotent critic</li>
+<li><a href="https://press.asimov.com/">Asimov Press</a>, biotech-focused magazine with "rigorous fact-checking". Published Richard Ngo's Tinker.</li>
+<li><a href="https://www.narrativeark.xyz/">Richard Ngo</a>---speculative sci-fi fiction from OpenAI governance researcher. emphasis on AGI/ASI</li>
+<li><a href="https://gestalt.cafe/">Arnaud Schenk</a>. Posts aren't indexed, so <a href="https://twitter.com/_ArnaudS_/status/1772961511251525686">this thread</a> has some good ones.</li>
+<li><a href="https://www.approachwithalacrity.com/">Leila Clark</a>. <a href="https://www.approachwithalacrity.com/101-things-for-my-past-self/">101 things I'd tell myself from a decade ago</a>. good writing</li>
+<li><a href="https://www.paulgraham.com/articles.html">Paul Graham</a>. See <a href="/paulg">here</a>.</li>
+<li><a href="https://www.math.columbia.edu/~woit/wordpress/">Peter Woit</a>. String theory, high-energy physics, fundamental physics, are there any other labels that work here to take up space</li>
+<li><a href="http://bit-player.org/">Bryan Hayes</a>. Science essays. Impeccable resume: Scientific America, Harvard, Berkeley.</li>
+<li><a href="https://gilkalai.wordpress.com/">Gil Kalai</a>. Geometric combinatorics, convex polytopes, Boolean functions.</li>
+<li><a href="https://lucatrevisan.wordpress.com/">Luca Trevisan</a>. In Theory. CS prof., Italian, SF, <a href="https://lucatrevisan.wordpress.com/category/places/taiwan/">Taipei</a>.</li>
+<li><a href="https://johncarlosbaez.wordpress.com/about/">John Baez</a>. Official blog of the Azimuth Project. Many things, but a lot of math.</li>
+<li><a href="https://topos.site/blog/">Topos Institute</a>---blog by Topos researchers. Great!</li>
+<li><a href="https://www.realclimate.org/">RealClimate</a>. "Climate science from climate scientists". Sane. Gavin Schmidt &amp; Michael Mann, et. al.</li>
+<li><a href="https://quantumfrontiers.com/">IQIM@Caltech</a>. quantum info and matter research blog and general blog. great stuff, including Hamlet rewritten for a system of noncommuting charges.</li>
+<li><a href="https://www.preposterousuniverse.com/blog/">Sean Carroll</a>. JHU, Santa Fe, physicist &amp; philosopher. Great podcast.</li>
+<li><a href="https://dabacon.org/pontiff/">Dave Bacon</a>. The Quantum Pontiff. Quite random</li>
+<li><a href="https://windowsontheory.org/">Boaz Barak</a>. Windows on Theory. Started by a group of people at Microsoft Research, theoretical CS blog, for debating theory of computing.</li>
+<li><a href="https://waitbutwhy.com/">Tim Urban</a>. Wait but Why. Just very good.</li>
+<li><a href="https://ramismovassagh.wordpress.com/blog/">Ramis Movassagh</a>. Applied mathematician &amp; mathematical physicist @Google Quantum AI. Past IBM, MIT. Mostly expository blog, kind of dead.</li>
+<li><a href="https://aella.substack.com/">Aella</a>.</li>
+<li><a href="https://sarahconstantin.substack.com/">Sarah Constantin</a>. Rough Diamonds. Takes a look at phenomenons in the world and tries to figure out why they exist, with simple methodologies.</li>
+<li><a href="https://thezvi.substack.com/">Zvi Mowshowitz</a>. Don't Worry About the Vase. Mostly AI, policy, rationality, medicine &amp; fertility, education and games.</li>
+<li><a href="https://ymeskhout.substack.com/p/the-happy-birth-day-question">Yassine Meskhout</a>. Former public defender who now does culture war commentary.</li>
+<li><a href="https://gowers.wordpress.com/">Timothy Gowers</a>. Mostly dead, sadly :(</li>
+<li><a href="https://michaelnotebook.com/">Michael Nielsen</a>. Quantum computing, open science, AI, SF.</li>
+<li><a href="https://xkcd.com/">xkcd</a>. "A webcomic of romance, sarcasm, math, and language."</li>
+<li><a href="https://vitalik.eth.limo/">Vitalik Buterin</a>. Founder of Ethereum. degen communism, d/acc, the end of childhood.</li>
+<li><a href="https://casparoesterheld.com/">Caspar Oesterheld</a>. Decision theory, acausal trade, AI alignment, game theory. My (former) mentor :D</li>
+<li><a href="https://statmodeling.stat.columbia.edu/">Andrew Gelman</a>. Columbia stats. The best statistics blog.</li>
+<li><a href="http://bactra.org/notebooks/">Cosma Shalizi</a>. Studies large, complex, nonlinear dynamical systems through the lens of STATS and POWER.</li>
+<li><a href="https://www.amirrorclear.net/">Toby Ord</a>. literature, visual art, music, game</li>
+<li><a href="https://sideways-view.com">Paul Christiano</a>. For unimportant things. For his alignment posting see <a href="https://www.ai-alignment.com">here</a>.</li>
+<li><a href="https://marginalrevolution.com/">Marginal Revolution</a>. Named by the pub name instead of Tyler Cowen/Alex Tabarrok because its brand is unique. Econ, culture, pol.</li>
+<li><a href="https://www.hedweb.com/confile.htm">David Pearce</a>. Links to <em>The Hedonistic Imperative</em> and his other writings. Brilliant, many books.</li>
+<li><a href="https://aleph.se/andart2/">Anders Sandberg</a>. Erratic, undeniably curious</li>
+<li><a href="https://lukemuehlhauser.com/">Luke Muehlhauser</a>. music &amp; archives, among other things</li>
+<li><a href="https://thingofthings.substack.com/">Ozy Brennan</a>. feminism &amp; trans &amp; culture war &amp; ea</li>
+<li><a href="https://universalprior.substack.com/">Jan Kirchner</a>. On Brains, Minds, And Their Possible Uses. Comp neuro PhD @ MPI Brain Research Frankfurt. Dead since Jan 2023 :(</li>
+<li><a href="https://bayes.net/">Tom Adamczewski</a>. swe consulting, London. last posts on monitors, fertility, stats</li>
+<li><a href="https://languagelog.ldc.upenn.edu/nll/">Mark Liberman</a>. Linguistics blog since 2003 from UPenn</li>
+<li><a href="https://www.scaruffi.com/">Piero Scaruffi</a>. The Greatest Music Critic Of All Time. Possibly the GOAT of Art Critique as well.</li>
+<li><a href="https://www.overcomingbias.com/">Robin Hanson</a>. Overcoming Bias. "A blog on why we believe and do what we do, why we preetend otherwise, how we might do better, and what our descendants might do, if they don't all die."</li>
+<li><a href="https://www.benkuhn.net/">Ben Kuhn</a>. Abyss starer, works at Anthropic, formerly Wave &amp; Harvard. HN?</li>
+<li><a href="https://news.ycombinator.com/">Hacker News</a>. Reddit for hackers/software people, I think? Great links and discussions, hosted by YC.</li>
+<li><a href="https://kieranhealy.org/">Kieran Healy</a>. Sociology prof at Duke. Lucid humanities.</li>
+<li><a href="https://thepolemicalmedic.wordpress.com/">Gregory Lewis</a>. Junior doctor in/around Oxford. EA. The Polemical Medic. NOTE: this is dead as of 2015, but sufficiently different from others in this list to leave up.</li>
+<li><a href="https://philiptrammell.com/blog">Philip Trammell</a>. DPhil econ student at Oxford. GPI. Patient Philanthropy.</li>
+<li><a href="https://guzey.com/">Alexey Guzey</a>. Inspired by Freeman Dyson and Augustine of Hippo (i have <a href="/augustine">takes</a>).</li>
+<li><a href="https://danluu.com/">Dan Luu</a>. Good HTML aesthetics. Software blog?</li>
+<li><a href="https://www.stafforini.com/blog/">Pablo Stafforini</a>. Dead since 2022. Great Anki repositories. EA.</li>
+<li><a href="https://schwitzsplinters.blogspot.com/">Eric Schwitzgebel</a>, UCR philosophy professor!! philosophy of psychology, philosophy of mind, moral psychology, classical Chinese philosophy, epistemology, metaphilosophy, metaphysics, scifi...</li>
+<li><a href="https://www.schneier.com/">Bruce Schneier</a>. Public interest technologist focused on security. Great deep-dives</li>
+<li><a href="https://davidroodman.com/">David Roodman</a>. Senior advisor at OpenPhil. Economic development in poorer countries: microfinance, third world debt, environmental taxes, etc.</li>
+<li><a href="https://mattsclancy.substack.com/">Matt Clancy</a>. New Things Under the Sun, blog on innovation research. He works on innovation policy at OpenPhil. <a href="https://www.newthingsunderthesun.com/">This</a> is his living literature review.</li>
+<li><a href="https://blog.jacobtrefethen.com/">Jacob Trefethen</a>. Senior program officer at OpenPhil, new blog on scientific progress and funding mechanisms for science.</li>
+<li><a href="https://farmanimalwelfare.substack.com/">Lewis Bollard</a>. OpenPhil farm animal welfare bimonthly newsletter.</li>
+<li><a href="https://worksinprogress.co/">Works in Progress</a>. "A magazine of new and underrated ideas to improve the world." By Stripe.</li>
+<li><a href="https://ifp.org/latest-publications/">Institute for Progress</a>. Policy, progress studies, link is to latest publications.</li>
+<li><a href="https://rootsofprogress.org/writing">Jason Crawford</a>. Progress studies at The Roots of Progress. Reading lists, cellular reprogramming, origins of the steam engine.</li>
+<li><a href="https://progressforum.org/">Progress Forum</a>. LW clone but for progress studies. Great!</li>
+<li><a href="https://lesswrong.com">LessWrong</a>. Home of alignment research, rationality, and good math posts.</li>
+<li><a href="https://forum.effectivealtruism.org/">EA Forum</a>. Much larger than LessWrong, EA focused. Also a LW clone.</li>
+<li><a href="https://www.planned-obsolescence.org/">Ajeya Cotra</a>. Technical AI safety at OpenPhil. Writes about scale vs. schlep (great naming)</li>
+<li><a href="https://joecarlsmith.com/">Joe Carlsmith</a>. Senior research analyst at OpenPhil working on existential risk. MTG green, meta-ethics, rationality, ethics...</li>
+<li><a href="https://reflectivedisequilibrium.blogspot.com/">Carl Shulman</a>. Marvelous. Also writes on the <a href="https://forum.effectivealtruism.org/topics/carl-shulman">EA Forum</a> and <a href="https://www.lesswrong.com/users/carlshulman">LessWrong</a>. <a href="https://timelines.issarice.com/wiki/Timeline_of_Carl_Shulman_publications">Incomplete timeline of publications</a> on issarice.</li>
+<li><a href="https://11011110.github.io/blog/">David Eppstein</a>. UCI CS prof, Wikipedia admin. links, somewhat dead</li>
+<li><a href="https://algorithmsoup.wordpress.com/">William Kuszmaul</a>. Harvard postdoc. algorithms, data structures, probability</li>
+<li><a href="https://qchu.wordpress.com/">Qiaochu Yuan</a>. link to his math blog. his other (modern-day) writing is <a href="https://qchu.substack.com/">here</a>.</li>
+<li><a href="https://golem.ph.utexas.edu/category/">n-Category Cafe</a>. "A group blog on math, physics, and philosophy".</li>
+<li><a href="https://www.arsmathematica.net/">Ars Mathematica</a>. dead since 2015, use as archive</li>
+<li><a href="https://www.dam.brown.edu/people/mumford/blog.html">David Mumford</a>. Known for algebraic geometry, pattern theory. Posts about consciousness, AI, and Israel sometimes.</li>
+<li><a href="https://brauer.maths.qmul.ac.uk/Atlas/v3/">ATLAS of Finite Group Representations</a>. What the name says.</li>
+<li><a href="https://automorphicforum.wordpress.com/">Automorphic Forum</a>. Dead since 2012. Automorphic forms, number theory, representation theory, algebraic geometry, ...</li>
+<li><a href="https://www.ocf.berkeley.edu/~abhishek/">Abhishek Roy</a>. Postdoc in condensed matter theory at ITP Cologne. Keeps the chicago undergraduate maths &amp; physics bibliographies up</li>
+<li><a href="https://qnlw.info/post/">Willie WY Wong</a>. MSU prof. Studies general relativity, fluid dynamics, geometric methods, nonlinear wave equations.</li>
+<li><a href="http://www.compressedsensing.com/">Compressed sensing resources</a>. Again, see name</li>
+<li><a href="https://blog.computationalcomplexity.org/">Lance Fortnow &amp; Bill Gasarch</a>. Blog on computational complexity by IIT CS prof and UMD CS prof.</li>
+<li><a href="https://concretenonsense.wordpress.com/">Concrete Nonsense</a>. Group math blog that has been dead since 2015 :(</li>
+<li><a href="https://www.forkinganddividing.com/">forking and dividing</a>. map of the model-theoretic universe. very cool</li>
+<li><a href="https://blog.georgeshakan.com/">George Shakan</a>. data scientist. previously postdoc at Oxford under Ben Green.</li>
+<li><a href="https://lamington.wordpress.com/">Danny Calegari</a>. Geometry and the imagination. Archive, dead since 2017</li>
+<li><a href="https://floerhomology.wordpress.com/">floerhomology</a>. dead since 2018. good archive</li>
+<li><a href="https://ffbandf.wordpress.com/">fff</a>. Forking, Forcing, and back&amp;Forthing. Logic blog!! dead since 2013 tho, for archive</li>
+<li><a href="https://ldtopology.wordpress.com/">Low Dimensional Topology</a>. Dead since 2020, but <em>come on</em> it's <em>low-dimensional topology</em>, the <em>coolest thing since sliced bread</em></li>
+<li><a href="https://m-phi.blogspot.com/">M-PHI</a>. A blog dedicated to mathematical philosophy. Might not be dead, latest post August 22, 2023. Many interesting articles and many cat photos!</li>
+<li><a href="https://djalil.chafai.net/blog/">Djalil CHAFAÏ</a>. French mathematician interested in geometric and probabilistic functional analysis, among other things. Great mathematics blog that I think is in English?</li>
+<li><a href="https://lewko.wordpress.com/">Mark Lewko</a>. Grad student at UT Austin. Interested in finite fields and Fourier series, according to his <a href="https://sites.google.com/site/mlewko/">papers</a>? Dead since 2013.</li>
+<li><a href="https://alanrendall.wordpress.com/">Alan Rendall</a>. Hydrobates, mathematician thinking about stuff. Recently Sylvia Plath and Arendt.</li>
+<li><a href="https://joelmoreira.wordpress.com/about/">Joel Moreira</a>. "I Can't Believe It's Not Random!". Ergodic theory &amp; Ramsey theory and surrouding areas. Last post 2022.</li>
+<li><a href="https://jdh.hamkins.org/">Joel David Hamkins</a>. "mathematics and philosophy of the infinite." Mathematical and philosophical logic, with a focus on the infinite. Logic prof. at University of Notre Dame, previously at Oxford. Good work on forcing &amp; large cardinals. <a href="https://www.infinitelymore.xyz/">Newsletter: Infinitely More</a> (paid :( ).</li>
+<li><a href="https://jbuzzi.wordpress.com/">Jérôme Buzzi</a>. Topology, dynamics, uniform hyperbolicity. French.</li>
+<li><a href="https://kconrad.math.uconn.edu/blurbs/">Keith Conrad's expository papers</a>. Great!</li>
+<li><a href="https://www.math3ma.com/">Tai-Danae Bradley</a>. Interested in the intersection of quantum physics, machine intelligence, and category theory.</li>
+<li><a href="https://mathbabe.org/">Cathy O'Neil</a>. "how do you know your AI is working well for everyone?", mathbabe, ea-adjacent, social commentary</li>
+<li><a href="https://mathblogging.org/">mathblogging.org</a>. Aggregator for the mathematical blogosphere</li>
+<li><a href="https://micromath.wordpress.com/">Tony Gardiner</a>. Founder of UKMT, brilliant pedagogue, dead at 2024. Also an OOM more kids take olympiads in the UK than the US. Wild</li>
+<li><a href="https://homotopical.wordpress.com/">Andreas Holmstrom</a>. Cohomology, homotopy theory, arithmetic geometry. Also runs <a href="https://peakmath.org">PeakMath</a></li>
+<li><a href="https://mycqstate.wordpress.com/">Thomas Vidick</a>. MyCQState. Caltech prof. Proofs with quantum stuff.</li>
+<li><a href="https://davidlowryduda.com/blog/">David Lowry-Duda</a>. Senior Research Scientist at ICERM. Moderator on math.stackexchange. computational number theory</li>
+<li><a href="https://ncatlab.org/nlab/show/HomePage">nLab</a>. Wiki for collaborative work on math/physics/philosophy, sympathetic to the perspective of homotopy theory/algebraic topology/hott/higher category theory/higher categorical algebra</li>
+<li><a href="https://noncommutativegeometry.blogspot.com/">Noncommutative geometry blog</a>. just that</li>
+<li><a href="https://web.ma.utexas.edu/mediawiki/index.php/Starting_page?">Nonlocal Equations Wiki</a>. nonlocal elliptic and parabolic equations. bellman equation is an example</li>
+<li><a href="https://sites.google.com/view/o-a-r-s/">Online Analysis Research Seminar</a>. Talks on harmonic analysis &amp; adjacent areas that are accessible to a general mathematical audience.</li>
+<li><a href="https://pfzhang.wordpress.com/">Pengfei Zhang</a>. sporadic posting---last one in 2024, so still decent rates.</li>
+<li><a href="https://www.galoisrepresentations.com/">Frank Calegari</a>. Number theorist (sometimes) blogs about math. UChicago math prof</li>
+<li><a href="https://www.proofwiki.org/wiki/Main_Page">Proof Wiki</a>.</li>
+<li><a href="https://quomodocumque.wordpress.com/">Jordan S. Ellenberg</a>. Quomodcumque. Fucking awesome. UW Madison math prof who roadtripped to the solar eclipse with his kids. Arithmetic algebraic geometry.</li>
+<li><a href="https://cameroncounts.wordpress.com/">Peter Cameron</a>. 1969 Rhodes Scholar, good <a href="https://cameroncounts.github.io/web/travel/">travel diaries</a>. mathematician</li>
+<li><a href="https://apod.nasa.gov/apod/astropix.html">Astronomy Picture of the Day</a>.</li>
+<li><a href="https://regularize.wordpress.com/">Dirk Lorenz</a>. Mathematics at TU Braunschweig. dead since 2019</li>
+<li><a href="https://rigtriv.wordpress.com/">Rigorous Trivialities</a>. Group blog dead since 2015. Arithmetic algebraic geometry, topology, mathematical physics. Charles Siegel, Jim Stankewicz, Matt Deland.</li>
+<li><a href="https://sbseminar.wordpress.com/">Secret Blogging Seminar</a>. 8 anon Berkeley math PhDs. dead-ish, last post 2020</li>
+<li><a href="https://sdenisov.wordpress.com/">Sergey Denisov</a>. Math prof at UW Madison. Dead since 2019</li>
+<li><a href="https://dustingmixon.wordpress.com/">Dustin Mixon</a>. Ohio State math prof. blog is kinda dead, 2 posts in the last 3 years. also called Short, Fat Matrices</li>
+<li><a href="https://sites.psu.edu/nguyen/">Toan Nguyen</a>. Penn State mathematician.</li>
+<li><a href="https://sketchesoftopology.wordpress.com/">Kenneth Baker</a>. Sketches of low-dimensional topology.</li>
+<li><a href="https://ifwisdomwereteachable.wordpress.com/">Yemon Choi</a>. algebra x functional analysis</li>
+<li><a href="https://www.lmfdb.org/">The L-functions and modular forms database</a>. LMFDB</li>
+<li><a href="https://www.tricki.org/">Tricki</a>. A really nice database on mathematical tricks that you can use in proofs. <a href="https://www.tricki.org/article/How_to_use_ultrafilters">how to use ultrafilters!</a></li>
+<li><a href="https://polymathprojects.org/">The polymath blog</a>. tim gowers's attempt at crowdsourcing mathematics. went well. dead since 2021</li>
+<li><a href="https://www.mathunion.org/ceic/library/world-digital-mathematics-library-wdml">World Digital Mathematics Library</a></li>
+<li><a href="https://thuses.com/">Thuses</a>. online publishing platform for mathematicians. dead since 2021, but one post 2023. i should write one</li>
+<li><a href="https://www.dpmms.cam.ac.uk/~wtg10/mathsindex.html">Timothy Gowers' mathematical discussions</a></li>
+<li><a href="https://vaughnclimenhaga.wordpress.com/">Vaughn Climenhaga</a>. Associate professor at University of Houston doing research in dynamical systems.</li>
+<li><a href="https://yufeizhao.com/blog/">Yufei Zhao</a>. MIT combinatorialist, Putnam. Ashwin's PhD advisor</li>
+<li><a href="https://dominiccummings.substack.com/">Dominic Cummings</a>. reads well. brexit guy. attempting to reform maths ed in the uk</li>
+<li><a href="https://graymirror.substack.com">Curtis Yarvin</a>. Blogs at Gray Mirror. Formerly Mencius Moldbug. Radical monarchist.</li>
+<li><a href="https://jameswphillips.substack.com/">James W. Phillips</a>. Former special adviser to the PM for Science and Tech. systems neuroscientist. 'trying to prepare for agi'. co-founder of ARIA</li>
+<li><a href="https://ariaresearch.substack.com/">ARIA</a>. UK's ARPA.</li>
+<li></li>
+</ul>
+
+                        </div>
+                    </article>
+                    
+                
+
+                
+                <nav class="pagination">
+                    
+                    <span class="page-number">Page 1 of 11</span>
+                    
+                        <a class="next" href="https://yudhister.me/notes/page/2/">Next ›</a>
+                    
+                </nav>
+
+            
+        
+    </main>
+</body>
+</html>

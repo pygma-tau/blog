@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review | A Preface to Paradise Lost</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>Review | A Preface to Paradise Lost</h1>
+        <p><i>January 12, 2026</i></p>
+        <p>Perhaps the best section of the book deals with Milton's taxonomy of worthy poems to write, namely:</p>
+<blockquote>
+<p><i>(A) Epic.<br>
+ I.<br>
+  (a) The diffuse Epic [Homer, Virgil, and Tasso].<br>
+  (b) The brief Epic [the Book of Job].<br>
+ II.<br>
+  (a) Epic keeping the rules of Aristotle.<br>
+  (b) Epic following Nature.<br>
+ III. Choice of subject ['what king or knight before the conquest'].<br>
+(B) Tragedy.<br>
+ (a) On the model of Sophocles and Euripides.<br>
+ (b) On the model of Canticles or the Apocalypse.<br>
+(C) Lyric.<br>
+ (a) On the Greek model ['Pindarus and Callimachus'].<br>
+ (b) On Hebrew models ['Those frequent songs throughout the Law and the Prophets'].</i></p>
+</blockquote>
+<p>(this is from his <i>Reason of Church Government</i>, <a href="https://milton.host.dartmouth.edu/reading_room/reason/book_1/text.shtml">src</a>)</p>
+<p>Notably, each category draws from both Classical and Scriptural examples, and some fit better than others. The Canticles as tragedies?? They're psalms! for heaven's sake. Revelation (the Apocalypse of St. John) is slightly more sane in this regard, but really still in quite a different class from Euripides.</p>
+<p>Milton was apparently going to write an Arthuriad instead of Paradise Lost. As a fan of Arthuriana, I can't say he made the correct call. . ., but tragedies are preferable to comedies.</p>
+<blockquote>
+<p><em>Milton's hesitation between the classical and the ro­mantic types of epic is one more instance of something which runs through all his work; I mean the co-existence, in a live and sensitive tension, of apparent opposites. We have already noted the fusion of Pagan and Biblical interests in his very map of poetry. We shall have occasion, in a later section, to notice, side by side with his rebelliousness, his individualism, and his love of liberty, his equal love of discipline, of hierarchy, of what Shakespeare calls 'degree'. From the account of his early reading in Smectymnuus we gather a third tension. His first literary loves, both for their style and their matter, were the erotic (indeed the almost pornographic) elegiac poets of Rome: from them he graduated to the idealized love poetry of Dante and Petrarch and of 'those lofty fables which recount in solemn cantos the deeds of knighthood': from these to the philo­ sophical sublimation of sexual passion in 'Plato and his equal (i.e. his contemporary) Xenophon'. An original voluptuous­-ness greater, perhaps, than that of any English poet, is pruned, formed, organized, and made human by progressive purifica­tions, themselves the responses to a quite equally intense aspiration-an equally imaginative and emotional aspiration-towards chastity. The modern idea of a Great Man is one who stands at the lonely extremity of some single line of de­velopment--one either as pacific as Tolstoi or as military as Napoleon, either as clotted as Wagner or as angelic as Mozart. Milton is certainly not that kind of great man. He is a great Man. 'On ne montre pas sa grandeur,' says Pascal, 'pour etre a une extremite, mais bien en touchant les deux a la jois et remplissant tout l'entre-deux.'</em></p>
+</blockquote>
+<p>Catholicism cannot exist without paganism, and all that.</p>
+<p>Lewis critiques Eliot's belief that 'great poets are the only judges of great poetry' on simple grounds: how do you recognize the great poets? But, Eliot-sim replies, only good men can judge goodness, and only doctors can judge medical skill. Yet all humans are subject to moral law, while not all humans are deemed to be judged to be a poet or not a poet. As for the other, poets have the right to judge the skill of a poet, but not the value of a poet---that is reserved for the readers.</p>
+<p>An epic is either Homeric or Virgilian.</p>
+<p>The Homeric (Primary) Epic is a performance. Wholly oral, never read or written, meant for an heroic court. Characterized by the Middle English <i>solempne</i>, solemnity yet lacking the implied gloom, oppression, or austerity. The opening feast of Gawain and the Green Knight is a solemnity in this sense. And while the <i>Iliad</i> and <i>Odyssey</i> are too long to be recited as a whole, they are still written in a recitative style.</p>
+<p>Aesthetically, the Primary Epic "emphasiz[es] the unchanging human environment." Imagine onomatopoeia, yet imbued in the entire work. "There is no use in disputing whether any episode could really have happened. We have seen it happen." Beowulf takes a more romantic view, "its landscapes have a spiritual quality", whereas the Iliad is objective, possessed with more of a sense of good and evil.</p>
+<p>Primary epic does not inherently deal with a great subject. Odysseus is the king of a small country. The telling of the Trojan War is a front for the story of Achilles and Hector.</p>
+<blockquote>
+<p><em>The truth is that Primary Epic neither had, nor could have, a great subject in the later sense. That kind of greatness arises only when some event can be held to effect a profound and more or less permanent change in the history of the world, as the founding of Rome did, or still more, the fall of man. Before any event can have that significance, history must have some degree of pattern, some design. The mere endless up and down, the constant aimless alternations of glory and misery, which make up the terrible phenomenon called a Heroic Age, admit no such design. No one event is really very much more important than another. No achievement can be permanent: today we kill and feast, tomorrow we are killed, and our women led away as slaves. Nothing 'stays put', nothing has a significance beyond the moment. Heroism and tragedy there are in plenty, therefore good stories in plenty; but no 'large design that brings the world out of the good to ill'.</em></p>
+<p>. . .</p>
+<p><em>Primary Epic is great, but not with the greatness of the later kind. In Homer, its greatness lies in the human and personal tragedy build up against this background of meaningless flux. It is all the more tragic because there hangs over the heroic world a certain futility.</em></p>
+</blockquote>
+<p>Beowulf animates this despair: heroes fight literal monsters as well as man.</p>
+<p>The Virgilian (Secondary) Epic innovates. No longer was the focus on the great and timeless, instead, it was on the great and revolutionary (revolutionary by virtue of interfacing with reality). It is here we take our modern-day understanding of heroes from. Achilles raged against the world, and the world didn't care. He died less than a martyr---he was dispensible. Aeneas raged against the world, and built an empire. It is through his story that the greatest themes are invoked, and the Romans understood their world through the lens of his story.</p>
+<p>It's a bit weird that the Romans cared about something less pure than the Greeks, and as a result they grew up. Plausibly this was the genesis of "caring"? When the Romans were "compelled to see something more important than happiness" they invented a hero, Aeneas, who sought more than happiness, who would not bow, who would not accept.</p>
+<blockquote>
+<p><em>A great deal of what is mistaken for pedantry in Milton (we hear too often of his 'immense learning') is in reality evocation. If Heaven and Earth are ransacked for simile and allusion, this is not done for display, but in order to guide our imaginations with unobtrusive pressure into the channels where the poet wishes them to flow; and as we have already seen, the learning which a reader requires in responding to a given allusion does not equal the learning Milton needed to find it.</em></p>
+</blockquote>
+
+    </main>
+</body>
+</html>

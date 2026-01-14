@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelf</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>Shelf</h1>
+        <p><i>October 01, 2025</i></p>
+        <p>I used to read widely. Never the same book twice. Over time I became intensely dissatisfied with my understanding of the world. I spoke of topics while my words rung shallow, I was right without ever quite knowing why. Writing, speaking, <em>thinking</em> felt empty. It was not that I had never understood, nor that I could not with some effort. The understanding was just never all mine.</p>
+<p>Now I only read the books below, and in some sense <a href="https://x.com/karpathy/status/1969699013671678382">treat them as a set of prompts for data generation</a>. As AI advances, I suspect the value of shallow understanding will crater while the value of deep understanding will rise, so in another sense these represent the intellectual bets I want to make over the next decade. Consider choosing your bets as well.</p>
+<ul>
+<li>Automata Studies</li>
+<li>Nonequilibrium Quantum Field Theory</li>
+<li>Mean Field Models for Spin Glasses: Volume 1</li>
+<li>Homotopy Type Theory: Univalent Foundations of Mathematics</li>
+<li>Finnegans Wake</li>
+<li>The Tao Is Silent</li>
+<li>Pieces of the Action</li>
+<li>The Scaling Era: An Oral History of AI, 2019-2025</li>
+<li>The Fabric Book</li>
+<li>Ideal Commonwealths</li>
+<li>Venus as a Boy</li>
+<li>Kalpa Imperial</li>
+<li>The Cyberiad</li>
+<li>Studies in Hegelian Cosmology</li>
+<li>Markings</li>
+<li>The Pale King</li>
+<li>Steps to an Ecology of Mind</li>
+<li>Karl Marx's Theory of History: A Defence</li>
+<li>Xenosystems</li>
+<li>The Red Book of Varieties and Schemes</li>
+<li>The Rising Sea: Foundations of Algebraic Geometry</li>
+<li>Topology from a Differentiable Viewpoint</li>
+<li>The Anthropic Cosmological Principle</li>
+<li>Grand Futures</li>
+<li>Intercourse</li>
+<li>Synchronicity</li>
+<li>Fanged Noumena</li>
+<li>Log-Concave Sampling</li>
+<li>The Energetics of Computing in Life and Machines</li>
+<li>Proceedings of the 27th Solvay Conference on Physics | The Physics of Living Matter: Space, Time, and Information</li>
+</ul>
+
+    </main>
+</body>
+</html>

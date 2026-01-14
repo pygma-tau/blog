@@ -1,5 +1,5 @@
 ---
-title: The Human Stain
+title: Review | The Human Stain
 author: Yudhister Kumar
 path: human-stain
 date: 2026-01-13
@@ -9,7 +9,7 @@ I started reading *The Human Stain* from a quote on Twitter. Sadly, I cannot fin
 
 Aha! Here it is:
 
-> *. . . and knows something about these ambitious French kids trained in the elite lycées, Extremely well prepared, intellectually well connected, very smart immature young people endowed with the most snobbish French education and vigorously preparing to be envied all their lives, they hang out every Saturday night at the cheap Vietnamese restaurant on rue St. Jacques talking about great things, never any mention of trivalities or small talk—ideas, politics, philosophy only. Even in their spare time, when they are all alone, they think only about the reception of Hegel in twentieth-century French intellectual life. The intellectual must not be frivolous. Life only about thought. Whether brainwashed to be aggressively Marxist or to be aggressively anti-Marxist, they are congeintally apalled by everything American . . .*
+> *. . . and knows something about these ambitious French kids trained in the elite lycées, Extremely well prepared, intellectually well connected, very smart immature young people endowed with the most snobbish French education and vigorously preparing to be envied all their lives, they hang out every Saturday night at the cheap Vietnamese restaurant on rue St. Jacques talking about great things, never any mention of trivalities or small talk—ideas, politics, philosophy only. Even in their spare time, when they are all alone, they think only about the reception of Hegel in twentieth-century French intellectual life. The intellectual must not be frivolous. Life only about thought. Whether brainwashed to be aggressively Marxist or to be aggressively anti-Marxist, they are congenitally apalled by everything American . . .*
 > 
 > *But in America, no one appreciates the special path she was on in France and its enourmous prestige. She's not getting the type of recognition she was trained to get as a member of the French intellectual elite. She's not even getting the kind of resetnment she was trained to get . . . Her fellow foreign graduate students tell her that she's too good for Athena College, it would be too déclassé, but her fellow American graduate students, who would kill for a job teaching in the Stop & Shop boiler room, think that her uppityness is characteristcally Delphine.*
 

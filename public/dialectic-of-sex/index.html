@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review | The Dialectic of Sex: The Case for Feminist Revolution</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>Review | The Dialectic of Sex: The Case for Feminist Revolution</h1>
+        <p><i>October 20, 2024</i></p>
+        <p>Broadly, I see three separate threads in this work: an attempt to situate second-wave feminism in a historical context, a pseudo-rehabilitation of Freudianism in service of the sexual dialectic, and an argument for the necessity of reproductive substitutes to achieve true equality.</p>
+<p>The first of these, while interesting, is not something I have much to say about. The second primarily exists to justify the third—"exactly because Freud was correct in identifying the psychosexual underpinnings of society,<sup class="footnote-reference"><a href="#1">1</a></sup> then freedom can only be achieved by eliminating these shackles on mankind." The third germinated the cyberfeminist movement of the 1990s, which itself spawned CCRU and modern accelerationism (via Sadie Plant).</p>
+<p>If you adopt this framing, Firestone's choice of the dialectic as a <em>structure</em> is in large part pragmatic, given she is trying to replicate Marx's totalizing analysis of class but as applied to sex. Adopting Freudianism is necessary to ensure that the nature of sex-oppresion <em>subsumes</em> that of class-oppression by establishing exploitation within a nuclear family as a more fundamental primitive than exploitation in the workplace. Race-oppresion is dealt with similarly.<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+<p>She is not kind to Western family structure. In a patriarchy, she argues, oppression of women and children are fundamentally intertwined. Both are forced to be physically dependent, sexually repressed, repressed in the family, and repressed in society. Even a mother's love is borne out of a shared helplessness. <sup class="footnote-reference"><a href="#3">3</a></sup></p>
+<p>She is even less kind to love. <em>"For love, perhaps even more than child-bearing, is the pivot of women’s oppression today."</em> Why? Because love allows male culture to parasitically feed off of the emotional strength of women. What should be a love between equals is perverted by its political context and the inevitable power dynamic between husband and wife. Regardless, men can't love. Men are <em>incapable of loving</em>.<sup class="footnote-reference"><a href="#4">4</a></sup></p>
+<p>The solution? Free women from the "tyranny of reproduction" with artificial wombs and joint responsibility of the sexes for child-rearing. Give women and children political autonomy via economic independence. Completely integrate women and children into society, and give women and children sexual freedom.<sup class="footnote-reference"><a href="#5">5</a></sup></p>
+<p>This "feminist revolution" she conceptualizes is similar in nature to the predicted uprising of the proles, but instead initialized by "cybernetic" innovation and a population explosion. "Cybernetics" (what we would today call AI and automation) would simultaneously eliminate the need for a "transient workforce" (mostly women) and the need for house-labor. The population explosion would necessitate some form of population control, which ought take the place of artificial reproduction. Ergo, the fundamentals would be in place for a feminist revolution.</p>
+<p>I love this book. It bites bullets.<sup class="footnote-reference"><a href="#6">6</a></sup> It has novel conceptual insights. It has truth to it. Her intellectual descendants were better off for her having written this, and it gives a transcendent vision rather than an immanent one. She even gives a blueprint for her utopia.</p>
+<h2>Quotes</h2>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<blockquote>
+<p>Other such examples are abundant, but I have made my point: with a feminist analysis the whole structure of Freudianism – for the first time – makes thorough sense, clarifying such important related areas as homosexuality, even the nature of the repressive incest taboo itself – two causally related subjects which have been laboured for a long time with little unanimity. We can understand them, finally, only as symptoms of the power psychology created by the family.</p>
+</blockquote>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<blockquote>
+<p>Like sexism in the individual psyche, we can fully understand racism only in terms of the power hierarchies of the family: in the Biblical sense, the races are no more than the various parents and siblings of the Family of Man; and as in the development of sexual classes, the physiological distinction of race became important culturally only due to the unequal distribution of power. <em>Thus, racism is sexism extended.</em></p>
+</blockquote>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<blockquote>
+<p>The mother who wants to kill her child for what she has had to sacrifice for it (a common desire) learns to love that same child only when she understands that it is as helpless, as oppressed as she is, and by the same oppressor: then her hatred is directed outwards, and 'mother-love' is born.</p>
+</blockquote>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<blockquote>
+<p>It is dangerous to feel sorry for one's oppressor – women are especially prone to this failing – but I am tempted to do it in this case. Being unable to love is hell. This is the way it proceeds: as soon as the man feels any pressure from the other partner to commit himself, he panics. . .</p>
+</blockquote>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
+<blockquote>
+<p>But in our new society, humanity could finally revert to its natural polymorphous sexuality – all forms of sexuality would be allowed and indulged. The fully sexuate mind, realized in the past in only a few individuals (survivors), would become universal. Artificial cultural achievement would no longer be the only avenue to sexuate self-realization: one could now realize oneself fully, simply in the process of being and acting.</p>
+</blockquote>
+</div>
+<div class="footnote-definition" id="6"><sup class="footnote-definition-label">6</sup>
+<blockquote>
+<p>In this view, the later Russian reinstitution of the nuclear family system is seen as a last-ditch attempt to salvage humanist values – privacy, individualism, love, etc., by then rapidly disappearing.</p>
+</blockquote>
+</div>
+<blockquote>
+<p>But it is the reverse: <em>the failure of the Russian Revolution to achieve the classless society is traceable to its half-hearted attempts to eliminate the family and sexual repression.</em> This failure, in turn, was due to the limitations of a male-biased revolutionary analysis based on economic class alone, one that failed to take the family fully into account even in its function as an economic unit. By the same token, <em>all socialist revolutions to date have been or will be failures for precisely these reasons.</em></p>
+</blockquote>
+
+    </main>
+</body>
+</html>

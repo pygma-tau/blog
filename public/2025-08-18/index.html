@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHz momentum computing simulation #1</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>GHz momentum computing simulation #1</h1>
+        <p><i>August 18, 2025</i></p>
+        <p><em>nb: attempting a daily posting cadence as weekly clearly doesn't work. adjust quality priors accordingly</em></p>
+<p>Momentum computing is, as far as I can tell, a reversible computing paradigm which circumvents Landauer's limit by embedding the memory state transitions of some computing device in a physical system which equilibriates slower than the time it takes to do an individual bit-swap, so that the memory state transitions themselves can store information in their "instantaneous momenta" and subsequently perform bit-swaps with near-zero net work.<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>In particular, one can construct toy theoretical energy potentials which implement a $\Delta W = 0$ Fredkin gate.<sup class="footnote-reference"><a href="#2">2</a></sup> Consider a particle $(x,p)$ in the 1D potential $V_B(x) = \alpha x^4 - \beta x^2.$ The two minimal states are located at $x = \pm \sqrt{\beta / 2\alpha},$ and as transitioning from the $x &lt; 0$ regime to the $x &gt;0$ regime is exponentially prohibitive in the value of $V(0),$ the system "stores" a bit $\{0,1\}$ depending on the sign of the particle's position.</p>
+<p>Now imagine that $V_B$ encodes a thermal bath in which the particle $(x,p)$ is embedded in, and assume that the particle's motion follows harmonic oscillation in the absence of external influence. When the bath is active, the particle's potential is described by $V_B.$ But when the bath is disengaged, the particle behaves according to $V_H(x) = kx^2/2,$ which induces a trajectory $x(t) = A \cos(t \sqrt{k/m} + \phi),$ which is periodic in time $\tau = 2\pi \sqrt{m/k}.$ Therefore, disengaging the bath for time $\tau/2$ swaps the sign of the particle's position, effectively performing a bit-swap.</p>
+<p>This theoretical "bit-swap" comes at no work cost because there is no change in potential energy from time $0$ to $\tau/2.$<sup class="footnote-reference"><a href="#3">3</a></sup> However, any physical implementation of this concept must contend with the fact that changing the potentials in a physical system requires energy to be expended, likely in an inefficient manner. How does one get around this? Superconductors!</p>
+<h2>gradiometric flux logic cells</h2>
+<p>The theoretical guarantees above require complete &amp; efficient decoupling of the system from the bath. You can get similar results by simply ensuring that the relevant computational timescale is significantly smaller than the energy flux rate between the system and its bath, so that "from the perspective of the computation" there is no coupling.</p>
+<p><a href="http://arxiv.org/abs/2202.07122">[RC22]</a> chooses to implement such a system with <em>gradiometric flux logic cells</em>, a kind of circuit utilizing Josephson junctions designed particularly to withstand global magnetic noise fluctuations [I do not really understand GFLCs very well, that will be a topic for another day's post].</p>
+<img src="/images/gradiometric-flux-logic-cell.png" alt="GFLC" width="400"/>
+<p>With suitable assumptions &amp; parametrizations [such will be the subject of yet another day's post], the GFLCs follow "significantly underdamped Langevin dynamics", which can be described with the following equation:
+$$
+dv' = -\lambda v'dt' - \theta \partial_{x'}U' + \nu r(t)\sqrt{2dt'}
+$$
+where the potential $U$ evolves according to
+$$
+U'(t') = (\phi-\phi_x(t'))^2/2  + \gamma(\phi_{dc} - \phi_{xdc}(t'))^2/2 + \beta \cos \phi \cos (\phi_{dc}/2) + \delta \beta \sin \phi \sin (\phi_{dc}/2)
+$$
+where $x' = (\phi, \phi_{dc}), v' = (\dot{\phi}, \dot{\phi_{dc}})$, $\phi = (\phi_1 + \phi_2)/2 - \pi,$ $\phi_{dc} = (\phi_2 - \phi_1),$ and $\phi_1, \phi_2$ are the phases of the individual Josephson junctions $I_{c1}, I_{c2}$ in the above figure [I think]. $\phi_{x} = 2\pi \psi_x / \bf{\Phi}_0 - \pi$ and $\phi_{xdc} = 2\pi \psi_{xdc} / \bf{\Phi}_0$ are functions of the external magnetic fluxes $\psi_x, \psi_{xdc}$ applied to the circuit.</p>
+<p>The details of this are very interesting, still confusing to me, and this is by no means an exhaustive parametrization of the underlying models. However, below (Fig. 2) showcases that varying $\phi$ and $\phi_{dc}$, the sum and difference of the Josephson phase parameters, recovers the potential geometry associated with costless bitswaps.</p>
+<img src="/images/gflc-2.png" alt="GFLC" width="400"/>
+<h2>further considerations</h2>
+<ul>
+<li>I really want to understand the interface between the theoretical dynamics and the physical implementation better. Why is this theory so substrate independent? Why does it matter that our memory state transitions are modeled by CTHMCs instead of CTMCs? Why are we using superconductors?</li>
+<li>How do we actually get efficient circuit modeling of the kind described here? I couldn't readily find a Github repository associated with the paper, so I want to write my own library and replicate their results. They find that the efficiency of their circuits are largely dependent on "circuit hyperparameters", and it would be interesting to investigate their structure.</li>
+<li>Benchmarks for algorithms that can be implemented with momentum computing and with typical CMOS/transistor logic, and developing simulations that can accurately predict efficiency differences. Still not sure how to think about this! Will absolutely be the topic of a later post.</li>
+<li>Fermi estimates of all the physical quantities at play here. What is "one Landauer" at STP? How much does it cost to make a gradiometric flux logic cell? Etc. Etc.</li>
+</ul>
+<p>All credit goes to the coauthors of the two papers cited in this post.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>This is probably wrong and definitely imprecise, but it reflects my current level of understanding.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Setting taken from <a href="http://arxiv.org/abs/2010.01152">[RWBC21]</a>.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>Here we describe the one-dimensional case for intuition, but the paper details the Fredkin gate implementation with this method, which requires three-dimensional potentials to encode $101 \leftrightarrow 110$ and No Change otherwise.</p>
+</div>
+
+    </main>
+</body>
+</html>

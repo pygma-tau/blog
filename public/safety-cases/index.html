@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Non-Isolated Calls for Structure</title>
+    <link rel="stylesheet" href="https://yudhister.me/style.css">
+    <!-- TikZJax for TikZ diagrams -->
+    <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://yudhister.me/js/footnotes.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKY9S092B5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-TKY9S092B5');
+	</script>
+    <script>
+		window.MathJax = {
+		  tex: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"], ]
+		  },
+		  startup: {
+			ready: () => {
+					// Function to iterate over all pre and code elements
+					// if they contain TeX/LaTeX code for maths as defined
+					// by the markers in tex settings above then copy their
+					// textContent before them and remove the element from
+					// the DOM.
+
+					// get pre and code elements
+					var prelist = document.getElementsByTagName("pre");
+					var codelist = document.getElementsByTagName("code");
+					// get delimiters for inline and display math
+					var inline = MathJax.config.tex.inlineMath;
+					var display = MathJax.config.tex.displayMath;
+					// start building  a RegExp for each of these math types
+					var inlineRegexList = [];
+					var displayRegexList =[];
+					for(i=0;i<inline.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = inline[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = inline[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						inlineRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					for(i=0;i<display.length;i++) {
+						// https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+						delimLEsc = display[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						//alert(delimLEsc);
+						delimREsc = display[i][1].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+						displayRegexList.push("("+delimLEsc+")((.|[\\r\\n\\t])*?)("+delimREsc+")");
+					};
+					inlineRegExp = new RegExp(inlineRegexList.join("|"));
+					displayRegExp = new RegExp(displayRegexList.join("|"));
+
+					// iterate over pre elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=prelist.length; i>0; i--) {
+						if(displayRegExp.test(prelist[i-1].textContent)) {
+							var t = document.createTextNode(prelist[i-1].textContent);
+							prelist[i-1].parentNode.insertBefore(t,prelist[i-1]);
+							prelist[i-1].parentNode.removeChild(prelist[i-1]);
+						}
+					}
+					// iterate over code elements applying RegExp
+					// iterate "backwards" as we are removing elements!
+					for (i=codelist.length; i>0; i--) {
+						if(inlineRegExp.test(codelist[i-1].textContent)) {
+							var t = document.createTextNode(codelist[i-1].textContent);
+							codelist[i-1].parentNode.insertBefore(t,codelist[i-1]);
+							codelist[i-1].parentNode.removeChild(codelist[i-1]);
+						}
+					}
+			  // Now process the page in MathJax
+			  MathJax.startup.defaultReady();
+			}
+		  }
+		};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li>[<a href="/">Home</a>]</li>
+            <li>[<a href="/about">About</a>]</li>
+            <li>[<a href="/notes">Notes</a>]</li>
+			<li>[<a href="/shelf">Shelf</a>]</li>
+			<!-- <li>[<a href="/cities">Cities</a>]</li> -->
+			<!-- <li>[<a href="/heroes">Heroes</a>]</li> -->
+			<li>[<a href="mailto:yudhister.j.kumar@gmail.com">Email</a>]</li>
+			<li>[<a href="/atom.xml">RSS</a>]</li>
+    </nav>
+    <main>
+        <h1>On Non-Isolated Calls for Structure</h1>
+        <p><i>September 26, 2025</i></p>
+        <p>Safety cases are arguments that AI deployments are safe in some specified context. The context can include restrictions on deployment environments as well as training or deployment protocols. For instance, <a href="https://arxiv.org/abs/2505.03989">the debate safety case</a> only applies to low-stakes deployment environments, requires exploration guarantees on the model, and relies on a debate protocol which avoids obfuscated arguments. Given these assumptions, Buhl et. al. argue for “asymptotic guarantees”—that high performance on alignment objectives during training translate to approximate alignment during deployment. <a href="https://arxiv.org/abs/2501.17315">The control safety case</a> is structurally similar, instead focusing directly on an explicit threat model and concretizing assumptions accordingly.</p>
+<p>A naive way of constructing an “alignment portfolio” is simply to make safety cases which adequately cover all deployment environments with the appropriate degree of risk-tolerance. Formal verification for high-stakes SWE deployment, white-box interpretability for monitoring automated alignment researchers, some adapted debate protocol for use in executive decision-making. If the individual arguments are all sound, this works!</p>
+<p>What if we introduce some error into the soundness judgements? If every safety case has some epsilon probability of failure, then straightforwardly you should make more safety cases for the scenarios in which alignment properties matter more. But if all your safety cases for non-deceptive automated alignment researchers rely on “white-box interpretability mostly working,” then if this isn’t true you’re still doomed no matter how many safety cases you write!</p>
+<p><a href="https://alignment.anthropic.com/2024/safety-cases/">Anthropic’s ASL-4 safety case sketches</a> are not quite this correlated, but only just. [1] relies on white-box methods successfully monitoring deception, [3] relies on guarantees that the pretrained model is not coherently deceptive (likely requiring successful white-box or black-box methods), and [2] still depends on linear activation probes adequately showing that the model cannot distinguish between certain classes of train and test deployments, as well as black-box evaluations providing sufficiently robust guarantees on behavior. These are similar assumptions! These assumptions are all only true in worlds where “models are sufficiently parsimonious such that present-day interpretability techniques and evals can provide rigorous guarantees on good behavior.”</p>
+<p>In general, <em>insufficient diversity over the world structure assumed in an alignment portfolio makes the portfolio fragile and irrobust</em>.<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>It is always necessary to make assumptions about world structure when predicting world behavior. A bounded reasoner simulates the world with a local, low-fidelity model based on the reasoner’s accumulated evidence about the world. Some assumptions on world structure are better than others—gravity following an inverse-square law vs. homeopathic remedies curing cancer, for instance.</p>
+<p>Considering the structure of one’s structural assumptions is critically important in domains where the world behavior has not been exhibited and it is of importance. Note:</p>
+<ul>
+<li>The largest scientific breakthroughs are accompanied by structural assumptions about the world breaking. See the atomic bomb, CRISPR, heavier-than-air flight. Fundamentally, these “expand the domain of the possible.” Sometimes, the world structure is discovered first (as in nuclear theory leading to the first controlled chain reaction). Other times, a prototype uncovers the structure (see: penicillin). In both cases, the non-specialist intelligent reasoner understands a different possibility domain before and after.</li>
+<li>Top-down searches for structural guarantees must be incredibly judicious in their assumptions, because the vast majority of hypotheses are incorrect. Ex post, the structure is obvious, but ex ante it is not. Consider Newton devoting as much energy to alchemy as the study of gravitation.</li>
+<li>If we take the perspective that <a href="https://www.lesswrong.com/posts/nkeYxjdrWBJvwbnTr/an-advent-of-thought">alignment is an infinite problem</a>, there is no good reason to expect that the world structure we can reasonably assume is simple. It might be that it is infinitely complex and is only limited by our current understanding, and that we will recover finer and finer approximations of it as our understanding improves. At each stage of this process we will have to repeat our assumption examination from a roughly equivalent epistemic vantage point of staring into the abyss.</li>
+<li>Much of the existential risk from AI development comes from tail risks and black swan events. Mitigating these requires a portfolio of solutions which each rely on decorrelated or independent world models (note this is not a guarantee).</li>
+</ul>
+<p>Natural corollaries of this observation:</p>
+<ul>
+<li>we should be explicit about which world models are going into constructing safety cases,</li>
+<li>we should be developing independent safety cases for high-stakes deployment situations,</li>
+<li>we should emphasize diversity in theoretical agendas to buttress our ability to make such safety cases reliant on disjoint sets of assumptions.</li>
+</ul>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>This is a specific instance of the general case of “Swiss cheese models only work when the holes don’t line up in the same worlds,” which is probably not sufficiently justified in this post but is something I believe to be true.</p>
+</div>
+
+    </main>
+</body>
+</html>
