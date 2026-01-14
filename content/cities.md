@@ -1,7 +1,7 @@
 ---
 title: Cities
 date: 2024-05-10
-draft: false
+draft: true
 path: cities
 ---
 
