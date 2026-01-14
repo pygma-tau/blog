@@ -48,12 +48,3 @@ It was a good time. I don't think I'd trade it for the world.[^5]
 [^4]: One of my larger regrets is not learning how to care deeply about the labor of accomplishment until quite recently. 
 
 [^5]: Taken as a metaphor in the metaphoric sense, etc. etc.
-
-<!-- I've had a hard time maintaining a self-concept. I kind of know why—there's the struggle of piecing together your different lives across ages, countries, and dispositions; it's difficult to stay consistent with your past-self when you don't endorse your past-self; [keeping your identity small](https://paulgraham.com/identity.html) is efficient and likely best, all things considered. 
-
-For a while I identified with my aesthetics, and then with my goals. Both are reasonable, but both change over time (a nuance I did not appreciate!). Now I'm lucky to have friends and be happy, so the part of me that sought solace in self-narrativization is mostly satiated. What remains is the part of me that wants to "REMEMBER FULLY!" and "SEEK TRUTH IN A UNIFIED EXPERIENCE!" Indulgent: yes. Healthy: in moderation, probably? 
-
-I turned 20 yesterday. I wasn't too conscious in the first half of the decade, and so much has happened in the last three years that it boggles the mind.  -->
-
-<!-- 
-[^1]: Highlights: deeply excessive truancy, raspados, Delhi, learning calculus, COVID, reading absolutely ridiculous amounts of fanfiction, dating the most popular girl in school (twice, for no good reason?!) -->

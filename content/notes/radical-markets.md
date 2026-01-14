@@ -19,15 +19,7 @@ Posner & Weyl make five proposals to "uproot capitalism and democracy for a just
 
 Each has its own chapter, and each chapter is meant to stand alone as a defense of its policy. Yet the latter three fall flat.
 
-What *Radical Markets* does well: a coherent exposition of Georgism, ‘radical’ applications of auctions to the uninitiated, and the first decent defense of quadratic voting from first principles I’ve read. What it falls victim to: left-right political reductionism, one-size-fits-all solutions to coordination problems, and hefty claims partnered with weak evidence.
-
-<!-- Links to each chapter review:
-
-*   [Property as Monopoly](#property-as-monopoly)
-*   [Radical Democracy](#radical-democracy)
-*   [Uniting the World's Workers](#uniting-the-worlds-workers)
-*   [Dismembering the Octopus](#dismembering-the-octopus)
-*   [Data as Labor](#data-as-labor) -->
+What *Radical Markets* does well: a coherent exposition of Georgism, 'radical' applications of auctions to the uninitiated, and the first decent defense of quadratic voting from first principles I've read. What it falls victim to: left-right political reductionism, one-size-fits-all solutions to coordination problems, and hefty claims partnered with weak evidence.
 
 <h2>Property as Monopoly</h2>
 
