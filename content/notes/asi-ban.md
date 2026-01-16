@@ -3,6 +3,8 @@ title: what if there was an ASI ban?
 author: Yudhister Kumar
 date: 2026-01-14
 path: asi-ban
+extra:
+    passable: true
 ---
 
 *wrote this in ~an hour in early 2025 in response to: what do you imagine the world to look like with an indefinite ASI ban, imposed now? there are some interesting themes but definitely needs reworking*

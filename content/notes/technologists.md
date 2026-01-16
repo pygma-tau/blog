@@ -3,6 +3,8 @@ title: "[technologists]"
 author: Yudhister Kumar
 date: 2026-01-15
 path: technologists
+extra:
+    passable: true
 ---
 
 The "[t]echnologist" remains . . . valorized? (at least, [in certain San Franciscan subcultures](https://joininteract.com)). Tech people who have {passion, taste, discernment}, intrepid changemakers seeking to leverage innovation as a force for good. Perhaps it's Lindy: the word was coined in Bentham's *Chrestomathia* to describe an expert in "Technology," the "connected view" of arts and manufactures, exactly two centuries ago. 
