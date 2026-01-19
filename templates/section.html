@@ -118,8 +118,8 @@
             </ul>
         {% else %}
             {# Notes section with pagination #}
-            {% if section.path is containing("notes") %}
-                {% for page in section.pages %}
+            {% if section.path is containing("notes") and paginator %}
+                {% for page in paginator.pages %}
                     <article class="post">
                         <header>
                             <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
@@ -133,7 +133,15 @@
                         <hr class="post-separator">
                     {% endif %}
                 {% endfor %}
-                <nav class="pagination"></nav>
+                <nav class="pagination">
+                    {% if paginator.previous %}
+                        <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
+                    {% endif %}
+                    <span class="page-number">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+                    {% if paginator.next %}
+                        <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
+                    {% endif %}
+                </nav>
             {% elif paginator %}
                 {# Other sections with Zola pagination #}
                 {% for page in paginator.pages %}
