@@ -31,8 +31,8 @@ For instance, chiasma:[^1]
 
 [^1]: Apparently, without which, offspring suffers from aneuploidy. 
 
-**Claude made this. It's slightly wrong but fun:**
+<!-- **Claude made this. It's slightly wrong but fun:**
 
 <div style="width: 100%; overflow: hidden;">
   <iframe src="/meiotic-geometry.html" title="Thom's Meiotic Geometry Visualization" style="width: 200%; height: 1600px; border: 0; border-radius: 8px; transform: scale(0.5); transform-origin: top left;" loading="lazy"></iframe>
-</div>
+</div> -->

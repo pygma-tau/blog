@@ -19,9 +19,11 @@ Certainly they play an integral role in a modern society. I do, however, take so
 
 (3) I worry the predominance of tech, the centralization of progress in tech, takes too much mindshare of the thoughtful and ambitious. Startups are vehicles of a certain type. Venture provides stimulus of a certain type. There are other types. 
 
-What will it say about our time that the greatest discoveries were made in industry? Hermits and the military made the atom bomb. Billionaires and not-quite-hermits are making superintelligences, mind uploads, aging cures. 
+What will it say about our time that the greatest discoveries were made in industry? Hermits and the military made the atom bomb.[^1] Billionaires and not-quite-hermits are making superintelligences, mind uploads, aging cures. 
 
 Maybe the not-quite-hermits are not-hermits for lack of places to hermit. Technologisms cannibalize. Memetic centralization may be as dangerous as economic centralization. 
 
 Valor is worth its weight in gold. To me, society lacks hermit heroes. There's a place to start.
+
+[^1]: Weinstein makes a similar point in *What Should We Be Worried About?*
 

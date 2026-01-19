@@ -110,10 +110,6 @@
             {{ section.content | safe }}
         {% endif %}
 
-        {% if section.path is containing("notes") %}
-        <p class="filter-toggle-wrapper">[<a href="#" id="filter-toggle">show all</a>]</p>
-        {% endif %}
-
         {% if section.extra.list_titles_only %}
             <ul class="post-list">
                 {% for page in section.pages %}
@@ -121,18 +117,10 @@
                 {% endfor %}
             </ul>
         {% else %}
-            {# Notes section with client-side filtering and pagination #}
+            {# Notes section with pagination #}
             {% if section.path is containing("notes") %}
                 {% for page in section.pages %}
-                    {% set page_year = page.date | date(format="%Y") | int %}
-                    {% if page.extra.passable is defined %}
-                        {% set is_passable = page.extra.passable %}
-                    {% elif page_year <= 2025 %}
-                        {% set is_passable = true %}
-                    {% else %}
-                        {% set is_passable = false %}
-                    {% endif %}
-                    <article class="post" data-passable="{{ is_passable }}">
+                    <article class="post">
                         <header>
                             <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
                             <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%B %d, %Y") }}</time>
@@ -190,8 +178,5 @@
             {% endif %}
         {% endif %}
     </main>
-    {% if section.path is containing("notes") %}
-    <script src="{{ get_url(path='js/filter.js') }}"></script>
-    {% endif %}
 </body>
 </html>
